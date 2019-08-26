@@ -10,5 +10,5 @@ action "masters" {
 
 action "echos" {
   needs = "masters"
-  uses = "./actions/test"
+  uses = ".github/actions/test"
 }
