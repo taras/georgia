@@ -1,6 +1,6 @@
 workflow "Yeah Georgia" {
   on = "push"
-  resolves = ["Filters for GitHub Actions"]
+  resolves = ["loggy"]
 }
 
 action "masters" {
@@ -10,5 +10,5 @@ action "masters" {
 
 action "loggy" {
   needs = "masters"
-  steps = echo hi
+  uses = "./.github/testecho"
 }
