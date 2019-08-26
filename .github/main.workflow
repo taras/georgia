@@ -10,5 +10,5 @@ action "masters" {
 
 actions "echos" {
   needs = "masters"
-  args = "./workflows/blanktest.yml"
+  uses = ".github/actions/test"
 }
