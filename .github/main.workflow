@@ -1,6 +1,6 @@
 workflow "Yeah Georgia" {
   on = "push"
-  resolves = ["loggy"]
+  resolves = ["masters"]
 }
 
 action "masters" {
