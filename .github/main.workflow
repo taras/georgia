@@ -10,5 +10,5 @@ action "masters" {
 
 action "loggy" {
   needs = "masters"
-  uses = "./.github/testecho"
+  uses = "./.github/testecho.sh"
 }
