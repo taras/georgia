@@ -8,7 +8,3 @@ action "masters" {
   args = "branch master"
 }
 
-action "loggy" {
-  needs = "masters"
-  uses = "./.github/workflows/nodejs"
-}
