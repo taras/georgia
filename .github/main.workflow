@@ -8,7 +8,7 @@ action "masters" {
   args = "branch master"
 }
 
-actions "echos" {
+action "echos" {
   needs = "masters"
   uses = "./actions/test"
 }
