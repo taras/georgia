@@ -1,6 +1,6 @@
 workflow "Yeah Georgia" {
   on = "push"
-  resolves = ["masters"]
+  resolves = ["echos"]
 }
 
 action "masters" {
@@ -8,3 +8,12 @@ action "masters" {
   args = "branch master"
 }
 
+action "justkidding" {
+  uses = "actions/bin/filter@25b7b846d5027eac3315b50a8055ea675e2abd89"
+  args = "branch yeah"
+}
+
+actions "echos" {
+  needs = "justkidding"
+  uses = "./.github/blanktest"
+}
