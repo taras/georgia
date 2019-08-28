@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
     - master
+    tags:
+    - '*'
 
 jobs:
   npm:
@@ -11,15 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: actions/npm@master
     - name: Use Node.js 10.x
       uses: actions/setup-node@v1
       with:
         version: 10.x
+    - name: Beta Version
+      uses: actions/npm@master
+      with:
+        args: version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version
     - name: Beta Publish
-      run: npm version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version && npm publish --access=public
+      uses: actions/npm@master
+      with:
+        args: publish --access=public
       env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
   danger:
     name: Danger JS
