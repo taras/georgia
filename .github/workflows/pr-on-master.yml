@@ -22,9 +22,7 @@ jobs:
     - name: nodey
       uses: actions/setup-node@v1
     - name: lsy
-      run: cd .github && ls
-    - name: does it persist
-      run: ls
+      run: cd .. && ls
     # - name: Danger
     #   uses: danger/danger-js@9.1.6
     #   env: 
