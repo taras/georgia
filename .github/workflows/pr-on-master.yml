@@ -22,7 +22,7 @@ jobs:
     - name: nodey
       uses: actions/setup-node@v1
     - name: lsy
-      run: cd .github && ls
       uses: danger/danger-js@9.1.6
+      run: cd .github && ls
       env: 
         GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
