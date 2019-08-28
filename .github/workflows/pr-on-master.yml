@@ -6,10 +6,31 @@ on:
     - master
 
 jobs:
-  build:
+  # build:
+  #   name: build and echo
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Run a one-line script
+  #     run: echo PULL REQUEST YO 2
 
+  danger:
+    name: Danger JS
     runs-on: ubuntu-latest
-    
+    # steps:
+    # - uses: actions/checkout@v1
+    # #- uses: actions/setup-node@v1
+    # - name: Danger
+    #   working-directory: ./.github
+    #   uses: danger/danger-js@9.1.8
+    #   env: 
+    #     GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
     steps:
-    - name: Run a one-line script
-      run: echo PULL REQUEST YO 2
+    - uses: actions/checkout@master
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        version: 10.x
+    - name: install yarn
+      run: cd .github && npm install -g yarn && yarn global add danger --dev && export PATH="$(yarn global bin):$PATH" && danger ci
+      env: 
+        GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
