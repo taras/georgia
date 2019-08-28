@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      only: /release-.*/
+      only: /slave/
 
 jobs:
   build:
@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: echo PUSH MASTER!
+      run: echo PUSH SLAVE!
