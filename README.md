@@ -1,7 +1,8 @@
-github actions tester
-beep
+1. see if workflow is triggered on merge
+2. get danger working
+3. npm version updating
 
-# Continuous-Semver
+<!-- # Continuous-Semver
 ![CI Workflow](https://user-images.githubusercontent.com/29791650/63278257-f7267b80-c274-11e9-8127-c20af8aba502.png)
 
 ## Prerequisite
@@ -33,4 +34,4 @@ beep
 
 6. Go to Advanced Settings in your CircleCI (Settings -> Projects -> YOUR_PROJECT Settings -> Advanced Settings) and turn on `Only build pull request`.
 
-That's it! If you have any questions or if the steps above are causing any issues for you, please reach out to us.
+That's it! If you have any questions or if the steps above are causing any issues for you, please reach out to us. -->
