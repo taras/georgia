@@ -17,12 +17,13 @@ jobs:
     name: Danger JS
     runs-on: ubuntu-latest
     steps:
-    - name: checkouty
-      uses: actions/checkout@v1
-    - name: nodey
-      uses: actions/setup-node@v1
+    - working-directory: .github
+    # - name: checkouty
+    #   uses: actions/checkout@v1
+    # - name: nodey
+    #   uses: actions/setup-node@v1
     - name: lsy
-      run: cd .. && ls
+      run: ls
     # - name: Danger
     #   uses: danger/danger-js@9.1.6
     #   env: 
