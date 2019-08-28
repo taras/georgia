@@ -33,10 +33,8 @@ jobs:
     - name: install yarn
       run: npm install -g yarn
     - name: yarn install, build, and test
-      run: |
-        yarn install  --frozen-lockfile
-        yarn build
-        yarn test
+      run: yarn install  --frozen-lockfile
+      run: yarn build
     - name: Danger
       run: yarn danger ci
       env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
