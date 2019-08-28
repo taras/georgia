@@ -1,4 +1,4 @@
-2. npm version updatingss
+2. npm version updatingsss
 
 instructions
 add DANGER_GITHUB from bot token (public repo) in secrets
