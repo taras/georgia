@@ -20,7 +20,7 @@ jobs:
     - name: checkouty
       uses: actions/checkout@v1
     - name: hi
-      # working-directory: .github
+      working-directory: .github
       run: ls
     # - name: nodey
     #   uses: actions/setup-node@v1
