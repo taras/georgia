@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    # -  npm version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version && 
     - name: Use Node.js 10.x
       uses: actions/setup-node@v1
       with:
@@ -21,7 +20,7 @@ jobs:
     - name: Beta Publish
       uses: actions/npm@master
       with:
-        args: publish
+        args: version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version && publish --access=public
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
