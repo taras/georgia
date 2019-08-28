@@ -31,6 +31,7 @@ jobs:
       with:
         version: 10.x
     - name: install yarn
-      run: npm install -g yarn && yarn global add danger --dev && export PATH="$(yarn global bin):$PATH" && danger --dangerfile "./.github/dangerfile" ci
+      # run: npm install -g yarn && yarn global add danger --dev && export PATH="$(yarn global bin):$PATH" && danger --dangerfile "./.github/dangerfile" ci
+      run: ls
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
