@@ -1,6 +1,6 @@
 1. see if workflow is triggered on merge
 2. get danger working
-3. npm version updating
+3. npm version updatings
 
 <!-- # Continuous-Semver
 ![CI Workflow](https://user-images.githubusercontent.com/29791650/63278257-f7267b80-c274-11e9-8127-c20af8aba502.png)
