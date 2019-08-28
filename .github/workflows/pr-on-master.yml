@@ -21,6 +21,6 @@ jobs:
     #- uses: actions/setup-node@v1
     - name: Danger
       working-directory: .github
-      uses: danger/danger-js@9.1.6
+      uses: danger/danger-js@9.1.8
       env: 
         GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
