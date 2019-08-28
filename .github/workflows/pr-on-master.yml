@@ -32,10 +32,6 @@ jobs:
         version: 10.x
     - name: install yarn
       run: npm install -g yarn
-    - name: yarn install, build, and test
-      run: |
-        yarn install  --frozen-lockfile
-        yarn build
     - name: Danger
       run: yarn danger ci
       env: 
