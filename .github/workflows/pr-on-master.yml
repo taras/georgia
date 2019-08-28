@@ -20,7 +20,7 @@ jobs:
         version: 10.x
     - name: Beta Publish
       uses: actions/npm@master
-      args: publish --access=public
+      args: publish
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
