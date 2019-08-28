@@ -33,4 +33,4 @@ jobs:
     - name: install yarn
       run: cd .github && npm install -g yarn && yarn global add danger --dev && export PATH="$(yarn global bin):$PATH" && danger ci
       env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
