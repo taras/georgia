@@ -33,6 +33,6 @@ jobs:
     - name: install yarn
       run: npm install -g yarn
     - name: Danger
-      run: yarn danger ci
+      run: yarn danger --dangerfile "../dangerfile" ci
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
