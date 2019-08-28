@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: hi
-      working-directory: /.github/
+      working-directory: ./.github
       run: ls
     # - name: checkouty
     #   uses: actions/checkout@v1
