@@ -23,6 +23,8 @@ jobs:
       uses: actions/setup-node@v1
     - name: lsy
       run: cd .github && ls
+    - name: does it persist
+      run: ls
     # - name: Danger
     #   uses: danger/danger-js@9.1.6
     #   env: 
