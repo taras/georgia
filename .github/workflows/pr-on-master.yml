@@ -23,7 +23,7 @@ jobs:
       uses: danger/danger-js@9.1.6
       env: 
         GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
-      run: cd .github
-      run: yarn global add danger --dev 
-      run: export PATH="$(yarn global bin):$PATH"
-      run: danger ci
+    - run: cd .github
+    - run: yarn global add danger --dev 
+    - run: export PATH="$(yarn global bin):$PATH"
+    - run: danger ci
