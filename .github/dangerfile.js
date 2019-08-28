@@ -1,5 +1,5 @@
 const { danger, markdown } = require('danger');
-// const pjson = require('../package.json');
+const pjson = require('../package.json');
 
 // const latest = danger.github.pr.commits - 1;
 // const shorted = danger.github.commits[latest].sha.slice(0, 7);
@@ -12,4 +12,4 @@ const { danger, markdown } = require('danger');
 // markdown('```');
 // markdown(`You can view the NPM package [here](${currentNPM}).`);
 
-markdown(`Hellosss`);
+markdown(`${pjson.name}`);
