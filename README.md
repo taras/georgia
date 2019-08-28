@@ -1,9 +1,8 @@
-1. get danger working
 2. npm version updatingss
-
 
 instructions
 add DANGER_GITHUB from bot token (public repo) in secrets
+add NPM_TOKEN from npmjs in secrets
 
 <!-- # Continuous-Semver
 ![CI Workflow](https://user-images.githubusercontent.com/29791650/63278257-f7267b80-c274-11e9-8127-c20af8aba502.png)

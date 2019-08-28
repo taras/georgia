@@ -6,31 +6,31 @@ on:
     - master
 
 jobs:
-  # build:
-  #   name: build and echo
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Run a one-line script
-  #     run: echo PULL REQUEST YO 2
-
   danger:
     name: Danger JS
     runs-on: ubuntu-latest
-    # steps:
-    # - uses: actions/checkout@v1
-    # #- uses: actions/setup-node@v1
-    # - name: Danger
-    #   working-directory: ./.github
-    #   uses: danger/danger-js@9.1.8
-    #   env: 
-    #     GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
     steps:
     - uses: actions/checkout@master
     - name: Use Node.js 10.x
       uses: actions/setup-node@v1
       with:
         version: 10.x
-    - name: install yarn
+    - name: Danger
       run: cd .github && npm install -g yarn && yarn global add danger --dev && export PATH="$(yarn global bin):$PATH" && danger ci
       env: 
         GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
+
+  npm:
+    name: NPM Publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/npm@master
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        version: 10.x
+    - name: Beta Publish
+      run: npm version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version && npm publish
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
