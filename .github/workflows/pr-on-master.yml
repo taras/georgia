@@ -17,11 +17,11 @@ jobs:
     name: Danger JS
     runs-on: ubuntu-latest
     steps:
+    - name: checkouty
+      uses: actions/checkout@v1
     - name: hi
       # working-directory: .github
       run: ls
-    # - name: checkouty
-    #   uses: actions/checkout@v1
     # - name: nodey
     #   uses: actions/setup-node@v1
     # - name: Danger
