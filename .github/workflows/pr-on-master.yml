@@ -6,19 +6,19 @@ on:
     - master
 
 jobs:
-  build:
-    name: build and echo
-    runs-on: ubuntu-latest
-    steps:
-    - name: Run a one-line script
-      run: echo PULL REQUEST YO 2
+  # build:
+  #   name: build and echo
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Run a one-line script
+  #     run: echo PULL REQUEST YO 2
 
   danger:
     name: Danger JS
     runs-on: ubuntu-latest
     steps:
     - name: hi
-      working-directory: .github
+      # working-directory: .github
       run: ls
     # - name: checkouty
     #   uses: actions/checkout@v1
