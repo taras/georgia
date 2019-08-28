@@ -1,0 +1,142 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  deploy-master:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with NPM Registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Install Hub
+          command: |
+            wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
+            tar -zxvf hub-linux-amd64-2.12.3.tgz
+            cd hub-linux-amd64-2.12.3
+            sudo ./install
+      - add_ssh_keys:
+          fingerprints:
+            - "da:c9:31:dc:8b:47:dd:74:9b:70:34:21:8e:a0:3d:ea"
+      - run:
+          name: Increment and Publish
+          command: |
+            result=$(. labelsort.sh)
+            npm version $result --no-git-tag-version --force
+            # if [ $result = major ]; then npm version minor --no-git-tag-version --force; else npm version $result --no-git-tag-version --force; fi
+            npm publish
+            git add package.json
+            git config user.email "minkimcello@gmail.com"
+            git config user.name "Min Kim"
+            git commit -m "automated package.json version [ci skip]"
+            git push origin master
+          
+  deploy-pr:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with Registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Generate beta version for package.json
+          command: npm version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version
+      - run:
+          name: Publish package
+          command: npm publish
+  
+  # deploy-release:
+  #   <<: *defaults
+  #   steps:
+  #     - checkout
+  #     - attach_workspace:
+  #         at: ~/repo
+  #     - run:
+  #         name: Authenticate with Registry
+  #         command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+  #     - run:
+  #         name: Generate beta version for package.json
+  #         command: npm version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version
+  #     - run:
+  #         name: Publish package
+  #         command: npm publish
+          
+  comment:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Danger
+          command: yarn danger ci
+
+  echo:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Echoer
+          command: echo "`node -e \"console.log(require('./package.json').author)\"`"
+
+workflows:
+  version: 2
+  # master only
+  build-deploy-master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy-master:
+          requires: 
+            - build
+  # non-master, non-release PRs only
+  build-deploy-pr:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - /release-.*/
+      - deploy-pr:
+          requires: 
+            - build
+      - comment:
+          requires:
+            - deploy-pr
+  # release only
+  build-deploy-releases:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /release-.*/
+      - echo:
+          requires: 
+            - build
