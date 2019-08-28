@@ -5,4 +5,5 @@ workflow "Dangerfile JS Eval" {
 action "Danger JS" {
   uses = "./run-danger/"
   secrets = ["DANGER_GITHUB"]
+  args = "--dangerfile ./dangerfile.ts"
 }
