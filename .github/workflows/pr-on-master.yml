@@ -21,4 +21,4 @@ jobs:
     - name: Danger
       uses: danger/danger-js@9.1.6
       env: 
-        DANGER_TOKEN: ${{ secrets.DANGER_GITHUB }}
+        GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
