@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
     - run: git rev-parse --short HEAD
 
   # npm:
@@ -39,3 +42,5 @@ jobs:
   #     run: cd .github && npm install -g yarn && yarn global add danger --dev && export PATH="$(yarn global bin):$PATH" && danger ci
   #     env: 
   #       GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
+
+#  dfdc4b7
