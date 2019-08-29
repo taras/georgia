@@ -15,9 +15,9 @@ jobs:
     - name: declare
       run: yeah=$(git log -1 --pretty=%B)
       env:
-        TEST: $yeah
+        TEST: heioaje
     - name: echo
-      run: echo ${{TEST}}
+      run: echo ${TEST}
     # - name: echo
     #   run: echo $TEST
     # - name: install
