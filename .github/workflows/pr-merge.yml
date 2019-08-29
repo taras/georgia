@@ -15,7 +15,7 @@ jobs:
     - name: declare
       run: if [ $(git log -1 --pretty=%B)==hello ] then echo hello fi
       env:
-        GITHUB_TOKEN: ${{screts.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     # - name: echo
     #   run: echo $TEST
     # - name: install
