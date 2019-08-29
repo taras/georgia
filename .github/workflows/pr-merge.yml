@@ -17,10 +17,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-    skipper:
-      name: skipper
-      runs-on: ubuntu-latest
-      steps:
-      - uses: veggiemonk/skip-commit@master
-        env:
-          COMMIT_FILTER: "hello"
+  skipper:
+    name: skipper
+    runs-on: ubuntu-latest
+    steps:
+    - uses: veggiemonk/skip-commit@master
+      env:
+        COMMIT_FILTER: "hello"
