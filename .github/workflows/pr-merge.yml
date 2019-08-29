@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: echo
-      run: echo $(git log -1 --pretty=%B)
+      run: yeah=$(git log -1 --pretty=%B) && echo $yeah
       # env:
       #   TEST: ${{git log -1 --pretty=%B}}
     # - name: echo
