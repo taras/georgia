@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@master
     - run: git log --abbrev-commit --pretty=oneline
     - run: git rev-parse --short HEAD~1
-    - run: git log --pretty=format:'%h' -n 1
+    - run: git log --pretty=format:'%h' -n 2
 
   # npm:
   #   name: NPM Publish
