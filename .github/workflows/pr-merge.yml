@@ -13,9 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: declare
-      run: if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]; then echo skipping; else touch test.txt && git config user.email "minkimcello@gmail.com" && git config user.name "Min Kim" && git add ./test.txt && git commit -m "[skip-ci]" && git push origin HEAD; fi
+      run: if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]; then echo skipping; else touch test.txt && git add ./test.txt && git commit -m "[skip-ci]" && git push origin HEAD; fi
       env:
-        GITHUB_TOKEN: ${{secrets.DANGER_GITHUB}}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     # - name: echo
     #   run: echo $TEST
     # - name: install
