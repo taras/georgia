@@ -42,7 +42,6 @@ jobs:
 
     - name: autocommit
       uses: "./.github/auto-commit"
-      needs: package bumper
       args: messagez here
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
