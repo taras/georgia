@@ -10,9 +10,9 @@ jobs:
     name: Hub
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    # - uses: actions/checkout@v1
     - name: declare
-      run: yeah=1 && echo $yeah > test
+      run: yeah=1 && echo $yeah > test && echo "$(test)"
     - name: persist
       run: echo "$(test)"
     # - name: install
