@@ -12,10 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: declare
+      run: yeah=$(git log -1 --pretty=%B)
+      env:
+        TEST: $yeah
     - name: echo
-      run: yeah=$(git log -1 --pretty=%B) && echo $yeah
-      # env:
-      #   TEST: ${{git log -1 --pretty=%B}}
+      run: echo ${{TEST}}
     # - name: echo
     #   run: echo $TEST
     # - name: install
