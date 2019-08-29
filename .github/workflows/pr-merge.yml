@@ -22,4 +22,4 @@ jobs:
     #   run: wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz && tar -zxvf hub-linux-amd64-2.12.3.tgz && cd hub-linux-amd64-2.12.3 && sudo ./install && labels=$(hub pr list -s merged -L 1 -f %L) && minor=false && echo $minor
     #   env:
     #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  
+  ##
