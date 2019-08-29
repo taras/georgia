@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: declare
-      run: if [ $(git log -1 --pretty=%B)==hello ] then echo hello
+      run: yeah=(git log -1 --pretty=%B) && echo $yeah
       env:
         GITHUB_TOKEN: ${{secrets.DANGER_GITHUB}}
     # - name: echo
