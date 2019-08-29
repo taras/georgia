@@ -42,6 +42,7 @@ jobs:
 
     - name: autocommit
       uses: "./.github/auto-commit"
-      args: "waoiejfoij"
+      with:
+        args: "waoiejfoij"
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
