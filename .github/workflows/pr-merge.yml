@@ -34,7 +34,7 @@ jobs:
     #     GITHUB_TOKEN: ${{secrets.DANGER_GITHUB}}
     - name: package bumper
       run: |
-        npm version minor
+        npm version minor --no-git-tag-version
         echo "`node -e \"console.log(require('./package.json').version)\"`"
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
