@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: declare
-      run: if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]; then echo skipping; else touch test.txt && git add ./test.txt && git commit -m "[skip-ci]" && git push origin HEAD; fi
+      run: if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]; then echo skipping; else touch test.txt && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git add ./test.txt && git commit -m "[skip-ci]" && git push origin HEAD; fi
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     # - name: echo
