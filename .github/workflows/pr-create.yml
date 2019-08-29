@@ -12,6 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - run: git log --abbrev-commit --pretty=oneline
+    - run: git rev-parse --short HEAD~1
 
   # npm:
   #   name: NPM Publish
@@ -41,3 +42,4 @@ jobs:
   #       GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
 
 #  dfdc4b7
+# 994ec3b01feb0671f45b957f188ba69d0446d24f
