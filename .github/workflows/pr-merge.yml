@@ -36,5 +36,11 @@ jobs:
       run: |
         npm version minor --no-git-tag-version
         echo "`node -e \"console.log(require('./package.json').version)\"`"
+        git config --global user.name 'Taras Mankovski'
+        git config --global user.email 'tarasm@gmail.com'
+        git add .
+        git commit -m "test"
+        git push origin HEAD
       env:
+        GITHUB_TOKEN: ${{GITHUB_TOKEN}}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
