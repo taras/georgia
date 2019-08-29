@@ -10,7 +10,6 @@ jobs:
     name: NPM Publish
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
     - name: Beta Version
       uses: actions/npm@master
       with:
