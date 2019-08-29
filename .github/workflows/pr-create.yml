@@ -15,6 +15,7 @@ jobs:
     - run: git rev-parse --short HEAD~1
     - run: git log --pretty=format:'%h' -n 1 --skip 1
     - run: git rev-parse --short @~
+    - run: git rev-parse --short @~2
 
   # npm:
   #   name: NPM Publish
