@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: declare
+    - name: Hub It Up
       run: |
         if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]
         then 
