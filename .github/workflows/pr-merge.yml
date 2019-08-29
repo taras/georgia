@@ -10,7 +10,6 @@ jobs:
   hub:
     name: Hub
     runs-on: ubuntu-latest
-    needs: skipper
     steps:
     - uses: actions/checkout@v1
     - name: echo
