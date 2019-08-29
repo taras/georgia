@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - run: git log
+    - run: git log --abbrev-commit --pretty=oneline
 
   # npm:
   #   name: NPM Publish
