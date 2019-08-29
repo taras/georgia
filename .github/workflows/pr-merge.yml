@@ -13,6 +13,7 @@ jobs:
     needs: skipper
     steps:
     - uses: actions/checkout@v1
+    - name: echo
       run: echo $TEST_YEAH
       env:
         TEST_YEAH: ${{git log -1 --pretty=%B}}
