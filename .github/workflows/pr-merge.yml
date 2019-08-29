@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: declare
-      run: if [ $(git log -1 --pretty=%B)==hello ] then echo hello fi
+      run: if && [ $(git log -1 --pretty=%B)==hello ] && then && echo hello && fi
     # - name: echo
     #   run: echo $TEST
     # - name: install
