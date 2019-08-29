@@ -11,14 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Beta Version
-      uses: actions/npm@master
-      with:
-        args: version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version
     - name: Beta Publish
       uses: actions/npm@master
       with:
-        args: publish --access=public
+        args: 
+          - version "`node -e \"console.log(require('./package.json').version)\"`-`git rev-parse --short HEAD`" --no-git-tag-version
+          - publish --access=public
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
