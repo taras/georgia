@@ -41,7 +41,7 @@ jobs:
             git add package.json
             rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
             current="`node -e \"console.log(require('./package.json').version)\"`"
-            git checkout -b release-`$current`
+            git checkout -b "release-$current"
             git commit -m "Release version $current [ci skip]"
             git push origin HEAD
           fi
