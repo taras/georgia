@@ -46,7 +46,7 @@ jobs:
           echo skipping
         else 
           echo yeah > yeah.md
-          git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
+          #git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
           git config user.email "minkimcello@gmail.com"
           git config user.name "Min Kim"
           git add yeah.md
