@@ -4,5 +4,11 @@
   "author": {
     "name": "Min Kim",
     "email": "minkimcello@gmail.com"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0"
   }
 }
