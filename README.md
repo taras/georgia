@@ -2,7 +2,7 @@
 # Checklist
 - [ ] Run tests
 - [ ] Check publishing
-- [ ] Create diagram
+- [x] Create diagram
 
 # Setup Instructions
 1. add DANGER_GITHUB from bot token (public repo) in secrets
