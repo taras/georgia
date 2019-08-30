@@ -18,7 +18,6 @@ jobs:
           echo skipping because either automated commit
         else
           git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
-          git checkout HEAD
           git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
           git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
           wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
@@ -37,12 +36,13 @@ jobs:
             else
               npm version patch --git-tag-version
             fi
+            git log
             #git reset HEAD^
-            rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
-            git add package.json
-            current="`node -e \"console.log(require('./package.json').version)\"`"
-            git commit -m "Release version $current [ci skip]"
-            git push origin HEAD
+            # rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
+            # git add package.json
+            # current="`node -e \"console.log(require('./package.json').version)\"`"
+            # git commit -m "Release version $current [ci skip]"
+            # git push origin HEAD
           fi
         fi
         # a="12233.23.23"
