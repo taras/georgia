@@ -33,14 +33,15 @@ jobs:
             else
               npm version patch --git-tag-version
             fi
-            git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
-            git checkout release-1.0.0
-            git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
-            git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
-            git package.json
-            current="`node -e \"console.log(require('./package.json').version)\"`"
-            git commit -m "Release version $current [ci skip]"
-            git push origin HEAD
+            echo "`node -e \"console.log(require('./package.json').author.email)\"`"
+            # git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
+            # git checkout release-1.0.0
+            # git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
+            # git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
+            # git package.json
+            # current="`node -e \"console.log(require('./package.json').version)\"`"
+            # git commit -m "Release version $current [ci skip]"
+            # git push origin HEAD
           fi
         fi
       env:
