@@ -13,31 +13,38 @@ jobs:
     - uses: actions/checkout@v1
     - name: Publish & Commit
       run: |
-        wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
-        tar -zxvf hub-linux-amd64-2.12.3.tgz
-        cd hub-linux-amd64-2.12.3
-        sudo ./install
-        cd ..
-        labels=$(hub pr list -s merged -L 1 -f %L)
-        if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]] || [[ "$labels" =~ "major" ]]
+        if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         then 
-          echo skipping because either automated commit or major
-        else 
-          if [[ "$labels" =~ "bug" ]]
+          echo skipping because either automated commit
+        else
+          wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
+          tar -zxvf hub-linux-amd64-2.12.3.tgz
+          cd hub-linux-amd64-2.12.3
+          sudo ./install
+          cd ..
+          labels=$(hub pr list -s merged -L 1 -f %L)
+          if [[ "$labels" =~ "major" ]]
           then
-            #npm version minor --git-tag-version
-            echo "bug" > answer.md
-          else
-            #npm version patch --git-tag-version
-            echo "patch" > answer.md
+            echo skipping because major label and publishing should be done manually
+          else 
+            if [[ "$labels" =~ "bug" ]]
+            then
+              #npm version minor --git-tag-version
+              echo $labels > labels.md
+              echo bug > answers.md
+            else
+              #npm version patch --git-tag-version
+              echo $labels > labels.md
+              echo patch > answer.md
+            fi
+            git add answer.md
+            git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
+            git checkout release-1.0.0
+            git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
+            git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
+            git commit -m "Release version "`node -e \"console.log(require('./package.json').version)\"`" [ci skip]"
+            git push origin HEAD
           fi
-          git add answer.md
-          git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
-          git checkout release-1.0.0
-          git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
-          git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
-          git commit -m "Release version "`node -e \"console.log(require('./package.json').version)\"`" [ci skip]"
-          git push origin HEAD
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
