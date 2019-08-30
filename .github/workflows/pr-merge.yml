@@ -20,8 +20,8 @@ jobs:
           echo yeah > yeah.md
           git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
           git checkout release-1.0.0
-          git config user.email "minkimcello@gmail.coms"
-          git config user.name "Min Kims"
+          git config user.email "awpeojfapowejf"
+          git config user.name "aoiwejfoiajwe"
           git add yeah.md
           git commit -m "[skip-ci]"
           git push origin HEAD
