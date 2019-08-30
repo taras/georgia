@@ -45,7 +45,9 @@ jobs:
         #   fi
         # fi
         current="`node -e \"console.log(${GITHUB_REF})\"`"
+        current2="`node -e \"console.log(require('./package.json').version)\"`"
         echo $current
+        echo $current2
         # a="12233.23.23"
         # b="."
         # strindex() { 
@@ -57,8 +59,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-
 
         # replace(/([^>]|^)\n/g, '$1<br>')
         # replace(/(?<!>)\n/g, "<br>");
