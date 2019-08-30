@@ -51,7 +51,7 @@ jobs:
           git config user.name "Min Kim"
           git add yeah.md
           git commit -m "[skip-ci]"
-          git push origin HEAD
+          git ls-remote
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
