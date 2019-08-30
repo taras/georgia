@@ -44,8 +44,9 @@ jobs:
       # with:
       #   args: "waoiejfoij"
       run: |
-        ls
         echo yeah > yeah.md
-        ls
+        git add yeah.md
+        git commit -m "something"
+        git push origin HEAD
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
