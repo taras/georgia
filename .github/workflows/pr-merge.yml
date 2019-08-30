@@ -45,8 +45,8 @@ jobs:
         #   fi
         # fi
         yes=$GITHUB_REF
-        printf "%s\n" "${yes#*refs\/heads\/}"
-
+        test=$(printf "%s\n" "${yes#*refs\/heads\/}")
+        echo $test
         # a="12233.23.23"
         # b="."
         # strindex() { 
