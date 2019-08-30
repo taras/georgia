@@ -36,13 +36,12 @@ jobs:
               npm version minor --git-tag-version
             else
               npm version patch --git-tag-version
+              rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
+              git add package.json
+              current="`node -e \"console.log(require('./package.json').version)\"`"
+              git commit -m "Release version $current [ci skip]"
+              git push origin HEAD
             fi
-            rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
-            git add package.json
-            git log
-            # current="`node -e \"console.log(require('./package.json').version)\"`"
-            # git commit -m "Release version $current [ci skip]"
-            #git push origin HEAD
           fi
         fi
       env:
