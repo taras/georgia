@@ -45,5 +45,7 @@ jobs:
       #   args: "waoiejfoij"
       run: |
         ls
+        echo yeah > yeah.md
+        ls
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
