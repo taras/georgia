@@ -1,6 +1,7 @@
 FROM alpine/git:1.0.7
 
 LABEL "name"="auto-commit"
+LABEL "maintainer"="Max Neuvians <max.neuvians@cds-snc.ca>"
 LABEL "version"="1.0.0"
 
 LABEL "com.github.actions.name"="Auto-commit for GitHub Actions"
