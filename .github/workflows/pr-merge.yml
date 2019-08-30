@@ -46,8 +46,8 @@ jobs:
         #     git push origin HEAD
         #   fi
         # fi
-        a="the cat bat"
-        b="cat"
+        a="123.23.23"
+        b="."
         strindex() { 
           x="${1%%$2*}"
           [[ "$x" = "$1" ]] && echo -1 || echo "${#x}"
