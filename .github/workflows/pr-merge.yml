@@ -46,10 +46,11 @@ jobs:
       run: |
         echo yeah > yeah.md
         git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
-        git config user.email "minkimcello@gmail.com"
-        git config user.name "Min Kim"
-        git add yeah.md
-        git commit -m "something"
-        git push origin HEAD
+        git remote -v
+        # git config user.email "minkimcello@gmail.com"
+        # git config user.name "Min Kim"
+        # git add yeah.md
+        # git commit -m "[skip-ci]"
+        # git push origin HEAD:refs
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
