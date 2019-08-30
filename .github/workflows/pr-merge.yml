@@ -44,9 +44,8 @@ jobs:
         #     git push origin HEAD
         #   fi
         # fi
-        current="`node -e \"console.log(${GITHUB_REF})\"`"
+
         current2="`node -e \"console.log(require('./package.json').version)\"`"
-        echo $current
         echo $current2
         # a="12233.23.23"
         # b="."
