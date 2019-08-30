@@ -36,7 +36,8 @@ jobs:
             else
               npm version patch --git-tag-version
             fi
-            git checkout HEAD git rev-parse HEAD
+
+            git checkout HEAD $(git rev-parse HEAD)
             # git reset HEAD^
             # rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
             git add package.json
