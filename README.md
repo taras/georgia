@@ -1,8 +1,9 @@
+![CI Workflow](./.notes/NEW_DIAGRAM.png)
 
 # Checklist
-- [x] Run tests
-- [x] Check publishing
-- [x] Create diagram
+- [x] Tests
+- [x] Committing
+- [x] Publishing
 
 # Setup Instructions
 1. add DANGER_GITHUB from bot token (public repo) in secrets
