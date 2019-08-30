@@ -63,9 +63,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Beta Publish
+    - name: Publish
       run: |
-        echo "`node -e \"console.log(require('./package.json').version)\"`
+        yeah="`node -e \"console.log(require('./package.json').version)\"`
+        echo $yeah
       # uses: actions/npm@master
       # with:
       #   args: version "`node -e \"console.log(require('./package.json').version)\"` --no-git-tag-version && npm publish --access=public
