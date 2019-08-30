@@ -1,5 +1,8 @@
 {
   "name": "@minkimcello/georgia",
-  "version": "1.0.0",
-  "author": "Min Kim"
+  "version": "1.0.2",
+  "author": {
+    "name": "Min Kim",
+    "email": "minkimcello@gmail.com"
+  }
 }

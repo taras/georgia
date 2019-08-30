@@ -1,4 +1,4 @@
-name: CI
+name: TNP Merge
 
 on:
   push:
@@ -6,11 +6,46 @@ on:
       - release-*
 
 jobs:
-  build:
-
+  hub:
+    name: Publish & Commit
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo PUSH release!
+    - name: Publish & Commit
+      run: |
+        if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
+        then 
+          echo skipping because either automated commit
+        else
+          git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
+          git checkout release-1.0.0
+          git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
+          git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
+          wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
+          tar -zxvf hub-linux-amd64-2.12.3.tgz
+          cd hub-linux-amd64-2.12.3
+          sudo ./install
+          labels=$(hub pr list -s merged -L 1 -f %L)
+          if [[ "$labels" =~ "yeah" ]] #major
+          then
+            echo skipping because major label and publishing should be done manually
+          else 
+            cd ..
+            if [[ "$labels" =~ "minor" ]]
+            then
+              npm version minor --git-tag-version
+            else
+              npm version patch --git-tag-version
+            fi
+            git reset HEAD^
+            git add package.json
+            rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
+            current="`node -e \"console.log(require('./package.json').version)\"`"
+            git checkout -b "release-$current"
+            git commit -m "Release version $current [ci skip]"
+            git push origin HEAD
+          fi
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
