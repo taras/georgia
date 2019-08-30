@@ -39,9 +39,11 @@ jobs:
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-    - name: autocommit
-      uses: "./.github/auto-commit"
-      with:
-        args: "waoiejfoij"
+    - name: Auto-Commit
+      # uses: "./.github/auto-commit"
+      # with:
+      #   args: "waoiejfoij"
+      run: |
+        ls
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
