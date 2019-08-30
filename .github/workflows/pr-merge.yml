@@ -34,10 +34,10 @@ jobs:
             if [[ "$labels" =~ "major" ]] #shouldbeminor
             then
               #npm version minor --git-tag-version
-              echo thereismajor > answers.md
+              echo thereismajor
             else
               #npm version patch --git-tag-version
-              echo nomajor > answer.md
+              echo nomajor
             fi
             # git add answer.md labels.md
             # current="`node -e \"console.log(require('./package.json').version)\"`"
