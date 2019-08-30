@@ -26,7 +26,7 @@ jobs:
           cd hub-linux-amd64-2.12.3
           sudo ./install
           labels=$(hub pr list -s merged -L 1 -f %L)
-          if [[ "$labels" =~ "shouldbemajor" ]] #change
+          if [[ "$labels" =~ "major" ]]
           then
             echo skipping because major label and publishing should be done manually
           else 
