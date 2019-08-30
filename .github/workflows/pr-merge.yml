@@ -21,12 +21,12 @@ jobs:
           tar -zxvf hub-linux-amd64-2.12.3.tgz
           cd hub-linux-amd64-2.12.3
           sudo ./install
-          cd ..
           labels=$(hub pr list -s merged -L 1 -f %L)
           if [[ "$labels" =~ "major" ]]
           then
             echo skipping because major label and publishing should be done manually
           else 
+            cd ..
             if [[ "$labels" =~ "bug" ]]
             then
               #npm version minor --git-tag-version
