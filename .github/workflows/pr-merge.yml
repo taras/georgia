@@ -18,7 +18,7 @@ jobs:
         cd hub-linux-amd64-2.12.3
         sudo ./install
         labels=$(hub pr list -s merged -L 1 -f %L)
-        if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" -o "$labels" =~ "major" ]]
+        if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" -eq 1 ]] || [[ "$labels" =~ "major" -eq 2 ]]
         then 
           echo skipping because either automated commit or major
         else 
