@@ -19,6 +19,7 @@ jobs:
         else
           # git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
           # git checkout origin branchname
+          git remote -v
           git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
           git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
           wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
