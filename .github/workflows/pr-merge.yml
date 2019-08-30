@@ -4,20 +4,19 @@ on:
   push:
     branches:
       - release-*
-    
 
 jobs:
   hub:
-    name: Hub
+    name: Publish & Commit
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    # - name: Hub It Up
-    #   run: |
-    #     if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]
-    #     then 
-    #       echo skipping
-    #     else 
+    - name: Publish & Commit
+      run: |
+        if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]
+        then 
+          echo skipping
+        else 
     #       wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
     #       tar -zxvf hub-linux-amd64-2.12.3.tgz
     #       cd hub-linux-amd64-2.12.3
@@ -29,30 +28,23 @@ jobs:
     #       else 
     #         echo "there are no bugs"
     #       fi
-    #     fi
-    #   env:
-    #     GITHUB_TOKEN: ${{secrets.DANGER_GITHUB}}
-    - name: package bumper
-      run: |
-        npm version minor --no-git-tag-version
-        echo "`node -e \"console.log(require('./package.json').version)\"`"
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-    - name: Auto-Commit
-      run: |
-        if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]
-        then 
-          echo skipping
-        else 
           echo yeah > yeah.md
           git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
           git checkout release-1.0.0
-          git config user.email "minkimcello@gmail.com"
-          git config user.name "Min Kim"
+          git config user.email "minkimcello@gmail.coms"
+          git config user.name "Min Kims"
           git add yeah.md
           git commit -m "[skip-ci]"
           git push origin HEAD
         fi
+        npm version minor --no-git-tag-version
+        echo "`node -e \"console.log(require('./package.json').version)\"`"
+        #publish
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+# 1. test if commit works with wrong credentials
+# 2. incrementing based on labels (if not minor then automatic patch)
+# 3. skip based on label too (because major should be done manually)
+# 4. publish and then commit
