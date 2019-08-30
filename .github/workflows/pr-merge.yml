@@ -35,7 +35,7 @@ jobs:
 # 1. test if commit works with wrong credentials
 # 2. incrementing based on labels (if not minor then automatic patch)
 # 3. skip based on label too (because major should be done manually)
-# 4. publish and then commit
+# 4. publish and then commits
 
 
 # wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
