@@ -26,7 +26,7 @@ jobs:
           cd hub-linux-amd64-2.12.3
           sudo ./install
           labels=$(hub pr list -s merged -L 1 -f %L)
-          if [[ "$labels" =~ "major" ]]
+          if [[ "$labels" =~ "yeah" ]] #major
           then
             echo skipping because major label and publishing should be done manually
           else 
@@ -38,9 +38,10 @@ jobs:
               npm version patch --git-tag-version
             fi
             git reset HEAD^
-            rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
             git add package.json
+            rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
             current="`node -e \"console.log(require('./package.json').version)\"`"
+            git checkout -b release-`$current`
             git commit -m "Release version $current [ci skip]"
             git push origin HEAD
           fi
