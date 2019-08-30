@@ -45,6 +45,7 @@ jobs:
       #   args: "waoiejfoij"
       run: |
         echo yeah > yeah.md
+        git remote set-url origin https://github.com/taras/georgia.git
         git config user.email "minkimcello@gmail.com"
         git config user.name "Min Kim"
         git add yeah.md
