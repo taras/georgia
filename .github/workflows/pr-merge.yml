@@ -45,6 +45,8 @@ jobs:
       #   args: "waoiejfoij"
       run: |
         echo yeah > yeah.md
+        git config user.email "minkimcello@gmail.com"
+        git config user.name "Min Kim"
         git add yeah.md
         git commit -m "something"
         git push origin HEAD
