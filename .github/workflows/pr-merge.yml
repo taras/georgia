@@ -32,13 +32,13 @@ jobs:
             cd ..
             if [[ "$labels" =~ "minor" ]]
             then
-              npm version minor --git-tag-version
+              npm version minor --git-tag-version 
             else
               npm version patch --git-tag-version
             fi
             # git reset --hard
             git add package.json
-            git log
+            git log -n 2
             # rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
             current="`node -e \"console.log(require('./package.json').version)\"`"
             git commit -m "Release version $current [ci skip]"
