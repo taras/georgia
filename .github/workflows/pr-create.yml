@@ -6,7 +6,7 @@ on:
     - release-*
 
 jobs:
-  test:
+  tests:
     name: Tests
     runs-on: ubuntu-latest
     steps:
