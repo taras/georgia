@@ -27,29 +27,27 @@ jobs:
           sudo ./install
           labels=$(hub pr list -s merged -L 1 -f %L)
           echo $labels
-          if [[ "$labels" =~ "major" ]]
+          if [[ "$labels" =~ "shouldbemajor" ]]
           then
             echo skipping because major label and publishing should be done manually
-          else
-            echo cannot read labels
+          else 
+            cd ..
+            echo $labels
+            # if [[ "$labels" =~ "bug" ]]
+            # then
+            #   #npm version minor --git-tag-version
+            #   echo $labels > labels.md
+            #   echo bug > answers.md
+            # else
+            #   #npm version patch --git-tag-version
+            #   echo $labels > labels.md
+            #   echo patch > answer.md
+            # fi
+            # git add answer.md labels.md
+            # current="`node -e \"console.log(require('./package.json').version)\"`"
+            # git commit -m "Release version $current [ci skip]"
+            # git push origin HEAD
           fi
-          # else 
-          #   cd ..
-          #   if [[ "$labels" =~ "bug" ]]
-          #   then
-          #     #npm version minor --git-tag-version
-          #     echo $labels > labels.md
-          #     echo bug > answers.md
-          #   else
-          #     #npm version patch --git-tag-version
-          #     echo $labels > labels.md
-          #     echo patch > answer.md
-          #   fi
-          #   git add answer.md labels.md
-          #   current="`node -e \"console.log(require('./package.json').version)\"`"
-          #   git commit -m "Release version $current [ci skip]"
-          #   git push origin HEAD
-          # fi
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
