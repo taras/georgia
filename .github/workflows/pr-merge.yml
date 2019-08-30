@@ -40,9 +40,6 @@ jobs:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
     - name: Auto-Commit
-      # uses: "./.github/auto-commit"
-      # with:
-      #   args: "waoiejdfoij"
       run: |
         if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]
         then 
@@ -54,7 +51,7 @@ jobs:
           git config user.name "Min Kim"
           git add yeah.md
           git commit -m "[skip-ci]"
-          git push origin refs/heads/release-1.0.0
+          git ls-remote
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
