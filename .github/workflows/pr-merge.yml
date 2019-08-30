@@ -26,23 +26,19 @@ jobs:
           cd hub-linux-amd64-2.12.3
           sudo ./install
           labels=$(hub pr list -s merged -L 1 -f %L)
-          echo $labels
           if [[ "$labels" =~ "shouldbemajor" ]]
           then
             echo skipping because major label and publishing should be done manually
           else 
             cd ..
-            echo $labels
-            # if [[ "$labels" =~ "bug" ]]
-            # then
-            #   #npm version minor --git-tag-version
-            #   echo $labels > labels.md
-            #   echo bug > answers.md
-            # else
-            #   #npm version patch --git-tag-version
-            #   echo $labels > labels.md
-            #   echo patch > answer.md
-            # fi
+            if [[ "$labels" =~ "major" ]] #shouldbeminor
+            then
+              #npm version minor --git-tag-version
+              echo thereismajor > answers.md
+            else
+              #npm version patch --git-tag-version
+              echo nomajor > answer.md
+            fi
             # git add answer.md labels.md
             # current="`node -e \"console.log(require('./package.json').version)\"`"
             # git commit -m "Release version $current [ci skip]"
