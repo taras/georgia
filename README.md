@@ -1,4 +1,4 @@
-![CI Workflow](./.notes/NEW_DIAGRAM.png)
+![CI Workflow](./NEW_DIAGRAM.png)
 
 # Checklist
 - [x] Tests
