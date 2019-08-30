@@ -52,7 +52,8 @@ jobs:
           x="${1%%$2*}"
           [[ "$x" = "$1" ]] && echo -1 || echo "${#x}"
         }
-        strindex "$a" "$b"
+        test=$(strindex "$a" "$b")
+        echo $test
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
