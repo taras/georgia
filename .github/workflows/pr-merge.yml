@@ -27,9 +27,12 @@ jobs:
           sudo ./install
           labels=$(hub pr list -s merged -L 1 -f %L)
           echo $labels
-          # if [[ "$labels" =~ "major" ]]
-          # then
-          #   echo skipping because major label and publishing should be done manually
+          if [[ "$labels" =~ "major" ]]
+          then
+            echo skipping because major label and publishing should be done manually
+          else
+            echo cannot read labels
+          fi
           # else 
           #   cd ..
           #   if [[ "$labels" =~ "bug" ]]
