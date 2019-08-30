@@ -31,7 +31,7 @@ jobs:
             echo skipping because major label and publishing should be done manually
           else 
             cd ..
-            if [[ "$labels" =~ "major" ]] #shouldbeminor
+            if [[ "$labels" =~ "minor" ]] #shouldbeminor
             then
               #npm version minor --git-tag-version
               echo thereismajor
