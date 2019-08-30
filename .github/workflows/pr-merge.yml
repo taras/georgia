@@ -36,6 +36,7 @@ jobs:
           git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
           git commit -m "[skip-ci]"
           git push origin HEAD
+          fi
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
