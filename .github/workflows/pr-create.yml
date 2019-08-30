@@ -6,6 +6,15 @@ on:
     - release-*
 
 jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Run Tests
+      run: |
+        echo test here
+
   npm:
     name: NPM Publish
     runs-on: ubuntu-latest
