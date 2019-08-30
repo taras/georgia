@@ -22,27 +22,25 @@ jobs:
           cd hub-linux-amd64-2.12.3
           sudo ./install
           labels=$(hub pr list -s merged -L 1 -f %L)
-          if [[ "$labels" =~ "shouldbemajor" ]]
+          if [[ "$labels" =~ "shouldbemajor" ]] #change
           then
             echo skipping because major label and publishing should be done manually
           else 
             cd ..
-            if [[ "$labels" =~ "minor" ]] #shouldbeminor
+            if [[ "$labels" =~ "minor" ]]
             then
-              echo uhohbroken
-              #npm version minor --git-tag-version
+              npm version minor --git-tag-version
             else
-              echo stillworks
-              #npm version patch --git-tag-version
+              npm version patch --git-tag-version
             fi
             git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
             git checkout release-1.0.0
             git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
             git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
-            # git add answer.md labels.md
-            # current="`node -e \"console.log(require('./package.json').version)\"`"
-            # git commit -m "Release version $current [ci skip]"
-            # git push origin HEAD
+            git package.json
+            current="`node -e \"console.log(require('./package.json').version)\"`"
+            git commit -m "Release version $current [ci skip]"
+            git push origin HEAD
           fi
         fi
       env:
