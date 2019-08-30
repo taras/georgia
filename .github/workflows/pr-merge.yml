@@ -18,6 +18,7 @@ jobs:
           echo skipping because either automated commit
         else
           git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
+          git checkout release-1.0.0
           git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
           git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
           wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
@@ -25,7 +26,6 @@ jobs:
           cd hub-linux-amd64-2.12.3
           sudo ./install
           labels=$(hub pr list -s merged -L 1 -f %L)
-          echo $labels
           if [[ "$labels" =~ "shouldbemajor" ]] #change
           then
             echo skipping because major label and publishing should be done manually
@@ -41,7 +41,7 @@ jobs:
             git add package.json
             current="`node -e \"console.log(require('./package.json').version)\"`"
             git commit -m "Release version $current [ci skip]"
-            git push origin HEAD
+            #git push origin HEAD
           fi
         fi
       env:
