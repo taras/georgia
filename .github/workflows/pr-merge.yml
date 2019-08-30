@@ -38,6 +38,7 @@ jobs:
             fi
             git log -n 1
             git reset HEAD^
+            echo $"`node -e \"console.log(require('./package.json').version)\"`"
             # rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
             git add package.json
             current="`node -e \"console.log(require('./package.json').version)\"`"
