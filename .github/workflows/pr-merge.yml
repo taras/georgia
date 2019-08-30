@@ -32,9 +32,9 @@ jobs:
             cd ..
             if [[ "$labels" =~ "minor" ]]
             then
-              npm version minor --git-tag-version 
+              npm version minor --no-git-tag-version 
             else
-              npm version patch --git-tag-version
+              npm version patch --no-git-tag-version
             fi
             # git reset --hard
             git add package.json
