@@ -65,7 +65,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Publish
       run: |
-        yeah="`node -e \"console.log(require('./package.json').version)\"`
+        yeah="`node -e \"console.log(require('./package.json').version)\"`"
         echo $yeah
       # uses: actions/npm@master
       # with:
