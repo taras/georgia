@@ -45,6 +45,7 @@ jobs:
         #   fi
         # fi
         current="`node -e \"console.log(${GITHUB_REF})\"`"
+        echo $current
         # a="12233.23.23"
         # b="."
         # strindex() { 
