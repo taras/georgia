@@ -37,6 +37,9 @@ jobs:
               npm version patch --git-tag-version
             fi
             git log -n 2
+            git add package.json
+            git reset --hard
+            git log -n 2
             # rm hub-linux-amd64-2.12.3.tgz && rm -r hub-linux-amd64-2.12.3
             # git add package.json
             # current="`node -e \"console.log(require('./package.json').version)\"`"
