@@ -17,17 +17,6 @@ jobs:
         then 
           echo skipping
         else 
-    #       wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
-    #       tar -zxvf hub-linux-amd64-2.12.3.tgz
-    #       cd hub-linux-amd64-2.12.3
-    #       sudo ./install
-    #       labels=$(hub pr list -s merged -L 1 -f %L)
-    #       if [[ "$labels" =~ "bug" ]]
-    #       then 
-    #         echo "there is a bug"
-    #       else 
-    #         echo "there are no bugs"
-    #       fi
           echo yeah > yeah.md
           git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
           git checkout release-1.0.0
@@ -39,7 +28,6 @@ jobs:
         fi
         npm version minor --no-git-tag-version
         echo "`node -e \"console.log(require('./package.json').version)\"`"
-        #publish
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
@@ -48,3 +36,16 @@ jobs:
 # 2. incrementing based on labels (if not minor then automatic patch)
 # 3. skip based on label too (because major should be done manually)
 # 4. publish and then commit
+
+
+# wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
+# tar -zxvf hub-linux-amd64-2.12.3.tgz
+# cd hub-linux-amd64-2.12.3
+# sudo ./install
+# labels=$(hub pr list -s merged -L 1 -f %L)
+# if [[ "$labels" =~ "bug" ]]
+# then 
+#   echo "there is a bug"
+# else 
+#   echo "there are no bugs"
+# fi
