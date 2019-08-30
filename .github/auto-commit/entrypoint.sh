@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-sh -c git config --global user.email "minkimcello@gmail.com" && git config --global user.name "minkimcello" && git add -A && git commit -m '$*' --allow-empty && git push -u origin HEAD"
+sh -c touch dingdong.txt && git remote set-url origin `https://$GITHUB_TOKEN:github.com/taras/georgia.git` && git add -A && git commit -m '$*' --allow-empty && git push -u origin HEAD"
