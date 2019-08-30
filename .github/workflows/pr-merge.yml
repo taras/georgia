@@ -5,7 +5,7 @@ on:
     branches:
       - release-*
 jobs:
-  test:
+  tests:
     name: Run Tests
     runs-on: ubuntu-latest
     steps:
