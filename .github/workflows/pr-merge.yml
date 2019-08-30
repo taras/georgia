@@ -10,10 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: 
+    - name: tests
       run: |
         npm install
         npm test
+  aftertests:
+    name: after tests
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: echo something
+      run: echo hello
 # jobs:
 #   hub:
 #     name: Publish & Commit
