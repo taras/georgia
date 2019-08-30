@@ -44,13 +44,17 @@ jobs:
       # with:
       #   args: "waoiejfoij"
       run: |
-        echo yeah > yeah.md
-        git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
-        git remote -v
-        # git config user.email "minkimcello@gmail.com"
-        # git config user.name "Min Kim"
-        # git add yeah.md
-        # git commit -m "[skip-ci]"
-        # git push origin HEAD:refs
+        if [[ "$(git log -1 --pretty=%B)" =~ "[skip-ci]" ]]
+        then 
+          echo skipping
+        else 
+          echo yeah > yeah.md
+          git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
+          git config user.email "minkimcello@gmail.com"
+          git config user.name "Min Kim"
+          git add yeah.md
+          git commit -m "[skip-ci]"
+          git push origin release-1.0.0
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
