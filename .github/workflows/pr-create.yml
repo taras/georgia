@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Run Tests
       run: |
-        echo test here
+        echo run tests here
 
   npm:
     name: NPM Publish
