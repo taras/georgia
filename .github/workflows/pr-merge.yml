@@ -54,7 +54,7 @@ jobs:
           git config user.name "Min Kim"
           git add yeah.md
           git commit -m "[skip-ci]"
-          git push origin release-1.0.0
+          git push origin refs/heads/release-1.0.0
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
