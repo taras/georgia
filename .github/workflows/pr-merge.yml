@@ -4,16 +4,16 @@ on:
   push:
     branches:
       - release-*
-  jobs:
-    test:
-      name: Run Tests
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@master
-      - name: 
-        run: |
-          npm install
-          npm test
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: 
+      run: |
+        npm install
+        npm test
 # jobs:
 #   hub:
 #     name: Publish & Commit
