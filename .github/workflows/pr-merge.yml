@@ -6,9 +6,22 @@ on:
       - release-*
 
 jobs:
+
+  hubby:
+    name: install hubs
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: install hub
+      run: |
+        wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
+        tar -zxvf hub-linux-amd64-2.12.3.tgz
+        cd hub-linux-amd64-2.12.3
+        sudo ./install
   hub:
     name: Publish & Commit
     runs-on: ubuntu-latest
+    needs: hubby
     steps:
     - uses: actions/checkout@v1
     - name: Publish & Commit
@@ -16,32 +29,29 @@ jobs:
         if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         then 
           echo skipping because either automated commit
-        else
-          wget https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
-          tar -zxvf hub-linux-amd64-2.12.3.tgz
-          cd hub-linux-amd64-2.12.3
-          sudo ./install
+        else          
           labels=$(hub pr list -s merged -L 1 -f %L)
-          if [[ "$labels" =~ "shouldbemajor" ]] #change
-          then
-            echo skipping because major label and publishing should be done manually
-          else 
-            cd ..
-            git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
-            git checkout release-1.0.0
-            git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
-            git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
-            if [[ "$labels" =~ "minor" ]]
-            then
-              npm version minor --git-tag-version
-            else
-              npm version patch --git-tag-version
-            fi
-            git add package.json
-            current="`node -e \"console.log(require('./package.json').version)\"`"
-            git commit -m "Release version $current [ci skip]"
-            git push origin HEAD
-          fi
+          echo $labels
+          # if [[ "$labels" =~ "shouldbemajor" ]] #change
+          # then
+          #   echo skipping because major label and publishing should be done manually
+          # else 
+          #   cd ..
+          #   git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/taras/georgia.git
+          #   git checkout release-1.0.0
+          #   git config user.email "`node -e \"console.log(require('./package.json').author.email)\"`"
+          #   git config user.name "`node -e \"console.log(require('./package.json').author.name)\"`"
+          #   if [[ "$labels" =~ "minor" ]]
+          #   then
+          #     npm version minor --git-tag-version
+          #   else
+          #     npm version patch --git-tag-version
+          #   fi
+          #   git add package.json
+          #   current="`node -e \"console.log(require('./package.json').version)\"`"
+          #   git commit -m "Release version $current [ci skip]"
+          #   git push origin HEAD
+          # fi
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
