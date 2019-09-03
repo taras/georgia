@@ -33,7 +33,7 @@ jobs:
         email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
         name="`node -e \"console.log(require('./package.json').author.name)\"`"
         #echo "${#email}"
-        if [[ "$email"=="undefined" && "$name"=="undefined" ]]
+        if [[ ("$email"=="undefined") && ("$name"=="undefined") ]]
         then
           echo shouldseethisyeah
         else
