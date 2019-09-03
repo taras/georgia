@@ -11,10 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Run Tests
-      run: |
-        yarn
-        yarn test
+    - name: yarn
+      run: yarn
+    - name: test
+      run: yarn test
+    # - name: lint
+    #   run: yarn lint
+    # - name: coverage
+    #   run: |
+    #     yarn coverage
+    #     yarn coveralls
+        # for microstates
 
   npm:
     name: NPM Publish
@@ -34,14 +41,14 @@ jobs:
     needs: npm
     steps:
     - uses: actions/checkout@master
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        version: 10.x
+    # - name: Use Node.js 10.x
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     version: 10.x
     - name: Danger
       run: |
         cd .github
-        npm install -g yarn
+        #npm install -g yarn
         yarn global add danger --dev
         export PATH="$(yarn global bin):$PATH"
         danger ci

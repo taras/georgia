@@ -5,6 +5,14 @@
 - [x] Committing
 - [x] Publishing
 
+# Questions
+- [ ] Use a Docker account?
+  - [ ] vs using CLI to install the files onto the repo
+- [ ] Monorepo?
+  - [ ] Purpose is to install it once and applied to all its children?
+  - [ ] Alternative is to install per repo in an organization?
+- [ ] How to make lint/test/coverage settings suitable for any repos?
+
 # Setup Instructions
 1. add DANGER_GITHUB from bot token (public repo) in secrets
 2. add NPM_AUTH_TOKEN from npmjs in secrets
