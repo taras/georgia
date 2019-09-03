@@ -17,6 +17,7 @@
 1. Add the following in secrets:
     - DANGER_GITHUB from bot token (public repo)
     - NPM_AUTH_TOKEN from npmjs
+    - GITHUB_TOKEN from github account for auto-committing. (currently set to mk_token)
     - optional: SEMVER_USER_NAME / SEMVER_USER_EMAIL 
       (if not supplied then git config will take information from `package.json`)
 
