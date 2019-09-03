@@ -33,11 +33,11 @@ jobs:
         email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
         name="`node -e \"console.log(require('./package.json').author.name)\"`"
         #echo "${#email}"
-        if [ "${#SEMVER_USER_NAME}" -ne "0" ]
+        if [ ("${#SEMVER_USER_NAME}" -eq "0") -a ("${#SEMVER_USER_EMAIL}" -eq "0") ]
         then
-          echo ${#SEMVER_USER_EMAIL}
+          echo both are true
         else
-          echo errorsyeah
+          echo one is untrue
         fi
         # if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         # then 
