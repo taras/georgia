@@ -33,7 +33,7 @@ jobs:
         email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
         name="`node -e \"console.log(require('./package.json').author.name)\"`"
         #echo "${#email}"
-        if [[ "${#SEMVER_USER_NAME}"!=0 ]]
+        if [ "${#SEMVER_USER_NAME}" -ne "0" ]
         then
           echo ${#SEMVER_USER_EMAIL}
         else
