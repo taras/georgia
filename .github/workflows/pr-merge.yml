@@ -10,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Tests
+    - name: Run Tests
       run: |
-        echo run tests here
+        npm install
+        npm test
 
   publish:
     name: Commit & Publish

@@ -7,13 +7,14 @@ on:
 
 jobs:
   tests:
-    name: Tests
+    name: Run Tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: Run Tests
       run: |
-        echo run tests here
+        yarn
+        yarn test
 
   npm:
     name: NPM Publish
