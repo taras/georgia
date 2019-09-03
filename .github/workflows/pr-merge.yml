@@ -5,14 +5,23 @@ on:
     branches:
       - release-*
 jobs:
-  test:
+  tests:
     name: Run Tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - run: yarn
-    - run: yarn test
-
+    - name: yarn
+      run: yarn
+    - name: test
+      run: yarn test
+    # - name: lint
+    #   run: yarn lint
+    # - name: coverage
+    #   run: |
+    #     yarn coverage
+    #     yarn coveralls
+        # for microstates
+        
   # publish:
   #   name: Commit & Publish
   #   runs-on: ubuntu-latest
