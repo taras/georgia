@@ -33,13 +33,12 @@ jobs:
         email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
         name="`node -e \"console.log(require('./package.json').author.name)\"`"
         #echo "${#email}"
-        if [[ ("$email"=="undefined") && ("$name"=="undefined") ]]
+        if [ "${#SEMVER_USER_NAME}"==0 ]
         then
-          echo $name
+          echo ${#SEMVER_USER_EMAIL}
         else
           echo errorsyeah
         fi
-        echo ${#SEMVER_USER_EMAIL}
         # if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         # then 
         #   echo Skipping because this commit is automated
