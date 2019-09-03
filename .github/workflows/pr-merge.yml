@@ -30,7 +30,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Commit & Publish
       run: |
-        email="`node -e \"console.log(require('./package.json').author.email)\"`"
+        email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
         echo "${#email}"
         # if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         # then 
