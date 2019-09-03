@@ -14,7 +14,11 @@
 - [ ] How to make lint/test/coverage settings suitable for any repos?
 
 # Setup Instructions
-1. add DANGER_GITHUB from bot token (public repo) in secrets
-2. add NPM_AUTH_TOKEN from npmjs in secrets
-3. add MK_TOKEN from github account that you want automatically committing <!-- update to GITHUB_TOKEN and in pr-merge >
-4. add author in package.json (follow format)
+1. Add the following in secrets:
+    - DANGER_GITHUB from bot token (public repo)
+    - NPM_AUTH_TOKEN from npmjs
+    - MK_TOKEN from github for auto-commits (update token name. pr-merge.yml)
+    - optional: SEMVER_USER_NAME / SEMVER_USER_EMAIL 
+      (if not supplied then git config will take information from `package.json`)
+      
+2. customize test jobs in both workflows
