@@ -31,18 +31,13 @@ jobs:
     - name: Commit & Publish
       run: |
         email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
+        name="`node -e \"console.log(require('./package.json').author.dingdinsg)\"`"
         #echo "${#email}"
-        if [[ "$email"=="undefined" ]]
+        if [[ "$email"=="undefined" && "$name"=="undefined" ]]
         then
-          echo emailisundefined
+          echo shouldseethis
         else
           echo error
-        fi
-        if [[ "a"!="a" ]]
-        then
-          echo youshouldseethis
-        else
-          echo dontseethis
         fi
         # if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         # then 
