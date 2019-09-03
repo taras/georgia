@@ -1,4 +1,4 @@
-![CI Workflow](https://i.imgur.com/px48FCo.png)
+![CI Workflow](https://user-images.githubusercontent.com/29791650/64193157-31ce0d80-ce4a-11e9-99ad-fbfe2780d3ce.png)
 
 # Checklist
 - [x] Tests
