@@ -31,13 +31,13 @@ jobs:
     - name: Commit & Publish
       run: |
         email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
-        name="`node -e \"console.log(require('./package.json').author.dingdinsg)\"`"
+        name="`node -e \"console.log(require('./package.json').author.name)\"`"
         #echo "${#email}"
         if [[ "$email"=="undefined" && "$name"=="undefined" ]]
         then
           echo shouldseethisyeah
         else
-          echo error
+          echo errorsyeah
         fi
         echo ${#SEMVER_USER_EMAIL}
         # if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
