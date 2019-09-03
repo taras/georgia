@@ -35,7 +35,7 @@ jobs:
         #echo "${#email}"
         if [[ ("$email"=="undefined") && ("$name"=="undefined") ]]
         then
-          echo shouldseethisyeah
+          echo $name
         else
           echo errorsyeah
         fi
