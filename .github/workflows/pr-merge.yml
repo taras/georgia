@@ -5,15 +5,15 @@ on:
     branches:
       - release-*
 jobs:
-  tests:
+  test:
     name: Run Tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: Run Tests
-      run: |
-        yarn
-        yarn test
+      run: yarn
+    - name:
+      run: yarn test
 
   # publish:
   #   name: Commit & Publish
