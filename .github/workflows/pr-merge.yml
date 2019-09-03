@@ -35,10 +35,11 @@ jobs:
         #echo "${#email}"
         if [[ "$email"=="undefined" && "$name"=="undefined" ]]
         then
-          echo shouldseethis
+          echo shouldseethisyeah
         else
           echo error
         fi
+        echo ${#SEMVER_USER_EMAIL}
         # if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         # then 
         #   echo Skipping because this commit is automated
