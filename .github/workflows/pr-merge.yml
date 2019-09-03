@@ -31,7 +31,19 @@ jobs:
     - name: Commit & Publish
       run: |
         email="`node -e \"console.log(require('./package.json').author.dingding)\"`"
-        echo "${#email}"
+        #echo "${#email}"
+        if [[ "$email"=="undefined" ]]
+        then
+          echo emailisundefined
+        else
+          echo error
+        fi
+        if [[ "a"!="a" ]]
+        then
+          echo youshouldseethis
+        else
+          echo dontseethis
+        fi
         # if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
         # then 
         #   echo Skipping because this commit is automated
