@@ -1,9 +1,12 @@
-![CI Workflow](https://user-images.githubusercontent.com/29791650/64193157-31ce0d80-ce4a-11e9-99ad-fbfe2780d3ce.png)
+The second version of Georgia is to refactor V1 into main.workflow.
 
-# Checklist
-- [x] Tests
-- [x] Committing
-- [x] Publishing
+# TODO
+- [ ] See how custom actions are integrated into the GUI
+- [ ] Write dockerfiles
+- [ ] Environment passing between actions
+- [ ] Secrets
+- [ ] Migrate create-pr.yml from v1
+- [ ] Migrate pr-merged.yml from v1
 
 <!-- # Questions
 - [ ] Use a Docker account?
@@ -13,7 +16,7 @@
   - [ ] Alternative is to install per repo in an organization?
 - [ ] How to make lint/test/coverage settings suitable for any repos? -->
 
-# Setup Instructions
+# Setup Instructions (OLD)
 1. Add the following in secrets:
     - DANGER_GITHUB from bot token (public repo)
     - NPM_AUTH_TOKEN from npmjs
