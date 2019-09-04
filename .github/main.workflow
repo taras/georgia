@@ -5,6 +5,12 @@ workflow "on pushkin" {
 
 action "echoer" {
   uses = "docker://alpine"
-  runs = "hello=dingdong; echo $hello"
+  runs = "hello=dingdong; echo"
   #args = ["Hello", "yah"]
+  args = "$hello"
+}
+
+action "tester" {
+  uses = "./actions/test"
+  needs = "echoer"
 }
