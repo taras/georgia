@@ -12,5 +12,5 @@ action "echoer" {
 
 action "tester" {
   uses = "./actions/test"
-  needs = "echoer"
+  needs = ["echoer"]
 }
