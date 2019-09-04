@@ -2,7 +2,7 @@ The second version of Georgia is to refactor V1 into main.workflow.
 
 # TODO
 - [ ] See how custom actions are integrated into the GUI
-- [ ] Write dockerfiles
+- [x] Write dockerfiles
 - [ ] Environment passing between actions
 - [ ] Secrets
 - [ ] Migrate create-pr.yml from v1
