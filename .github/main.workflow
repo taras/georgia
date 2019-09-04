@@ -3,14 +3,13 @@ workflow "on pushkin" {
   resolves = ["echoer"]
 }
 
-action "echoer" {
-  uses = "docker://alpine"
-  runs = "echo"
-  #args = ["Hello", "yah"]
-  args = "hello"
-}
+# action "echoer" {
+#   uses = "docker://alpine"
+#   runs = "echo"
+#   #args = ["Hello", "yah"]
+#   args = "hello"
+# }
 
-action "tester" {
+action "echoer" {
   uses = "./actions/test"
-  needs = ["echoer"]
 }
