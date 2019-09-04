@@ -1,5 +1,6 @@
 #!/bin/bash
-set -eo pipefall
+set -e
+set -o pipefall
 main() {
    jq --raw-output . "$GITHUB_EVENT_PATH"
 }
