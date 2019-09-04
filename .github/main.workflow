@@ -13,5 +13,5 @@ workflow "on pushkin" {
 action "echoer" {
   # uses = "./actions/test"
   uses = "docker://alpine"
-  runs = "ls"
+  runs = "./.github/actions/test"
 }
