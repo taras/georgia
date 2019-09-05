@@ -17,7 +17,7 @@ action "echo pr created" {
 action "echo pr merged" {
   uses = "docker://alpine"
   runs = "echo"
-  args = ["pr", "merged"]
+  args = ["pr > test.txt"]
 }
 
 action "second action" {
