@@ -2,8 +2,10 @@
 set -e
 
 main() {
-   ls
-   yarn -v
+   # echo hello > dingdong.txt
+   # ls
+   # yarn -v
+   echo node version: $"node -v"
 }
 
 # secondfunction() {

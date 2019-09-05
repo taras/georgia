@@ -2,10 +2,7 @@
 set -e
 
 main() {
-   # echo hello > dingdong.txt
-   # ls
-   # yarn -v
-   echo hello
+   echo args $*
 }
 
 # secondfunction() {

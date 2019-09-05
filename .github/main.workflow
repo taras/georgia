@@ -1,3 +1,5 @@
+#~~~~~~~~~ Workflows ~~~~~~~~~#
+
 workflow "PR Created" {
   on = "pull_request"
   resolves = ["echo pr created"]
@@ -5,24 +7,27 @@ workflow "PR Created" {
 
 workflow "PR Merged" {
   on = "push"
-  resolves = ["second action"]
-}
-
-action "echo pr created" {
-  uses = "docker://alpine"
-  runs = "echo"
-  args = ["pr", "created"]
+  resolves = ["Danger"]
 }
 
 
-action "echo pr merged" {
-  uses = "taras/georgia/.github/actions/test2@release-2.0.0"
+
+#~~~~~~~~~ Actions ~~~~~~~~~#
+
+action "Danger" {
+  uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
+  needs = ["Echos"]
 }
 
-action "second action" {
-  uses = "taras/georgia/.github/actions/test2@release-2.0.0"
+action "Echos" {
+  uses = "taras/georgia/.github/actions/Echos@release-2.0.0"
+  args = ["whawhawha"]
 }
 
+
+
+
+#~~~~~~~~~ Examples ~~~~~~~~~#
 
 # action "echoer" {
 #   uses = "docker://alpine"
