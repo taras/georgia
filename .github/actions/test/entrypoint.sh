@@ -2,7 +2,8 @@
 set -e
 
 main() {
-   echo hellowowowow
+   yeah=hellodingdong
+   echo $yeah
 }
 
 main
