@@ -9,7 +9,7 @@ LABEL "com.github.actions.icon" = "activity"
 LABEL "com.github.actions.color" = "red"
 # this might only apply when published?
 
-RUN echo dingdingdingdingdingdingdingdingdingdingdingding
+RUN ls
 
 COPY entrypoint.sh /entrypoint.sh
 
