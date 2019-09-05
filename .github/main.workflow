@@ -1,24 +1,43 @@
-workflow "on pushkin" {
-  on = "push"
-  resolves = ["second action"]
+workflow "PR Created" {
+  on = "pull_request"
+  resolves = ["echo pr created"]
 }
+
+workflow "PR Merged" {
+  on = "push"
+  resolves = ["echo pr merged", "second action"]
+}
+
+action "echo pr created" {
+  uses = "docker://alpine"
+  runs = "echo"
+  args = ["pr", "created"]
+}
+
+action "echo pr merged" {
+  uses = "docker://alpine"
+  runs = "echo"
+  args = ["pr", "merged"]
+}
+
+action "echo pr merged" {
+  uses = "docker://alpine"
+  runs = "echo"
+  args = ["second one too?"]
+}
+
 
 # action "echoer" {
 #   uses = "docker://alpine"
 #   runs = "echo"
 #   args = "hello"
-# }
+# } # docker instead of action in uses
 
 # action "echoer" {
 #   uses = "./.github/actions/test"
-# }
+# } # local action
 
-
-action "first action" {
-  uses = "./.github/actions/test"
-}
-
-action "second action" {
-  needs = ["first action"]
-  uses = "taras/georgia/.github/actions/test2@release-2.0.0"
-}
+# action "second action" {
+#   needs = ["first action"]
+#   uses = "taras/georgia/.github/actions/test2@release-2.0.0"
+# } # external action
