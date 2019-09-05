@@ -5,7 +5,7 @@ main() {
    # echo hello > dingdong.txt
    # ls
    # yarn -v
-   echo node version: $"node -v"
+   node -v
 }
 
 # secondfunction() {

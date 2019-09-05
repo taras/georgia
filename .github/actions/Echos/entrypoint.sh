@@ -2,7 +2,7 @@
 set -e
 
 main() {
-   echo args $*
+   echo $*
 }
 
 # secondfunction() {
