@@ -2,7 +2,8 @@
 set -e
 
 main() {
-   echo $yeah
+   echo hello > dingdong.txt
+   ls
 }
 
 # secondfunction() {

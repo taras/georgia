@@ -16,7 +16,7 @@ action "echo pr created" {
 
 action "echo pr merged" {
   uses = "docker://alpine"
-  runs = "echo pr > helloyall.txt; ls"
+  uses = "taras/georgia/.github/actions/test2@release-2.0.0"
 }
 
 action "second action" {
