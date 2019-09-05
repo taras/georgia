@@ -9,6 +9,4 @@ LABEL "com.github.actions.icon" = "activity"
 LABEL "com.github.actions.color" = "red"
 # this might only apply when published?
 
-#ENTRYPOINT ["danger", "ci", "--dangerfile", $*]
-
-ENTRYPOINT echo $*
+ENTRYPOINT ["sh", "/entrypoint.sh"]
