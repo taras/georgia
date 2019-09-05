@@ -2,7 +2,7 @@
 
 workflow "PR Created" {
   on = "pull_request"
-  resolves = ["echo pr created"]
+  resolves = ["Echos"]
 }
 
 workflow "PR Merged" {
