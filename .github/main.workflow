@@ -5,7 +5,7 @@ workflow "PR Created" {
 
 workflow "PR Merged" {
   on = "push"
-  resolves = ["echo pr merged", "second action"]
+  resolves = ["second action"]
 }
 
 action "echo pr created" {
@@ -21,6 +21,7 @@ action "echo pr merged" {
 
 action "second action" {
   uses = "docker://alpine"
+  needs = ["echo pr merged"]
   runs = "ls"
 }
 
