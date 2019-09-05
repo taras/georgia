@@ -11,11 +11,11 @@ workflow "on pushkin" {
 
 # action "echoer" {
 #   uses = "./.github/actions/test"
-# } this works
+# }
 
 
 action "first action" {
-  uses = "taras/georgia/.github/actions/test@release-2.0.0"
+  uses = "./.github/actions/test"
 }
 
 action "second action" {
