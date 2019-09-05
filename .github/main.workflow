@@ -10,11 +10,11 @@ workflow "on pushkin" {
 #   args = "hello"
 # }
 
+# action "echoer" {
+#   uses = "./.github/actions/test"
+# } this works
+
+
 action "echoer" {
-  uses = "./.github/actions/test"
-}
-
-
-action "from a repo" {
   uses = "taras/georgia/.github/actions/test@release-2.0.0"
 }
