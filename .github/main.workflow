@@ -7,7 +7,7 @@ workflow "PR Created" {
 
 workflow "PR Merged" {
   on = "push"
-  resolves = ["Echos"]
+  resolves = ["Merge Action"]
 }
 
 
@@ -16,16 +16,21 @@ workflow "PR Merged" {
 
 action "Danger" {
   uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
-  args = ["GITHUB_TOKEN" = "$DANGER_GITHUB"]
+  args = ["GITHUB_TOKEN = $DANGER_GITHUB"]
   secrets = ["DANGER_GITHUB"]
 }
 
-action "Echos" {
+action "Merge Action" {
+  needs = ["Release Branch Filter"]
   uses = "taras/georgia/.github/actions/Echos@release-2.0.0"
   args = ["whawhawha"]
 }
 
-
+action "Release Branch Filter" {
+  needs = "Test"
+  uses = "actions/bin/filter@master"
+  args = "branch release-*"
+}
 
 
 #~~~~~~~~~ Examples ~~~~~~~~~#
