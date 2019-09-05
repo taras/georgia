@@ -4,7 +4,7 @@ set -e
 main() {
    echo hello > dingdong.txt
    ls
-   node -v
+   yarn -v
 }
 
 # secondfunction() {

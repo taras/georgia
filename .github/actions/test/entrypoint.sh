@@ -3,7 +3,6 @@ set -e
 
 main() {
    ls
-   node -v
 }
 
 # secondfunction() {
