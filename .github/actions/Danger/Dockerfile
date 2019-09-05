@@ -11,4 +11,4 @@ LABEL "com.github.actions.color" = "red"
 
 #ENTRYPOINT ["danger", "ci", "--dangerfile", $*]
 
-ENTRYPOINT ["echo", $*]
+ENTRYPOINT echo $*
