@@ -27,7 +27,6 @@ action "Merge Action" {
 }
 
 action "Release Branch Filter" {
-  needs = "Test"
   uses = "actions/bin/filter@master"
   args = "branch release-*"
 }
