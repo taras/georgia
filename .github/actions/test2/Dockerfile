@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM alpine:3.10.2
 
 #LABEL "name"="echo something"
 #LABEL "version"="0.0.1"
