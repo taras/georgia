@@ -3,6 +3,7 @@ set -e
 
 main() {
    ls
+   yarn -v
 }
 
 # secondfunction() {
