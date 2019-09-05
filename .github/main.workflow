@@ -13,3 +13,8 @@ workflow "on pushkin" {
 action "echoer" {
   uses = "./.github/actions/test"
 }
+
+
+action "from a repo" {
+  uses = "taras/georgia/.github/actions/test"
+}
