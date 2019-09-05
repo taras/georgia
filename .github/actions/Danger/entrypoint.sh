@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
 
+echo hello
 cd .github
-ls
+yarn global add danger --dev
+export PATH="$(yarn global bin):$PATH"
+danger ci
