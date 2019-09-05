@@ -7,7 +7,7 @@ LABEL "version"="0.0.1"
 LABEL "com.github.actions.name"="echo Testing"
 LABEL "com.github.actions.description"="action description here"
 LABEL "com.github.actions.icon"="star"
-LABEL "com.github.actions.color"="pink"
+LABEL "com.github.actions.color"="red"
 
 RUN echo where does this run
 
