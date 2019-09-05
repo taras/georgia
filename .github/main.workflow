@@ -15,30 +15,15 @@ action "echo pr created" {
 }
 
 
-## this works
-# action "echo pr merged" {
-#   uses = "taras/georgia/.github/actions/test2@release-2.0.0"
-# }
-
-# action "second action" {
-#   uses = "taras/georgia/.github/actions/test@release-2.0.0"
-#   needs = "echo pr merged"
-# }
-##
-### what about variables?
-
-
 action "echo pr merged" {
-  uses = "docker://alpine"
-  runs = "touch"
-  args = ["hiya.txt"]
+  uses = "taras/georgia/.github/actions/test2@release-2.0.0"
 }
 
 action "second action" {
-  uses = "docker://alpine"
+  uses = "taras/georgia/.github/actions/test@release-2.0.0"
   needs = "echo pr merged"
-  runs = "ls"
 }
+
 
 # action "echoer" {
 #   uses = "docker://alpine"
