@@ -20,7 +20,7 @@ action "echo pr merged" {
   args = ["pr", "merged"]
 }
 
-action "echo pr merged" {
+action "second action" {
   uses = "docker://alpine"
   runs = "echo"
   args = ["second one too?"]
