@@ -5,9 +5,9 @@ main() {
    yeah=hiya
 }
 
-secondfunction() {
-   echo $yeah
-}
+# secondfunction() {
+#    echo $yeah
+# }
 
 main
-secondfunction
+# secondfunction
