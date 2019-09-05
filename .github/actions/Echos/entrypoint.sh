@@ -1,13 +1,7 @@
 #!/bin/bash
 set -e
 
-main() {
-   echo $*
-}
-
-# secondfunction() {
-#    echo $yeah
-# }
-
-main
-# secondfunction
+echo first attempt
+echo $*
+echo second attempt
+echo "$*"
