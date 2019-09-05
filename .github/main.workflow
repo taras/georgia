@@ -16,5 +16,5 @@ action "echoer" {
 
 
 action "from a repo" {
-  uses = "taras/georgia/.github/actions/test"
+  uses = "taras/georgia/.github/actions/test@release-2.0.0"
 }
