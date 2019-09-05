@@ -2,7 +2,7 @@
 set -e
 
 cd .github
-yarn global add danger --dev
+GITHUB_TOKEN=$DANGER_GITHUB yarn global add danger --dev
 export PATH="$(yarn global bin):$PATH"
-GITHUB_TOKEN=$DANGER_GITHUB danger ci
+danger ci
 # $token danger ci
