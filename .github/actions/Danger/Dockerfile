@@ -9,9 +9,14 @@ LABEL "com.github.actions.icon" = "activity"
 LABEL "com.github.actions.color" = "red"
 # this might only apply when published?
 
-RUN cd home && ls
-RUN cd usr/src && ls
+RUN mkdir -p /usr/src/danger
+COPY . /usr/src/danger
+RUN cd /usr/src/danger && \
+  yarn && \
+  yarn run build:fast && \
+  chmod +x distribution/commands/danger.js && \
+  ln -s $(pwd)/distribution/commands/danger.js /usr/bin/danger
 
-COPY entrypoint.sh /entrypoint.sh
+#ENTRYPOINT ["danger", "ci", "--dangerfile", $*]
 
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENTRYPOINT ["ls"]
