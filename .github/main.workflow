@@ -31,7 +31,7 @@ action "echo pr created" {
 action "echo pr merged" {
   uses = "docker://alpine"
   runs = "touch"
-  args = ["dingdong.txt"]
+  args = ["hiya.txt"]
 }
 
 action "second action" {
