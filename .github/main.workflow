@@ -21,9 +21,9 @@ action "echo pr merged" {
 }
 
 action "second action" {
-  uses = "ubuntu-latest"
+  uses = "docker://alpine"
   runs = "echo"
-  args = ["with ubuntu and not docker"]
+  args = ["second one too?"]
 }
 
 
