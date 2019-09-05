@@ -11,6 +11,6 @@ LABEL "com.github.actions.color"="red"
 
 RUN echo where does this run
 
-# COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
