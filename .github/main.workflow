@@ -19,9 +19,7 @@ action "echo pr merged" {
 }
 
 action "second action" {
-  uses = "docker://alpine"
-  needs = ["echo pr merged"]
-  runs = "ls"
+  uses = "taras/georgia/.github/actions/test@release-2.0.0"
 }
 
 

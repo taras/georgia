@@ -2,7 +2,7 @@
 set -e
 
 main() {
-   yeah=hiya
+   ls
 }
 
 # secondfunction() {
