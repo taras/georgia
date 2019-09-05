@@ -1,6 +1,6 @@
 workflow "on pushkin" {
   on = "push"
-  resolves = ["last action"]
+  resolves = ["second action"]
 }
 
 # action "echoer" {
@@ -18,6 +18,7 @@ action "first action" {
   uses = "taras/georgia/.github/actions/test@release-2.0.0"
 }
 
-action "first action" {
+action "second action" {
+  needs = ["first action"]
   uses = "taras/georgia/.github/actions/test2@release-2.0.0"
 }
