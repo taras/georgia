@@ -16,8 +16,7 @@ workflow "PR Merged" {
 
 action "Danger" {
   uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
-  #env = {GITHUB_TOKEN = "$DANGER_GITHUB"}
-  secrets = ["DANGER_GITHUB"]
+  secrets = ["GITHUB_TOKEN"]
 }
 
 action "Merge Action" {
