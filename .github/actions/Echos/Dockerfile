@@ -9,8 +9,6 @@ LABEL "com.github.actions.description"="action description here"
 LABEL "com.github.actions.icon"="star"
 LABEL "com.github.actions.color"="red"
 
-RUN echo where does this run
-
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
