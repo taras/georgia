@@ -5,6 +5,7 @@ LABEL "com.github.actions.description"="Runs JavaScript/TypeScript Dangerfiles"
 LABEL "com.github.actions.icon"="zap"
 LABEL "com.github.actions.color"="blue"
 
+RUN ls
 RUN mkdir -p /usr/src/danger
 COPY . /usr/src/danger
 RUN cd /usr/src/danger && \
@@ -16,4 +17,4 @@ RUN cd /usr/src/danger && \
 # WORKDIR $GITHUB_REPOSITORY/.github
 
 #ENTRYPOINT ["cd .github/;", "danger", "ci"]
-ENTRYPOINT [sh -c "echo", "hello"]
+ENTRYPOINT ["ls"]
