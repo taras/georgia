@@ -2,8 +2,12 @@
 set -e
 
 main() {
-   yeah=hellodingdong
+   yeah=hiya
+}
+
+secondfunction() {
    echo $yeah
 }
 
 main
+secondfunction
