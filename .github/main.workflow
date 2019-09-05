@@ -14,12 +14,10 @@ workflow "on pushkin" {
 # } this works
 
 
-action "last action" {
-  uses = "docker://alpine"
-  needs = "first action"
-  runs = $("echo $yeah")
+action "first action" {
+  uses = "taras/georgia/.github/actions/test@release-2.0.0"
 }
 
 action "first action" {
-  uses = "taras/georgia/.github/actions/test@release-2.0.0"
+  uses = "taras/georgia/.github/actions/test2@release-2.0.0"
 }
