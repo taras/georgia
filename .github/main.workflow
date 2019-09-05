@@ -17,7 +17,7 @@ workflow "on pushkin" {
 action "last action" {
   uses = "docker://alpine"
   needs = "first action"
-  runs = "$(echo $yeah)"
+  runs = $("echo $yeah")
 }
 
 action "first action" {
