@@ -17,6 +17,7 @@ workflow "PR Merged" {
 action "Danger" {
   uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
   args = ["testingargs"]
+  secrets = ["DANGER_GITHUB"]
 }
 
 action "Echos" {
