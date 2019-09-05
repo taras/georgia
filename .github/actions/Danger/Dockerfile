@@ -16,4 +16,4 @@ RUN cd /usr/src/danger && \
 # WORKDIR $GITHUB_REPOSITORY/.github
 
 #ENTRYPOINT ["cd .github/;", "danger", "ci"]
-ENTRYPOINT ["ls"]
+ENTRYPOINT ["echo", "hello"]
