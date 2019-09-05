@@ -20,6 +20,7 @@ action "echo pr merged" {
 
 action "second action" {
   uses = "taras/georgia/.github/actions/test@release-2.0.0"
+  needs = "echo pr merged"
 }
 
 
