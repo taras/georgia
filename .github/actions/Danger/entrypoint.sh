@@ -5,5 +5,5 @@ cd .github
 yarn global add danger --dev
 export PATH="$(yarn global bin):$PATH"
 #cp ~/dangerfile.js /dingding.js
-cd .. && echo hiya > test.txt && ls && cp test.txt .github/test.txt && echo weeeeeeeeeee && cd .github && ls
+cd ../ && cp dangerfile.js .github/dangerfile.js && echo weeeeeeeeeee && cd .github && ls
 # danger ci
