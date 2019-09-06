@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-$yeah=whatwhat
+yeah=whatwhat
