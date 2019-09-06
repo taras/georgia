@@ -6,15 +6,15 @@ on:
     - release-*
 
 jobs:
-  tests:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: yarn
-      run: yarn
-    - name: test
-      run: yarn test
+  # tests:
+  #   name: Run Tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: yarn
+  #     run: yarn
+  #   - name: test
+  #     run: yarn test
     # - name: lint
     #   run: yarn lint
     # - name: coverage
@@ -23,19 +23,19 @@ jobs:
     #     yarn coveralls
         # for microstates
 
-  publish:
-    name: NPM Publish
-    runs-on: ubuntu-latest
-    needs: tests
-    steps:
-    - uses: actions/checkout@master
-    - name: Beta Publish
-      uses: actions/npm@master
-      with:
-        args: version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1 --skip 1`" --no-git-tag-version && npm publish --access=public
-          # this can be refactored to multi-line steps as opposed to args without actions/npm@master but will require `echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc`. see './pr-merge.yml'.
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+  # publish:
+  #   name: NPM Publish
+  #   runs-on: ubuntu-latest
+  #   needs: tests
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: Beta Publish
+  #     uses: actions/npm@master
+  #     with:
+  #       args: version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1 --skip 1`" --no-git-tag-version && npm publish --access=public
+  #         # this can be refactored to multi-line steps as opposed to args without actions/npm@master but will require `echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc`. see './pr-merge.yml'.
+  #     env:
+  #       NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
   # danger-old:
   #   name: Danger JS
@@ -55,8 +55,9 @@ jobs:
   danger:
     name: Danger JS
     runs-on: ubuntu-latest
-    needs: publish
+    #needs: publish
     steps:
+    - uses: actions/checkout@master
     - name: Danger
       #uses: danger/danger-js@master
       uses: taras/georgia/.github/actions/Danger@features"
