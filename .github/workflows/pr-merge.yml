@@ -30,6 +30,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: whatever
+      uses: taras/georgia/.github/actions/Echos2@release-1.0.0
+    - name: whatever2
+      needs: whatever
       uses: taras/georgia/.github/actions/Echos@release-1.0.0
     # - name: Commit & Publish
     #   run: |
