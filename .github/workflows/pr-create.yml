@@ -59,5 +59,6 @@ jobs:
     steps:
     - name: Danger
       uses: danger/danger-js@master
+      args: --dangerfile ./.github/
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
