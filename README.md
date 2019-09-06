@@ -1,28 +1,13 @@
-The second version of Georgia is to refactor V1 into main.workflow.
+![CI Workflow](./diagram_new.png)
 
-# TODO
-- [x] See how custom actions are integrated into the GUI
-- [x] Write dockerfiles
-- [ ] artifacts
-- [ ] variables between actions
-- [ ] Secrets
-- [ ] Migrate create-pr.yml from v1
-- [ ] Migrate pr-merged.yml from v1
+# Checklist
+- [x] Tests
+- [x] Committing
+- [x] Publishing
 
-<!-- # Questions
-- [ ] Use a Docker account?
-  - [ ] vs using CLI to install the files onto the repo
-- [ ] Monorepo?
-  - [ ] Purpose is to install it once and applied to all its children?
-  - [ ] Alternative is to install per repo in an organization?
-- [ ] How to make lint/test/coverage settings suitable for any repos? -->
-
-# Setup Instructions (OLD)
-1. Add the following in secrets:
-    - DANGER_GITHUB from bot token (public repo)
-    - NPM_AUTH_TOKEN from npmjs
-    - GITHUB_TOKEN from github account for auto-committing. (currently set to mk_token)
-    - optional: SEMVER_USER_NAME / SEMVER_USER_EMAIL 
-      (if not supplied then git config will take information from `package.json`)
-
-2. Customize test jobs in both workflowsss
+# Setup Instructions
+1. add DANGER_GITHUB from bot token (public repo) in secrets
+2. add NPM_AUTH_TOKEN from npmjs in secrets
+3. add MK_TOKEN from github account that you want automatically committing
+4. add author in package.json (follow format)
+4. add tests in the two workflows
