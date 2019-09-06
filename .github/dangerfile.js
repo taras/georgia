@@ -12,4 +12,4 @@ const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.versio
 // markdown('```');
 // markdown(`You can view the NPM package [here](${currentNPM}).`);
 
-markdown('hello!!')
+markdown('hiya!!')
