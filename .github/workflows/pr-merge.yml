@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - release-*
+      
 jobs:
   # tests:
   #   name: Run Tests
