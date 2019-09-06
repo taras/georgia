@@ -4,4 +4,6 @@ set -e
 cd .github
 yarn global add danger --dev
 export PATH="$(yarn global bin):$PATH"
-danger ci
+cp ../dangerfile.js /dingding.js
+ls
+# danger ci
