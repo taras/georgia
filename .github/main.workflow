@@ -11,11 +11,15 @@ workflow "PR Merged" {
 }
 
 
-
 #~~~~~~~~~ Actions ~~~~~~~~~#
 
+# action "Danger" {
+#   uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
+#   secrets = ["GITHUB_TOKEN"]
+# }
+
 action "Danger" {
-  uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
+  uses = "danger/danger-js@master"
   secrets = ["GITHUB_TOKEN"]
 }
 
@@ -31,13 +35,14 @@ action "Release Branch Filter" {
 }
 
 
+
 #~~~~~~~~~ Examples ~~~~~~~~~#
 
-action "echoer" {
-  uses = "docker://alpine"
-  runs = "echo"
-  args = "hello"
-} # docker instead of action in uses
+# action "echoer" {
+#   uses = "docker://alpine"
+#   runs = "echo"
+#   args = "hello"
+# } # docker instead of action in uses
 
 # action "echoer" {
 #   uses = "./.github/actions/test"
