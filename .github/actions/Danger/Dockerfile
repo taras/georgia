@@ -13,4 +13,4 @@ RUN cd /usr/src/danger && \
   chmod +x distribution/commands/danger.js && \
   ln -s $(pwd)/distribution/commands/danger.js /usr/bin/danger
 
-ENTRYPOINT ["danger", "ci", "$*"]
+ENTRYPOINT ["danger", "ci", $TEST]
