@@ -13,13 +13,12 @@ workflow "PR Merged" {
 
 #~~~~~~~~~ Actions ~~~~~~~~~#
 
-action "Dangerzz" {
-  uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
-  secrets = ["GITHUB_TOKEN"]
-}
+# action "Our-Danger" {
+#   uses = "taras/georgia/.github/actions/Danger@release-2.0.0"
+#   secrets = ["GITHUB_TOKEN"]
+# }
 
 action "Danger" {
-  needs = ["Dangerzz"]
   uses = "danger/danger-js@master"
   secrets = ["GITHUB_TOKEN"]
 }

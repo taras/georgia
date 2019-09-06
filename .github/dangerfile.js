@@ -6,10 +6,8 @@ const shorted = danger.github.commits[latest].sha.slice(0, 7);
 
 const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}-${shorted}`
 
-// markdown(`This PR is available to use:`);
-// markdown('```bash');
-// markdown(`npm install ${pjson.name}@${pjson.version}-${shorted}`);
-// markdown('```');
-// markdown(`You can view the NPM package [here](${currentNPM}).`);
-
-markdown('hiya!!')
+markdown(`This PR is available to use:`);
+markdown('```bash');
+markdown(`npm install ${pjson.name}@${pjson.version}-${shorted}`);
+markdown('```');
+markdown(`You can view the NPM package [here](${currentNPM}).`);
