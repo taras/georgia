@@ -43,7 +43,8 @@ jobs:
   danger: 
     name: Danger JS
     runs-on: ubuntu-latest
-    needs: publish
+    # needs: publish
+    needs: tests
     steps:
     - uses: actions/checkout@master
   #   - name: Danger
