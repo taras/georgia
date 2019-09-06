@@ -53,11 +53,11 @@ on:
   #       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # github action bot
 
   danger:
-    name: DANGERJS
+    name: Danger JS
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: danger
+    - name: Danger
       uses: taras/georgia/.github/actions/Danger@features
       env:
         GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }}
