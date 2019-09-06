@@ -13,4 +13,6 @@ RUN cd /usr/src/danger && \
   chmod +x distribution/commands/danger.js && \
   ln -s $(pwd)/distribution/commands/danger.js /usr/bin/danger
 
+WORKDIR $GITHUB_REPO
+
 ENTRYPOINT danger ci $TEST
