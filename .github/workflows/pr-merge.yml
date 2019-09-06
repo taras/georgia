@@ -76,7 +76,7 @@ jobs:
           fi
         fi
       env:
-        GITHUB_TOKEN: ${{ secrets.MK_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         SEMVER_USER_NAME: ${{ secrets.SEMVER_USER_NAME }}
         SEMVER_USER_EMAIL: ${{ secrets.SEMVER_USER_EMAIL }}
