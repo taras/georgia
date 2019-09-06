@@ -25,4 +25,4 @@ The second version of Georgia is to refactor V1 into main.workflow.
     - optional: SEMVER_USER_NAME / SEMVER_USER_EMAIL 
       (if not supplied then git config will take information from `package.json`)
 
-2. Customize test jobs in both workflowss
+2. Customize test jobs in both workflowsss
