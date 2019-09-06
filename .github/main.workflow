@@ -33,11 +33,11 @@ action "Release Branch Filter" {
 
 #~~~~~~~~~ Examples ~~~~~~~~~#
 
-# action "echoer" {
-#   uses = "docker://alpine"
-#   runs = "echo"
-#   args = "hello"
-# } # docker instead of action in uses
+action "echoer" {
+  uses = "docker://alpine"
+  runs = "echo"
+  args = "hello"
+} # docker instead of action in uses
 
 # action "echoer" {
 #   uses = "./.github/actions/test"
