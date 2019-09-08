@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:git
 
 LABEL "name"="echo something"
 #LABEL "maintainer"="Max Neuvians <max.neuvians@cds-snc.ca>"
