@@ -36,6 +36,8 @@ jobs:
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
+        # no input required. stay as is.
+
 
   ## ~~~~~~~~~~~~~~ local
   danger: 
@@ -53,6 +55,8 @@ jobs:
       env: 
         GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }} # our own bot
   #       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # github action bot
+
+  ## conclusion: instruct people to put the dangerfile in the github folder. tried making it dynamic. don't work.
 
 
   ## ~~~~~~~~~~~~~~ from repo
