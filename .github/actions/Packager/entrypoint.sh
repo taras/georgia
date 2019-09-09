@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-npm -v
+echo "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1 --skip 1`"
