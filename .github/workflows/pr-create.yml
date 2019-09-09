@@ -28,16 +28,14 @@ jobs:
     #needs: tests
     steps:
     - uses: actions/checkout@master
-    # - uses: frontside/create-commit-package
-      # - name: Publish
-      #   #uses: actions/npm@master
-      #   uses: frontside/beta-publish
-      #   with:
-          # args: version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1 --skip 1`" --no-git-tag-version && 
-    # - uses: actions/npm
-    #   args: [publish --access=public]
-    - name: Git Tester
+    - name: Commit Version
       uses: taras/georgia/.github/actions/Packager@features
+    - name: Publish Commit
+      uses: actions/npm@master
+      with:
+        args: publish --access=public
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 
   ## ~~~~~~~~~~~~~~ local
