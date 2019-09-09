@@ -6,15 +6,15 @@ on:
     - release-*
 
 jobs:
-  tests:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: yarn
-      run: yarn
-    - name: test
-      run: yarn test
+  # tests:
+  #   name: Run Tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: yarn
+  #     run: yarn
+  #   - name: test
+  #     run: yarn test
     # - name: lint
     #   run: yarn lint
     # - name: coverage
@@ -23,36 +23,38 @@ jobs:
     #     yarn coveralls
 
   publish:
-    name: NPM Publish
+    name: publish commit package
     runs-on: ubuntu-latest
-    needs: tests
+    #needs: tests
     steps:
     - uses: actions/checkout@master
-    - name: Beta Publish
-      uses: actions/npm@master
-      with:
-        args: version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1 --skip 1`" --no-git-tag-version && npm publish --access=public
-          # this can be refactored to multi-line steps as opposed to args without actions/npm@master but will require `echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc`. see './pr-merge.yml'.
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
+    # - uses: frontside/create-commit-package
+      # - name: Publish
+      #   #uses: actions/npm@master
+      #   uses: frontside/beta-publish
+      #   with:
+          # args: version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1 --skip 1`" --no-git-tag-version && 
+    # - uses: actions/npm
+    #   args: [publish --access=public]
+    - name: Git Tester
+      uses: taras/georgia/.github/actions/Pakcager@features
 
 
   ## ~~~~~~~~~~~~~~ local
-  danger: 
-    name: Danger JS
-    runs-on: ubuntu-latest
-    needs: publish
-    steps:
-    - uses: actions/checkout@master
-    - name: Danger
-      run: |
-        cd .github
-        yarn global add danger --dev
-        export PATH="$(yarn global bin):$PATH"
-        danger ci
-      env: 
-        GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }} # our own bot
+  # danger: 
+  #   name: Danger JS
+  #   runs-on: ubuntu-latest
+  #   needs: publish
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: Danger
+  #     run: |
+  #       cd .github
+  #       yarn global add danger --dev
+  #       export PATH="$(yarn global bin):$PATH"
+  #       danger ci
+  #     env: 
+  #       GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }} # our own bot
   #       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # github action bot
 
   ## conclusion: instruct people to put the dangerfile in the github folder. tried making it dynamic. don't work.
