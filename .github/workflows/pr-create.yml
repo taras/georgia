@@ -37,7 +37,7 @@ jobs:
     # - uses: actions/npm
     #   args: [publish --access=public]
     - name: Git Tester
-      uses: taras/georgia/.github/actions/Pakcager@features
+      uses: taras/georgia/.github/actions/Packager@features
 
 
   ## ~~~~~~~~~~~~~~ local
