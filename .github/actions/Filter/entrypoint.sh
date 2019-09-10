@@ -9,7 +9,8 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
   exit 1
 else
 #  if [[ $($INPUT_PARAMETER) == *$($INPUT_ARGUMENT)* ]]; then
-  if [[ "hello" == *"short hello long"* ]]; then
-    echo "It's there!"
+  if [[ "hello" == *"hello"* ]]; then
+    echo "It's there!"; else
+    echo no
   fi
 fi
