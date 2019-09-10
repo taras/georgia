@@ -7,10 +7,10 @@ if [[ "${#INPUT_FILTER}" -eq "0" ]]
     echo Error: Please include an argument.
     exit 1
 else
-  if [[ $(echo $($INPUT_FILTER)) ]]
+  if [[ $(echo $INPUT_TEST) ]]
     then
       echo Filter triggered and halting the rest of the workflow.
-      echo $(INPUT_FILTER)
+      echo $(INPUT_TEST)
       exit 1
     else
       echo Filter not triggered. Resuming workflow.
