@@ -9,9 +9,5 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
   exit 1
 else
 #  if [[ $($INPUT_PARAMETER) == *$($INPUT_ARGUMENT)* ]]; then
-  if 1;
-    echo yes
-    exit 1; else
-    echo $GITHUB_EVENT_PATH
-  fi
+  echo $GITHUB_EVENT_PATH
 fi
