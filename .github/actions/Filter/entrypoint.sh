@@ -13,7 +13,7 @@ else
   
   # if [[ $(echo $((git log -1 --pretty=%B) | grep "hello")) ]]
   ## doesn't work
-  compute=$("$INPUT_ARGUMENT")
+  compute=$($INPUT_ARGUMENT)
   echo $compute
   exit 1
   # if [[ $(echo "$($INPUT_ARGUMENT)" | grep $INPUT_FILTER) ]]
