@@ -2,7 +2,7 @@
 set -e
 
 echo MY ERROR MESSAGE
-exit 1
+exit
 
 echo "$INPUT_PARAMETER"
 echo "$INPUT_ARGUMENT"
