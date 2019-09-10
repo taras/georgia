@@ -10,6 +10,6 @@ then
   echo Error: Please include a \`parameter:\` under \`with:\`.
   exit 1
 else
-  echo $INPUT_PARAMETER
+  echo $($INPUT_PARAMETER)
 #  if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
 fi
