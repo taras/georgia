@@ -12,4 +12,7 @@ then
 else
   echo parameter: "$INPUT_PARAMETER"
   echo argument: "$INPUT_ARGUMENT"
+  for argument in "$INPUT_ARGUMENT"; do
+    echo $argument
+  done
 fi
