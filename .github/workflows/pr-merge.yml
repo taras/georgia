@@ -63,9 +63,9 @@ jobs:
           else 
             if [[ "$labels" =~ "minor" ]]
             then
-              npm version minor # --no-git-tag-version 
+              npm version minor --no-git-tag-version 
             else
-              npm version patch # --no-git-tag-version
+              npm version patch --no-git-tag-version
             fi
             git add package.json
             current="`node -e \"console.log(require('./package.json').version)\"`"
