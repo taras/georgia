@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 set -e
 
 if [[ "${#INPUT_PARAMETER}" -eq "0" ]]; then
