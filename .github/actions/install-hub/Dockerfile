@@ -9,7 +9,7 @@ LABEL "com.github.actions.icon" = "activity"
 LABEL "com.github.actions.color" = "red"
 # this might only apply when published?
 
-RUN apk add --no-cache git bash git-subtree && apt-get -y install sudo
+RUN apk add --no-cache git bash git-subtree && install sudo
 
 COPY entrypoint.sh /entrypoint.sh
 
