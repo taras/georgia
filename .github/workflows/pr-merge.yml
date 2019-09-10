@@ -30,7 +30,7 @@ jobs:
     - name: filter1
       uses: actions/bin/filter@master
       with:
-        args: issue_comment "[ci skip]"
+        args: issue_comment hello hiya
 
         
   publish:
