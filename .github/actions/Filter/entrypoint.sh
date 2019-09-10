@@ -7,10 +7,10 @@ if [[ "${#INPUT_FILTER}" -eq "0" ]]
     echo Error: Please include an argument.
     exit 1
 else
-  if [[ $(echo $INPUT_TEST) ]]
+  if [[ $(git log -1 --pretty=%B | grep "hello") ]]
     then
       echo Filter triggered and halting the rest of the workflow.
-      echo "$INPUT_TEST"
+      echo $(git log -1 --pretty=%B)
       exit 1
     else
       echo Filter not triggered. Resuming workflow.
