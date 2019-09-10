@@ -50,7 +50,7 @@ jobs:
   #   - run: echo $GITHUB_EVENT_PATH
   #   - name: Commit & Publish
   #     run: |
-         if [[ "$(git log -1 --pretty=%B)" =~ "action-skip" ]]
+        #  if [[ "$(git log -1 --pretty=%B)" =~ "action-skip" ]]
   #       then 
   #         echo Skipping because this commit is automated
   #       else
