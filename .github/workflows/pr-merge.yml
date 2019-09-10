@@ -29,15 +29,6 @@ jobs:
     # needs: tests
     steps:
     - uses: actions/checkout@v1
-
-    # doesn't work
-    - name: whatever
-      uses: taras/georgia/.github/actions/Echos2@release-1.0.0
-    - name: whatever2
-      uses: taras/georgia/.github/actions/Echos@release-1.0.0
-
-      uses: frontside/publish
-
     - name: Commit & Publish
       run: |
         if [[ "$(git log -1 --pretty=%B)" =~ "[ci skip]" ]]
