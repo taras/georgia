@@ -9,7 +9,8 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
   exit 1
 else
 #  if [[ $($INPUT_PARAMETER) == *$($INPUT_ARGUMENT)* ]]; then
-  if [[ "hello" =~ "hello" ]]; then
+  #if [[ "hello" =~ "hello" ]]; then
+  if echo "hello" | grep -Eq "a hello s"; then
     echo true; else
     echo false && exit 1;
   fi
