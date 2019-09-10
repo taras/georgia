@@ -9,8 +9,8 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
   exit 1
 else
 #  if [[ $($INPUT_PARAMETER) == *$($INPUT_ARGUMENT)* ]]; then
-  if [[ "hello" == "hello" ]]; then
-    echo true; else
-    echo false && exit 1;
+  string='My long string'
+  if [[ $string == *"My long"* ]]; then
+    echo "It's there!"
   fi
 fi
