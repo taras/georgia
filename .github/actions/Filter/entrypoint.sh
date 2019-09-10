@@ -10,11 +10,11 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
   exit 1
 else
   #if [[ $(echo "hello world" | grep "$INPUT_ARGUMENT") ]]
-  if [[ $($INPUT_TEST) ]]
+  if [[ $(echo $INPUT_TEST) ]]
     then
       echo "It's there!"
     else
       echo "no"
   fi
 fi
-##
+##/entrypoint.sh: line 13: git log -1 --pretty=%B | grep "hello": not found
