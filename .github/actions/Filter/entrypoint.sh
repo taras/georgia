@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-set -e
+set -euo pipefall
+IFS=$'\n\t'
 
 if [[ "${#INPUT_PARAMETER}" -eq "0" ]]; then
   echo Error: Please include a \`parameter:\` under \`with:\`.
@@ -20,5 +21,6 @@ else
 #expr match
 # a == *a*
 # a == a
+# =~
 
 fi
