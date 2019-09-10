@@ -23,7 +23,7 @@ jobs:
     #     yarn coveralls
 
   publish:
-    name: publish commit package
+    name: Publish Commit Package
     runs-on: ubuntu-latest
     needs: tests
     steps:
