@@ -56,7 +56,7 @@ jobs:
   #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # github action bot
 
 
-  ## ~~~~~~~~~~~~~~ from repo
+  ## ~~~~~~~~~~~~~~ from repo.
   # danger:
   #   name: Danger JS
   #   needs: publish
