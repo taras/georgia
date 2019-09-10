@@ -33,6 +33,7 @@ jobs:
       with:
         parameter: git log -1 --pretty=%B
         argument: hello
+        test: git log -1 --pretty=%B | grep "hello"
     
   echo:
     name: echo
