@@ -9,7 +9,6 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
   echo Error: Please include a \`parameter:\` under \`with:\`.
   exit 1
 else
-#  if [[ $($INPUT_PARAMETER) =~ $($INPUT_ARGUMENT) ]]; then
   if [[ echo "hello world" | grep "world" ]]; then
     echo "It's there!"; else
     echo no
