@@ -10,6 +10,7 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
 else
 #  if [[ $($INPUT_PARAMETER) == *$($INPUT_ARGUMENT)* ]]; then
   if [[ "hello" == *"hihello"* ]]; then
-    echo true
+    echo true; else
+    echo false && exit 1;
   fi
 fi
