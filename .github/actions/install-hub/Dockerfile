@@ -10,6 +10,14 @@ LABEL "com.github.actions.color" = "red"
 # this might only apply when published?
 
 RUN apk add --no-cache git bash git-subtree
+RUN apt-get update
+RUN apt-get install sudo
+
+RUN adduser --disabled-password --gecos '' docker
+RUN adduser docker sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+USER docker
 
 COPY entrypoint.sh /entrypoint.sh
 
