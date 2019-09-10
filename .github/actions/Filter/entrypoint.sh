@@ -9,5 +9,7 @@ elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
   exit 1
 else
 #  if [[ $($INPUT_PARAMETER) == *$($INPUT_ARGUMENT)* ]]; then
-  echo $GITHUB_EVENT_PATH
+  if [[ "hello" == *"hihello"* ]]; then
+    echo true
+  fi
 fi
