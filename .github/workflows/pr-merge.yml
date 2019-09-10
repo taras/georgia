@@ -23,20 +23,21 @@ jobs:
          # yarn coveralls
             # returning an error currentlys
 
-  # filtering:
-  #   name: Our Own Filtering
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@master
-  #   - name: letsdothis
-  #     uses: taras/georgia/.github/actions/Filter@release-1.0.0
-  #     with:
-  #       parameter: hello yahg
-  #       argument: dingdong
+  filtering:
+    name: Our Own Filtering
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: letsdothis
+      uses: taras/georgia/.github/actions/Filter@release-1.0.0
+      with:
+        parameter: hello yahg
+        argument: dingdong
     
   echo:
     name: echo
     runs-on: ubuntu-latest
+    needs: filtering
     steps:
     - run: echo hi
 
