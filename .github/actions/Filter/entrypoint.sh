@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [[ "${#INPUT_PARAMETER}" -ne "0" ]]
+if [[ "${#INPUT_PARAMETER}" -eq "0" ]]
 then
   echo Error: Please include a \`parameter:\` under \`with:\`.
   exit 1
@@ -10,6 +10,6 @@ then
   echo Error: Please include a \`parameter:\` under \`with:\`.
   exit 1
 else
-  echo "$INPUT_PARAMETER"
-  echo "$INPUT_ARGUMENT"
+  echo parameter: "$INPUT_PARAMETER"
+  echo argument: "$INPUT_ARGUMENT"
 fi
