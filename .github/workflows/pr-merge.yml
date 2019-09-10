@@ -21,7 +21,7 @@ jobs:
     #   run: |
     #     yarn coverage
          # yarn coveralls
-            # returning an error currently
+            # returning an error currentlys
   filtering:
     name: myfilter
     runs-on: ubuntu-latest
