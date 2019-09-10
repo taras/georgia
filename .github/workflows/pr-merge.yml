@@ -31,9 +31,9 @@ jobs:
     - name: letsdothis
       uses: taras/georgia/.github/actions/Filter@release-1.0.0
       with:
-        works: git log -1 --pretty=%B | grep "hello"
-        argument: git log -1 --pretty=%B
-        filter: hello
+        #does_not_work: git log -1 --pretty=%B | grep "hello"
+        #argument: git log -1 --pretty=%B
+        filter: [action-skip]
     
   echo:
     name: echo
