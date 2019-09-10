@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefall
+set -euo pipefail
 IFS=$'\n\t'
 
 if [[ "${#INPUT_PARAMETER}" -eq "0" ]]; then
