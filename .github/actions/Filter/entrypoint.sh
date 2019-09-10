@@ -17,7 +17,7 @@ else
   if [[ $(echo ${INPUT_ARGUMENT} | grep ${INPUT_FILTER})]]
     then
       echo Filter triggered and halting the rest of the workflow.
-      echo $(git log -1 --pretty=%B)
+      echo ${INPUT_ARGUMENT}
       exit 1
     else
       echo Filter not triggered. Resuming workflow.
