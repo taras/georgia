@@ -2,19 +2,16 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if [[ "${#INPUT_PARAMETER}" -eq "0" ]]; then
-  echo Error: Please include a \`parameter:\` under \`with:\`.
-  exit 1
-elif [[ "${#INPUT_ARGUMENT}" -eq "0" ]]; then
-  echo Error: Please include a \`parameter:\` under \`with:\`.
-  exit 1
+if [[ "${#INPUT_FILTER}" -eq "0" ]]
+  then
+    echo Error: Please include an argument.
+    exit 1
 else
-  #if [[ $(echo "hello world" | grep "$INPUT_ARGUMENT") ]]
-  if [[ $(echo $INPUT_TEST) ]]
+  if [[ $(echo $INPUT_FILTER) ]]
     then
-      echo "It's there!"
+      echo Filter triggered and halting the rest of the workflow.
+      exit 1
     else
-      echo "no"
+      echo Filter not triggered. Resuming workflow.
   fi
 fi
-##/entrypoint.sh: line 13: git log -1 --pretty=%B | grep "hello": not found
