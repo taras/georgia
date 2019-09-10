@@ -8,7 +8,7 @@ if [[ "${#INPUT_FILTER}" -eq "0" ]]
     exit 1
 else
   
-  if [[ $(echo $(git log -1 --pretty=%B) | grep "hello") ]]
+  if [[ $(echo "$(git log -1 --pretty=%B)" | grep "hello") ]]
   ## above works
   
   # if [[ $(echo $((git log -1 --pretty=%B) | grep "hello")) ]]
