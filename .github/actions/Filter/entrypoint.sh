@@ -10,7 +10,7 @@ else
   if [[ $(echo $INPUT_TEST) ]]
     then
       echo Filter triggered and halting the rest of the workflow.
-      echo $INPUT_TEST
+      echo $($INPUT_TEST)
       exit 1
     else
       echo Filter not triggered. Resuming workflow.
