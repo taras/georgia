@@ -27,5 +27,3 @@ else
       echo Filter not triggered. Resuming workflow.
   fi
 fi
-
-##
