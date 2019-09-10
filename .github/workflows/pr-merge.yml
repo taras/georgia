@@ -25,6 +25,7 @@ jobs:
 
     filtering:
       name: Our Own Filtering
+      runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@master
       - name: letsdothis
