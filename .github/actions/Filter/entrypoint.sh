@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
 
-echo $PARAMETER
-echo $ARGUMENT
+echo $INPUT_PARAMETER
+echo $INPUT_ARGUMENT
