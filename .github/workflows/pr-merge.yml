@@ -31,8 +31,8 @@ jobs:
     - name: letsdothis
       uses: taras/georgia/.github/actions/Filter@release-1.0.0
       with:
-        parameter: hello yahg
-        argument: "$[ding, dong, boop]"
+        parameter: git log -1 --pretty=%B
+        argument: action-skip
     
   echo:
     name: echo
