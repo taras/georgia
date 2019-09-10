@@ -14,7 +14,7 @@ else
   # if [[ $(echo $((git log -1 --pretty=%B) | grep "hello")) ]]
   ## doesn't work
 
-  if [[ $(echo $($INPUT_ARGUMENT) | grep $INPUT_FILTER) ]]
+  if [[ $(echo $("$INPUT_ARGUMENT") | grep $INPUT_FILTER) ]]
     then
       echo Filter triggered and halting the rest of the workflow.
       echo $($INPUT_ARGUMENT)
