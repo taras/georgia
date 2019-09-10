@@ -19,7 +19,7 @@ else
   
     then
       echo Filter triggered and halting the rest of the workflow.
-      echo $($INPUT_ARGUMENT)
+      #echo $($INPUT_ARGUMENT)
       exit 1
     else
       echo Filter not triggered. Resuming workflow.
