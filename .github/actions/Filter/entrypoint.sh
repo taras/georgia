@@ -9,9 +9,9 @@ if [[ "${#INPUT_FILTER}" -eq "0" ]]
 else
   if [[ $(echo $INPUT_FILTER) ]]
     then
+      echo Filter not triggered. Resuming workflow.
+    else
       echo Filter triggered and halting the rest of the workflow.
       exit 1
-    else
-      echo Filter not triggered. Resuming workflow.
   fi
 fi
