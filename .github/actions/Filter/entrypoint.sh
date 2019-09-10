@@ -6,10 +6,12 @@ if [[ "${#INPUT_FILTER}" -eq "0" ]]
   then
     echo Error: Please include a filter.
     exit 1
-else
-  
-  if [[ $(echo "$(git log -1 --pretty=%B)" | grep "hello") ]]
+else  
+  # if [[ $(echo "$(git log -1 --pretty=%B)" | grep "hello") ]]
   ## above works
+
+  if [[ $(echo "$(git log -1 --pretty=%B)" | grep "$INPUT_FILTER") ]]
+  ## testing
   
   # if [[ $(echo $((git log -1 --pretty=%B) | grep "hello")) ]]
   ## doesn't work

@@ -33,7 +33,7 @@ jobs:
       with:
         #does_not_work: git log -1 --pretty=%B | grep "hello"
         #argument: git log -1 --pretty=%B
-        filter: "[action-skip]"
+        filter: hellos
     
   echo:
     name: echo
