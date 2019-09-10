@@ -32,7 +32,7 @@ jobs:
       uses: taras/georgia/.github/actions/Filter@release-1.0.0
       with:
         parameter: hello yahg
-        argument: [ding, dong, boop]
+        argument: "$[ding, dong, boop]"
     
   echo:
     name: echo
