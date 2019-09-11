@@ -13,7 +13,7 @@ LABEL "com.github.actions.color" = "red"
 # RUN apk update && apk add --no-cache git bash git-subtree
 RUN apt-get update
 RUN apt-get install wget sudo -y
-RUN apt-get install git git-subtree
+RUN apt-get install git
 # RUN apt-get install sudo
 
 # RUN adduser --disabled-password --gecos '' docker
