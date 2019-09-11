@@ -42,10 +42,10 @@ jobs:
     #     GITHUB_TOKEN: ${{ secrets.MK_TOKEN }} 
     #     SEMVER_USER_NAME: ${{ secrets.SEMVER_USER_NAME }}
     #     SEMVER_USER_EMAIL: ${{ secrets.SEMVER_USER_EMAIL }}
-    - name: Commit & Publish
-      run: |
-        labels=$(hub pr list -s merged -L 1 -f %L)
-        echo $labels
+    # - name: Commit & Publish
+    #   run: |
+    #     labels=$(hub pr list -s merged -L 1 -f %L)
+    #     echo $labels
         # use labels to decide how to increment and publish
         # if [[ "$labels" =~ "major" ]]
         # then
@@ -65,6 +65,6 @@ jobs:
         #   npm publish --access=public
         #   #tagging
         # fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.MK_TOKEN }} 
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.MK_TOKEN }} 
+      #   NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

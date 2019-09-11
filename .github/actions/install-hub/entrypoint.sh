@@ -6,5 +6,7 @@ tar -zxvf hub-linux-amd64-2.12.3.tgz
 cd hub-linux-amd64-2.12.3
 sudo ./install
 
+
 # for the purpose of:
-# labels=$(hub pr list -s merged -L 1 -f %L)
+labels=$(hub pr list -s merged -L 1 -f %L)
+echo $labels
