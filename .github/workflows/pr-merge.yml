@@ -30,10 +30,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     # filter action
-    - name: Filter by Commit Message
-      uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
-      with:
-        filter: skip-actions
+    # - name: Filter by Commit Message
+    #   uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
+    #   with:
+    #     filter: skip-actions
     - name: javascripter
       uses: taras/georgia/.github/actions/javascript-action@release-1.0.0
       with:
