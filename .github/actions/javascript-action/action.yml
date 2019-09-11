@@ -1,0 +1,8 @@
+name: 'Code Climate Action'
+inputs:
+  name:
+    description: 'Coverage command to execute'
+    default: 'hoo'
+runs:
+  using: 'node12'
+  main: '/main.js'
