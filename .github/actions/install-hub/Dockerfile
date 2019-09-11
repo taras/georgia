@@ -15,11 +15,11 @@ RUN apt-get update
 RUN apt-get install wget sudo git -y
 # RUN apt-get install sudo
 
-# RUN adduser --disabled-password --gecos '' docker
-# RUN adduser docker sudo
-# RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN adduser --disabled-password --gecos '' docker
+RUN adduser docker sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-# USER docker
+USER docker
 
 COPY entrypoint.sh /entrypoint.sh
 
