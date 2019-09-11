@@ -1,5 +1,6 @@
 #FROM node:12
-FROM debian:stable-slim
+#FROM debian:stable-slim
+FROM alpine:latest
 
 #LABEL "name"="echo something"
 #LABEL "version"="0.0.1"
@@ -13,7 +14,6 @@ LABEL "com.github.actions.color" = "red"
 # RUN apk update && apk add --no-cache git bash git-subtree
 RUN apt-get update
 RUN apt-get install wget sudo -y
-RUN apt-get add --no-cache git bash git-subtree
 # RUN apt-get install sudo
 
 # RUN adduser --disabled-password --gecos '' docker
