@@ -42,9 +42,7 @@ jobs:
       uses: minkimcello/js-action@master
       with:
         name: hiya
-    - run: echo ${WHATEVER} yeah
-      env: 
-        WHATEVER: ${{ NAMEY }}
+    - run: echo ${NAMEY_TEST} yeah
     # - name: Install Hub
     #   uses: taras/georgia/.github/actions/install-hub@release-1.0.0
     # - name: Git Remote Setup
