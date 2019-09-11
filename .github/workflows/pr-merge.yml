@@ -35,11 +35,9 @@ jobs:
       with:
         filter: skip-actions
     - name: javascripter
-      inputs:
-        name: "wa"
-      runs:
-        using: 'node12'
-        main: taras/georgia/.github/actions/javascript-actions/main.js
+      uses: aras/georgia/.github/actions/javascript-actions/main.js
+      with:
+        name: hiya
     # - name: Install Hub
     #   uses: taras/georgia/.github/actions/install-hub@release-1.0.0
     # - name: Git Remote Setup
