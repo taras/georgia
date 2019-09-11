@@ -42,8 +42,7 @@ jobs:
       uses: minkimcello/js-action@master
       with:
         name: hiya
-        env: 
-          GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
     - run: echo ${NAMER}
     # - name: Install Hub
     #   uses: taras/georgia/.github/actions/install-hub@release-1.0.0
