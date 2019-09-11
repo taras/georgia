@@ -10,8 +10,5 @@
   },
   "devDependencies": {
     "mocha": "^6.2.0"
-  },
-  "dependencies": {
-    "@actions/core": "^1.1.0"
   }
 }
