@@ -34,8 +34,8 @@ jobs:
     #   uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
     #   with:
     #     filter: skip-actions
+    - run: npm install
     - name: javascripter
-      run: npm install
       uses: taras/georgia/.github/actions/javascript-action@release-1.0.0
       with:
         name: hiya
