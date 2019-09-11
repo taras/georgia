@@ -35,7 +35,7 @@ jobs:
       with:
         filter: skip-actions
     - name: javascripter
-      uses: aras/georgia/.github/actions/javascript-actions/main.js
+      uses: aras/georgia/.github/actions/javascript-actions@release-1.0.0
       with:
         name: hiya
     # - name: Install Hub
