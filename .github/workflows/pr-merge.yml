@@ -43,6 +43,8 @@ jobs:
       with:
         name: hiya
     - run: echo ${NAMEY_TEST} yeah
+      env:
+        NAMEY_TEST: ${NAMEY_TEST}
     # - name: Install Hub
     #   uses: taras/georgia/.github/actions/install-hub@release-1.0.0
     # - name: Git Remote Setup
