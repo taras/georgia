@@ -1,4 +1,5 @@
-FROM node:12
+#FROM node:12
+FROM debian:stable-slim
 
 #LABEL "name"="echo something"
 #LABEL "version"="0.0.1"
@@ -10,7 +11,7 @@ LABEL "com.github.actions.color" = "red"
 # this might only apply when published?
 
 # RUN apk update && apk add --no-cache git bash git-subtree
-# RUN apt-get update
+RUN apt-get update
 # RUN apt-get install sudo
 
 # RUN adduser --disabled-password --gecos '' docker
