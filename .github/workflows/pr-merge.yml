@@ -42,6 +42,7 @@ jobs:
       uses: minkimcello/js-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+    - run: echo $LABELS
     
     ## example of variables persisting/
     #- run: echo ${NAMER}
