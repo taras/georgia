@@ -48,6 +48,10 @@ jobs:
         args: version $NPM_VERSION --no-git-tag-version
     - name: push package.json to repo manually
       run: |
+        git_config_email="`node -e \"console.log(require('./package.json').author.email)\"`"
+        git_config_name="`node -e \"console.log(require('./package.json').author.name)\"`"
+        git config user.email $git_config_email
+        git config user.name $git_config_name
         git add package.json
         current="`node -e \"console.log(require('./package.json').version)\"`"
         git commit -m "Release version $current [ci skip]"
