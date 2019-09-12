@@ -43,9 +43,7 @@ jobs:
       with:
         name: hiya
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
-        PULLS: {{
-          state: dingdong
-        }}
+        PULLS_STATE: dingdong
     
     ## example of variables persistings
     #- run: echo ${NAMER}
