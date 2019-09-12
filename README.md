@@ -93,7 +93,7 @@ publish:
 To this:
 ```yaml
 publish:
-  name: Commit & Publish (not yet really)
+  name: Commit & Publish
   runs-on: ubuntu-latest
   needs: tests
   steps:
