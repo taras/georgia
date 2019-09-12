@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # git setup
-git remote set-url origin https://${INPUT_GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git
+git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git
 git fetch origin +refs/heads/*:refs/heads/*
 branch=$(printf "%s\n" "${GITHUB_REF#*refs\/heads\/}")
 git checkout $branch
@@ -14,4 +14,4 @@ git add $INPUT_ADD
 current="`node -e \"console.log(require('./package.json').version)\"`"
 git commit -m "Release version $current [skip-actions]"
 # git push origin HEAD
-git push "https://$GITHUB_ACTOR:$INPUT_GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" $branch
+git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" $branch
