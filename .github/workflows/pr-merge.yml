@@ -44,7 +44,7 @@ jobs:
         name: hiya
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
     
-    ## example of variables persisting
+    ## example of variables persistin
     #- run: echo ${NAMER}
     
     # - name: Install Hub
