@@ -44,7 +44,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
     - name: update package version with labels
       uses: taras/georgia/.github/actions/label-version@release-1.0.0
-      env:
+      with:
         PR_LABELS: $PR_LABELS
     
     ## example of variables persisting/
