@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # git setup
-git remote set-url origin https://${INPUT_GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git
+git remote set-url origin https://$INPUT_GITHUB_TOKEN:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git
 git fetch origin +refs/heads/*:refs/heads/*
 branch=$(printf "%s\n" "${GITHUB_REF#*refs\/heads\/}")
 git checkout $branch
