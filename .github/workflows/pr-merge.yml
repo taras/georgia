@@ -30,13 +30,13 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    ## ~~~~~~~~~~~~ works! ~~~~~~~~~~~~~~~
-    # filter action
-    # - name: Filter by Commit Message
-    #   uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
-    #   with:
-    #     filter: skip-actions
-    ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # ~~~~~~~~~~~~ works! ~~~~~~~~~~~~~~~
+    filter action
+    - name: Filter by Commit Message
+      uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
+      with:
+        filter: skip-actions
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
 
     - name: list labels of last merged pr
       uses: minkimcello/js-action@master

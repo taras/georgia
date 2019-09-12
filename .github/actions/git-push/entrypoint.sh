@@ -12,5 +12,5 @@ git config user.email $git_config_email
 git config user.name $git_config_name
 git add package.json
 current="`node -e \"console.log(require('./package.json').version)\"`"
-git commit -m "Release version $current [ci skip]"
+git commit -m "Release version $current [skip-actions]"
 git push origin HEAD
