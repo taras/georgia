@@ -44,7 +44,7 @@ jobs:
         name: hiya
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
         PULLS_STATE: closed
-        PULLS_BASE: release-*
+        PULLS_BASE: 'release-*'
     
     ## example of variables persistings
     #- run: echo ${NAMER}
