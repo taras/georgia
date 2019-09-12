@@ -42,6 +42,10 @@ jobs:
       uses: minkimcello/js-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+    - name: npm version
+      uses: actions/npm@master
+      with:
+        args: version $NPM_VERSION --no-git-tag-version
     
     ## example of variables persisting
     #- run: echo ${NAMER}
