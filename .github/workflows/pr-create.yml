@@ -33,6 +33,7 @@ jobs:
     - name: Try Commenting on PR
       uses: minkimcello/pr-commenter@master
       with:
+        HOME: ${{ HOME }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     # - name: Publish Commit
     #   uses: actions/npm@master
