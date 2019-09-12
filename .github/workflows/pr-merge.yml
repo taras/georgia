@@ -29,30 +29,32 @@ jobs:
     #needs: tests
     steps:
     - uses: actions/checkout@v1
-    # ~~~~~~~~~~~~ works! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     - name: Filter by Commit Message
       uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
       with:
         filter: skip-actions
+
     - name: list labels of last merged pr
       uses: minkimcello/js-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+    
     - name: npm version
       uses: actions/npm@master
       with:
         args: version $NPM_VERSION --no-git-tag-version
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
-    - name: push package.json to repo manually
+
+    - name: commit and push
       uses: taras/georgia/.github/actions/git-push@release-1.0.0
       with:
         add: package.json
       env:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
-
-    # - name: publish
-    #   uses: actions/npm@master
-    #   with:
-    #     args: publish --access=public
-    #   env:
-    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    
+    - name: publish
+      uses: actions/npm@master
+      with:
+        args: publish --access=public
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
