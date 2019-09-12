@@ -1,9 +1,5 @@
-![CI Workflow](./diagram_new.png)
-
 # Checklist
 - [ ] alternatives to dangerjs
-- [ ] install hub
-- [ ] setup git remote
 
 # Setup Instructions
 1. add DANGER_GITHUB from bot token (public repo) in secrets

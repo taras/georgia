@@ -38,19 +38,19 @@ jobs:
     - name: list labels of last merged pr
       uses: minkimcello/js-action@master
       with:
-        GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: npm version
+    - name: npm version using label variable set from previous step
       uses: actions/npm@master
       with:
         args: version $NPM_VERSION --no-git-tag-version
 
-    - name: commit and push
+    - name: commit and push to repo
       uses: taras/georgia/.github/actions/git-push@release-1.0.0
       with:
         add: package.json
       env:
-        GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     - name: publish
       uses: actions/npm@master
