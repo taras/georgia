@@ -45,7 +45,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
         PULLS_STATE: closed
     
-    ## example of variables persisting
+    ## example of variables persistings
     #- run: echo ${NAMER}
     
     # - name: Install Hub
