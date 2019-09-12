@@ -30,29 +30,33 @@ jobs:
     - uses: actions/checkout@master
     - name: Update Package Version with Commit SHA
       uses: taras/georgia/.github/actions/sha-version@release-1.0.0
-    - name: Publish Commit
-      uses: actions/npm@master
-      with:
-        args: publish --access=public
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - name: Try Commenting on PR
+      uses: minkimcello/pr-commenter@master
+    # - name: Publish Commit
+    #   uses: actions/npm@master
+    #   with:
+    #     args: publish --access=public
+    #   env:
+    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-  # ~~~~~~~~~~~~~~ local
-  danger: 
-    name: Danger JS
-    runs-on: ubuntu-latest
-    needs: publish
-    steps:
-    - uses: actions/checkout@master
-    - name: Danger
-      run: |
-        # cd .github (update dangerfile to cd up one more)
-        yarn global add danger --dev
-        export PATH="$(yarn global bin):$PATH"
-        danger ci
-      env: 
-        #GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }} # our own bot
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # github action bot
+
+  # ~~~~~~~~~~~~~~ # ~~~~~~~~~~~~~~ # ~~~~~~~~~~~~~~  examples  
+  # ~~~~~~~~~~~~~~ local./
+  # danger: 
+  #   name: Danger JS
+  #   runs-on: ubuntu-latest
+  #   needs: publish
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: Danger
+  #     run: |
+  #       # cd .github (update dangerfile to cd up one more)
+  #       yarn global add danger --dev
+  #       export PATH="$(yarn global bin):$PATH"
+  #       danger ci
+  #     env: 
+  #       #GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB }} # our own bot
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # github action bot
 
   ## ~~~~~~~~~~~~~~ from repo.
   # danger:

@@ -29,54 +29,32 @@ jobs:
     #needs: tests
     steps:
     - uses: actions/checkout@v1
-
-    ## ~~~~~~~~~~~~ works! ~~~~~~~~~~~~~~~
-    # filter action
-    # - name: Filter by Commit Message
-    #   uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
-    #   with:
-    #     filter: skip-actions
-    ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    - name: Filter by Commit Message
+      uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
+      with:
+        filter: skip-actions
 
     - name: list labels of last merged pr
       uses: minkimcello/js-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
     
-    ## example of variables persisting
-    #- run: echo ${NAMER}
+    - name: npm version
+      uses: actions/npm@master
+      with:
+        args: version $NPM_VERSION --no-git-tag-version
+
+    - name: commit and push
+      uses: taras/georgia/.github/actions/git-push@release-1.0.0
+      with:
+        add: package.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
     
-    # - name: Install Hub
-    #   uses: taras/georgia/.github/actions/install-hub@release-1.0.0
-    # - name: Git Remote Setup
-    #   uses: taras/georgia/.github/actions/git-remote-setup@release-1.0.0
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.MK_TOKEN }} 
-    #     SEMVER_USER_NAME: ${{ secrets.SEMVER_USER_NAME }}
-    #     SEMVER_USER_EMAIL: ${{ secrets.SEMVER_USER_EMAIL }}
-    # - name: Commit & Publish
-    #   run: |
-    #     labels=$(hub pr list -s merged -L 1 -f %L)
-    #     echo $labels
-        # use labels to decide how to increment and publish
-        # if [[ "$labels" =~ "major" ]]
-        # then
-        #   echo Skipping because major release should be published manually
-        # else 
-        #   if [[ "$labels" =~ "minor" ]]
-        #   then
-        #     npm version minor --no-git-tag-version 
-        #   else
-        #     npm version patch --no-git-tag-version
-        #   fi
-        #   git add package.json
-        #   current="`node -e \"console.log(require('./package.json').version)\"`"
-        #   git commit -m "Release version $current [ci skip]"
-        #   git push origin HEAD # wee --tags
-        #   echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-        #   npm publish --access=public
-        #   #tagging
-        # fi
-      # env:
-      #   GITHUB_TOKEN: ${{ secrets.MK_TOKEN }} 
-      #   NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - name: publish
+      uses: actions/npm@master
+      with:
+        args: publish --access=public
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
