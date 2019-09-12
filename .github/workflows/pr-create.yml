@@ -37,7 +37,7 @@ jobs:
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-  # ~~~~~~~~~~~~~~ local./
+  # ~~~~~~~~~~~~~~ local
   danger: 
     name: Danger JS
     runs-on: ubuntu-latest
