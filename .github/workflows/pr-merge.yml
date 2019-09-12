@@ -46,7 +46,7 @@ jobs:
         PULLS_STATE: closed
         PULLS_BASE: 'release-*'
     
-    ## example of variables persisting
+    ## example of variables persistin
     #- run: echo ${NAMER}
     
     # - name: Install Hub
