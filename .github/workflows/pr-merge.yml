@@ -42,11 +42,6 @@ jobs:
       uses: minkimcello/js-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
-    - run: echo $PR_LABELS
-    - name: update package version with labels
-      uses: taras/georgia/.github/actions/label-version@release-1.0.0
-      with:
-        PR_LABELS: $PR_LABELS
     
     ## example of variables persisting/
     #- run: echo ${NAMER}
