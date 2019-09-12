@@ -41,10 +41,7 @@ jobs:
     - name: javascripter
       uses: minkimcello/js-action@master
       with:
-        name: hiya
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
-        PULLS_STATE: closed
-        PULLS_BASE: 'release-*'
     
     ## example of variables persisting
     #- run: echo ${NAMER}
