@@ -47,7 +47,7 @@ jobs:
         PULLS_BASE: 'release-*'
     
     ## example of variables persistingss
-    #- run: echo ${NAMER}/
+    #- run: echo ${NAMER}
     
     # - name: Install Hub
     #   uses: taras/georgia/.github/actions/install-hub@release-1.0.0
