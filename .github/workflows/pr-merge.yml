@@ -38,7 +38,7 @@ jobs:
     #     filter: skip-actions
     ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    - name: javascripter
+    - name: list labels of last merged pr
       uses: minkimcello/js-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
