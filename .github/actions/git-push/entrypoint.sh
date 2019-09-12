@@ -13,4 +13,5 @@ git config user.name "$GITHUB_ACTOR"
 git add $INPUT_ADD
 current="`node -e \"console.log(require('./package.json').version)\"`"
 git commit -m "Release version $current [skip-actions]"
-git push origin HEAD
+# git push origin HEAD
+git push "https://$GITHUB_ACTOR:$INPUT_GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" $branch
