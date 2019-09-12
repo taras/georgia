@@ -49,7 +49,6 @@ jobs:
       uses: taras/georgia/.github/actions/git-push@release-1.0.0
       with:
         add: package.json
-      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     - name: publish
