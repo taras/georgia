@@ -43,7 +43,7 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.MK_TOKEN }}
     
-    ## example of variables persistin
+    ## example of variables persisting
     #- run: echo ${NAMER}
     
     # - name: Install Hub
