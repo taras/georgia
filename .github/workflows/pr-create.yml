@@ -15,13 +15,7 @@ jobs:
   #     run: yarn
   #   - name: test
   #     run: yarn test
-    # - name: lint
-    #   run: yarn lint
-    # - name: coverage
-    #   run: |
-    #     yarn coverage
-    #     yarn coveralls
-
+  
   publish:
     name: Publish Commit Package
     runs-on: ubuntu-latest

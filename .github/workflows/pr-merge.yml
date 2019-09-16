@@ -15,13 +15,6 @@ jobs:
   #     run: yarn
   #   - name: test
   #     run: yarn test
-    # - name: lint
-    #   run: yarn lint
-    # - name: coverage
-    #   run: |
-    #     yarn coverage
-         # yarn coveralls
-            # returning an error currentlys
 
   publish:
     name: Commit & Publish
