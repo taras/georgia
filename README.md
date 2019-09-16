@@ -21,7 +21,7 @@ I've been playing around with Github's Octokit. Octokit is capable of creating/e
 3. `actions/npm` to update version with the label exported from the previous action.
 
 4. **\*NEW*** `georgia/commit-and-push` is a custom action that takes in an argument for what files you want to push back to the repo. We're passing in `package.json` with its new package version.
-    - Click [here](https://github.com/taras/georgia/tree/release-1.0.0/.github/actions/filter-by-commit) to see how the action works.
+    - Click [here](https://github.com/taras/georgia/tree/release-1.0.0/.github/actions/git-push) to see how the action works.
 
 5. `actions/npm` to publish.
 
