@@ -7,9 +7,6 @@
   },
   "scripts": {
     "test": "mocha",
-    "lint": "echo hello",
-    "coverage": "echo coverage",
-    "coverall": "echo coverall"
   },
   "devDependencies": {
     "mocha": "^6.2.0"
