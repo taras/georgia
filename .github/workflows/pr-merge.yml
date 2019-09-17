@@ -36,7 +36,7 @@ jobs:
     - name: filter separately (beta)
       uses: minkimcello/label-sorter@master
       with:
-        LABELS: $({TESTING})
+        LABELS: $TESTING_A
         HIYA: hello
 
     - run: echo $RESULT
