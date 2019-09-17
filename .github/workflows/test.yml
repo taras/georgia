@@ -23,12 +23,12 @@ jobs:
       with:
         args: echo hello
 
-    - name: run test
-      uses: taras/georgia/.github/actions/script-runner@release-1.0.0
-      with:
-        args: ${{ steps.json.outputs.test }}
+    # - name: run test
+    #   uses: taras/georgia/.github/actions/script-runner@release-1.0.0
+    #   with:
+    #     args: ${{ steps.json.outputs.test }}
 
-    - name: run lint
-      uses: taras/georgia/.github/actions/script-runner@release-1.0.0
-      with:
-        args: ${{ steps.json.outputs.lint }}
+    # - name: run lint
+    #   uses: taras/georgia/.github/actions/script-runner@release-1.0.0
+    #   with:
+    #     args: ${{ steps.json.outputs.lint }}
