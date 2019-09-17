@@ -19,5 +19,6 @@ jobs:
     - run: yarn 
 
     - name: testing
-      #if: ${{ steps.json.outputs.test }}
-      run: echo ${{ steps.json.outputs.test }}
+      uses: taras/georgia/.github/actions/script-runner@release-1.0.0
+      with:
+        args: ${{ steps.json.outputs.test }}
