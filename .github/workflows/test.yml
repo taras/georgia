@@ -12,11 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: list scripts and do
-      id: what
-      uses: taras/georgia/.github/actions/json-script@release-1.0.0
+    # - name: list scripts and do
+    #   id: what
+    #   uses: taras/georgia/.github/actions/json-script@release-1.0.0
 
-    - name: yarn
-      run: yarn
-
-    - run: echo ${{ steps.what.test }}
+    - name: json checker
+      uses: minkimcello/script-detector@master
