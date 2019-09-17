@@ -14,7 +14,7 @@ jobs:
   #   - name: yarn
   #     run: yarn
   #   - name: test
-  #     run: yarn test
+  #     run: yarn test 
 
   publish:
     name: Commit & Publish
@@ -33,21 +33,21 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: npm version using label variable set from previous step
-      uses: actions/npm@master
-      with:
-        args: version $NPM_VERSION --no-git-tag-version
+    # - name: npm version using label variable set from previous step
+    #   uses: actions/npm@master
+    #   with:
+    #     args: version $NPM_VERSION --no-git-tag-version
 
-    - name: commit and push to repo
-      uses: taras/georgia/.github/actions/git-push@release-1.0.0
-      with:
-        add: package.json
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: commit and push to repo
+    #   uses: taras/georgia/.github/actions/git-push@release-1.0.0
+    #   with:
+    #     add: package.json
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: publish
-      uses: actions/npm@master
-      with:
-        args: publish --access=public
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # - name: publish
+    #   uses: actions/npm@master
+    #   with:
+    #     args: publish --access=public
+    #   env:
+    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
