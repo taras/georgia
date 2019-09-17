@@ -7,7 +7,7 @@ if [[ "${#INPUT_FILTER}" -eq "0" ]]
     echo Error: Please include a filter.
     exit 1
 else  
-  if [[ $(echo "$(git log -1 --pretty=%B)" | grep '#(\d+)'/-e) ]] 
+  if [[ $(echo "$(git log -1 --pretty=%B)" | grep "#(\d+)"-e) ]] 
     then
       echo Resuming the rest of the workflow.
     else
