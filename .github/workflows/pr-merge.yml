@@ -32,6 +32,8 @@ jobs:
       uses: minkimcello/js-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - run: echo $TESTING
     
     # - name: npm version using label variable set from previous step
     #   uses: actions/npm@master
