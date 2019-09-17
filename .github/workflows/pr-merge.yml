@@ -13,8 +13,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Filter by Commit Message
       uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
-      with:
-        filter: $(-E "#(\d+)")
+      # with:
+      #   filter: /#(\d+)/
 
   # publish:
   #   name: Commit & Publish
