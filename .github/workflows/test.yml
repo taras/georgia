@@ -15,4 +15,4 @@ jobs:
     - name: json checker
       uses: minkimcello/script-detector@master
       with:
-        HOME: ${{ HOME }}
+        HOME: HOME
