@@ -12,8 +12,5 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    # - name: list scripts and do
-    #   uses: taras/georgia/.github/actions/json-script@release-1.0.0
-
     - name: json checker
       uses: minkimcello/script-detector@master
