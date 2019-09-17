@@ -13,4 +13,11 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: json checker
-      uses: minkimcello/script-detector@master  
+      id: json
+      uses: minkimcello/script-detector@master
+
+    - run: yarn 
+
+    - name: testing
+      if: ${#steps.json.test} > 0
+      run: echo this works man
