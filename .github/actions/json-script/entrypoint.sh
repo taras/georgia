@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-yeah=$(echo "`node -e \"console.log(require('./package.json').scripts.wha)\"`")
+test=$(echo "`node -e \"console.log(require('./package.json').scripts.test)\"`")
 
-echo $yeah
+echo $test
