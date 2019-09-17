@@ -30,17 +30,17 @@ jobs:
 
     - name: list labels of last merged pr
       uses: minkimcello/js-action@master
-      id: hiyahiya
+      id: pr-labels
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: filter separately (beta)
       uses: minkimcello/label-sorter@master
-      id: dingding
+      id: filter-labels
       with:
-        LABELS: ${{ steps.hiyahiya.outputs.result }}
+        LABELS: ${{ steps.pr-labels.outputs.result }}
 
-    - run: echo ${{ steps.dingding.outputs.result2 }}
+    - run: echo $NPM_VERSION
     
     # - name: npm version using label variable set from previous step
     #   uses: actions/npm@master
