@@ -9,9 +9,9 @@ if [[ "${#INPUT_FILTER}" -eq "0" ]]
 else  
   if [[ $(echo "$(git log -1 --pretty=%B)" | grep "$INPUT_FILTER") ]] 
     then
-      echo Filter triggered and halting the rest of the workflow.
-      exit 1
+      echo Resuming the rest of the workflow.
     else
-      echo Filter not triggered. Resuming workflow.
+      echo Halting the rest of the workflow.
+      exit 1
   fi
 fi
