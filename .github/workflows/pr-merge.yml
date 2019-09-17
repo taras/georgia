@@ -20,15 +20,16 @@ jobs:
     name: filter by commit
     runs-on: ubuntu-latest
     steps:
-    # - name: Filter by Commit Message
-    #   uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
-    #   with:
-    #     filter: skip-actions
-    
-    - name: someone else's filter
-      uses: veggiemonk/skip-commit@master
-      env:
-        COMMIT_FILTER: hello
+    - name: Filter by Commit Message
+      uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
+      with:
+        filter: skip-actions
+
+    # - name: someone else's filter
+    #   uses: veggiemonk/skip-commit@master
+    #   env:
+    #     COMMIT_FILTER: hello
+      # takes 36 seconds to build
 
   publish:
     name: Commit & Publish
