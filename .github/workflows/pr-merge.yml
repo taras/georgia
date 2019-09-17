@@ -33,7 +33,12 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - run: echo $TESTING
+    - name: filter separately (beta)
+      uses: taras/georgia/.github/actions/filter-label@release-1.0.0
+      with:
+        labels: $TESTING
+
+    - run: echo $RESULT
     
     # - name: npm version using label variable set from previous step
     #   uses: actions/npm@master
