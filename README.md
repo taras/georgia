@@ -112,7 +112,7 @@ publish:
   - name: npm version using label variable set from previous step
     uses: actions/npm@master
     with:
-      args: version $NPM_VERSION --no-git-tag-version # see below
+      args: version $NPM_VERSION --no-git-tag-version # see below 
 
   - name: commit and push to repo
     uses: taras/georgia/.github/actions/git-push@release-1.0.0
