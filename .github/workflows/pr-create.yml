@@ -13,7 +13,7 @@ jobs:
   #   - uses: actions/checkout@master
   #   - name: yarn
   #     run: yarn
-  #   - name: test
+  #   - name: tests
   #     run: yarn test
   
   publish:
