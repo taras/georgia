@@ -3,8 +3,7 @@ name: TNP Merge
 on:
   push:
     branches:
-      #- release-*
-      - boop
+    - release-*
 
 jobs:
   skip:
