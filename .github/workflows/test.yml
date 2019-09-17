@@ -19,5 +19,5 @@ jobs:
     - run: yarn 
 
     - name: testing
-      if: $#steps.json.outputs.test > 0
+      if: ${#${{ steps.json.outputs.test }}} > 0
       run: echo this works man
