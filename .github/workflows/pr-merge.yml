@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish
     steps:
-    - run: echo $RESULT
+    - run: echo $RESULT 
     
     # - name: npm version using label variable set from previous step
     #   uses: actions/npm@master
