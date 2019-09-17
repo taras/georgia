@@ -6,7 +6,7 @@
     "email": "minkimcello@gmail.com"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha"
   },
   "devDependencies": {
     "mocha": "^6.2.0"
