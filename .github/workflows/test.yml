@@ -21,7 +21,7 @@ jobs:
     - name: echo hello
       uses: taras/georgia/.github/actions/script-runner@release-1.0.0
       with:
-        args: echo hello
+        test: echo hello
 
     # - name: run test
     #   uses: taras/georgia/.github/actions/script-runner@release-1.0.0
