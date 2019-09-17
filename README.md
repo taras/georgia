@@ -15,8 +15,11 @@ I've been playing around with Github's Octokit. Octokit is capable of creating/e
 1. **\*NEW*** `georgia/filter-by-commit` to prevent the workflow from running if commit message matches the argument of this action. We're passing in `skip-action` to accommodate the auto-commit's message.
     - Click [here](https://github.com/taras/georgia/tree/release-1.0.0/.github/actions/filter-by-commit) to see how the action works.
 
-2. **\*NEW*** `georgia/fetch-labels-npm` retrieves labels of the most recently-merged PR and exports the appropriate label as a variable to be accessible elsewhere in the workflow.
+2. **\*NEW*** `georgia/fetch-pr-labels` retrieves and exports labels of the most recently-merged PR as an output to be accessible elsewhere in the workflow.
     - Click [here](https://github.com/minkimcello/js-action) to see how the action works.
+
+2. **\*NEW*** `georgia/label-filter` takes an input of labels and exports it as a variable for updating package version in NPM in the next action of this workflow.
+    - Click [here](https://github.com/minkimcello/label-sorter) to see how the action works.
 
 3. `actions/npm` to update version with the label exported from the previous action.
 
