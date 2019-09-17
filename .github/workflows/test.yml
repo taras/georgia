@@ -19,5 +19,5 @@ jobs:
     - run: yarn 
 
     - name: testing
-      if: ${{steps.json.outputs.test}}
-      run: echo ${{steps.json.outputs.test}}
+      if: ${{ steps.json.outputs.test }}
+      run: echo ${{ steps.json.outputs.test }}
