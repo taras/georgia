@@ -13,4 +13,4 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: json checker
-      uses: minkimcello/script-detector@master  
+      uses: minkimcello/script-detector@master
