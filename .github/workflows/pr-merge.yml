@@ -34,7 +34,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: filter separately (beta)
-      uses: taras/georgia/.github/actions/filter-label@release-1.0.0
+      uses: minkimcello/label-sorter@master
       with:
         labels: $TESTING
 
