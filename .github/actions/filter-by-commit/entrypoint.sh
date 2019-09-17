@@ -14,4 +14,4 @@ else
       echo Halting the rest of the workflow.
       exit 1
   fi
-fi
+fi 
