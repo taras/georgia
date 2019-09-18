@@ -16,7 +16,7 @@ jobs:
   #   - name: tests
   #     run: yarn test 
   
-  publish:
+  publish: 
     name: Publish Commit Package 
     runs-on: ubuntu-latest
     #needs: tests
