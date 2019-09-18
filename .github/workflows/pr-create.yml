@@ -22,9 +22,9 @@ jobs:
     needs: tests
     steps:
     - uses: actions/checkout@master
-    - name: Update Package Version with Commit SHA
+    - name: Update Package Version with Commit SHA ###!
       uses: taras/georgia/.github/actions/sha-version@release-1.0.0
-    - name: Publish Commit
+    - name: Publish Commit ###!
       uses: actions/npm@master
       with:
         args: publish --access=public
@@ -37,9 +37,9 @@ jobs:
     needs: publish
     steps:
     - uses: actions/checkout@master
-    - name: Danger
+    - name: Danger ###!
       run: |
-        # cd .github
+        # cd .github # optional
         yarn global add danger --dev
         export PATH="$(yarn global bin):$PATH"
         danger ci
