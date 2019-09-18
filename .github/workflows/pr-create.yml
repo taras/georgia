@@ -19,7 +19,7 @@ jobs:
   publish:
     name: Publish Commit Package 
     runs-on: ubuntu-latest
-    needs: tests
+    #needs: tests
     steps:
     - uses: actions/checkout@master
     - name: Update Package Version with Commit SHA ###!
