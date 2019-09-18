@@ -7,7 +7,7 @@ on:
 
 jobs:
   filter:
-    name: filter by commit
+    name: filter by commit ###!
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -17,40 +17,40 @@ jobs:
       #   filter: /#(\d+)/ 
     - run: echo $GITHUB_EVENT_NAME
 
-  # publish:
-  #   name: Commit & Publish
-  #   runs-on: ubuntu-latest
-  #   needs: filter
-  #   steps:
-  #   - uses: actions/checkout@v1
+  commit:
+    name: commit ###!
+    runs-on: ubuntu-latest
+    needs: filter
+    steps:
+    - uses: actions/checkout@v1
 
-  #   - name: list labels of last merged pr ###!
-  #     uses: minkimcello/js-action@master
-  #     id: pr-labels ###!
-  #     with:
-  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: list labels of last merged pr ###!
+      uses: minkimcello/js-action@master
+      id: pr-labels ###!
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  #   - name: filter separately (beta) ###!
-  #     uses: minkimcello/label-sorter@master
-  #     id: filter-labels  ###!
-  #     with:
-  #       LABELS: ${{ steps.pr-labels.outputs.labels }}
+    - name: filter separately (beta) ###!
+      uses: minkimcello/label-sorter@master
+      id: filter-labels  ###!
+      with:
+        LABELS: ${{ steps.pr-labels.outputs.labels }}
     
-    # - name: npm version using label variable set from previous step ###!
-    #   uses: actions/npm@master
-    #   with:
-    #     args: version $NPM_VERSION --no-git-tag-version
+    - name: npm version using label variable set from previous step ###!
+      uses: actions/npm@master
+      with:
+        args: version $NPM_VERSION --no-git-tag-version
 
-    # - name: commit and push to repo ###!
-    #   uses: taras/georgia/.github/actions/git-push@release-1.0.0
-    #   with:
-    #     add: package.json ###!
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: commit and push to repo ###!
+      uses: taras/georgia/.github/actions/git-push@release-1.0.0
+      with:
+        add: package.json ###!
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    # - name: publish ###!
-    #   uses: actions/npm@master
-    #   with:
-    #     args: publish --access=public
-    #   env:
-    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - name: publish ###!
+      uses: actions/npm@master
+      with:
+        args: publish --access=public
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
