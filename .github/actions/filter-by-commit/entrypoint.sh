@@ -6,7 +6,7 @@ IFS=$'\n\t'
 #   then
 #     echo Error: Please include a filter.
 #     exit 1
-# else  
+# else
   if [[ $(echo "$(git log -1 --pretty=%B)" | grep -E "#(\d+)") ]] 
     then
       echo Resuming the rest of the workflow.
