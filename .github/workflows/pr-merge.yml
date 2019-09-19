@@ -33,7 +33,6 @@ jobs:
 
     - name: filter separately (beta) ###!
       uses: minkimcello/label-sorter@master
-      id: filter-labels  ###!
       with:
         LABELS: ${{ steps.pr-labels.outputs.labels }}
     
