@@ -33,9 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: filter
     steps:
-    # - uses: actions/checkout@v1
-    #   with:
-    #     ref: refs/pull/
+    - uses: actions/checkout@v1
+      with:
+        ref: refs/commit/$GITHUB_SHA
     # - uses: minkimcello/script-detector@master
     - name: REF
       run: echo $GITHUB_REF
@@ -51,10 +51,6 @@ jobs:
       run: echo $GITHUB_WORKSPACE
     - name: SHA
       run: echo $GITHUB_SHA
-    - name: HEAD_REF
-      run: echo $GITHUB_HEAD_REF
-    - name: BASE_REF
-      run: echo $GITHUB_BASE_REF
 
     # - name: list labels of last merged pr ###!
     #   uses: minkimcello/js-action@master
