@@ -7,7 +7,7 @@
     - **\*UPDATE**: `--no-git-tag-version` prevents it from auto-committing each time `npm version` is called.
 
 2. `actions/npm` to publish
-    - **\*UPDATE**: `checkout` with ref arg, `head_ref` to ensure we get the latest commit of pull request.
+    - **\*UPDATE**: `checkout` with ref arg here too.
 
 3. Generate comment on PR to expose package with Danger.
 
