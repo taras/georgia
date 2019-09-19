@@ -8,7 +8,6 @@
 3. Generate comment on PR to expose package with `Danger/JS`.
 
 ## Notes
-- When two commits happen too quickly one after the other, NPM will accidentally publish the latest commit twice and return an error. This is better than the alternative in case th
 ### sha-version
   - `checkout` with ref arg, `head_ref` to ensure we get the latest commit of pull request.
   - removed the `skip -1` tag to get the correct SHA.
