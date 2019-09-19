@@ -54,8 +54,7 @@ jobs:
       run: echo $GITHUB_SHA
     - uses: actions/checkout@master
       with:
-        args: $(echo $GITHUB_SHA)
-
+        ref: $(echo $GITHUB_SHA)
     - name: list labels of last merged pr ###!
       uses: minkimcello/js-action@master
       id: pr-labels ###!
