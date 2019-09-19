@@ -20,16 +20,19 @@ jobs:
   #     #   filter: /#(\d+)/ 
   #   - run: echo $GITHUB_EVENT_NAME
 
-  commit:
-    name: commit ###!
+  filter:
+    name: filter ###!
     runs-on: ubuntu-latest
-    # needs: filter
-    steps:
-    - uses: actions/checkout@v1
-
     - uses: actions/bin/filter@master
       with:
         args: "merged true"
+
+  commit:
+    name: commit ###!
+    runs-on: ubuntu-latest
+    needs: filter
+    steps:
+    - uses: actions/checkout@v1
     - uses: minkimcello/script-detector@master
 
     # - name: list labels of last merged pr ###!
