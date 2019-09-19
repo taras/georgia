@@ -52,9 +52,9 @@ jobs:
       run: echo $GITHUB_WORKSPACE
     - name: SHA
       run: echo $GITHUB_SHA
-    - uses: actions/checkout@v1
-      with:
-        ref: ${{ GITHUB_SHA }}
+    - uses: actions/checkout@master
+      # with:
+      #   ref: ${{ GITHUB_SHA }}
     - name: list labels of last merged pr ###!
       uses: minkimcello/js-action@master
       id: pr-labels ###!
