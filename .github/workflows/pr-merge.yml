@@ -3,7 +3,8 @@ name: TNP PR Merged
 on:
   pull_request:
     branches:
-    - release-*
+    - master
+#    - release-*
     types:
     - closed
 

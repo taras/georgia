@@ -2,8 +2,12 @@
 ## Actions
 1. **\*NEW*** `georgia/sha-version` generates new package version using SHA. 
     - Click [here](https://github.com/taras/georgia/tree/release-1.0.0/.github/actions/sha-version) to see how the action works.
+    - **\*UPDATE**: `checkout` with ref arg, `head_ref` to ensure we get the latest commit of pull request.
+    - **\*UPDATE**: removed the `skip -1` tag to get the correct SHA.
+    - **\*UPDATE**: `--no-git-tag-version` prevents it from auto-committing each time `npm version` is called.
 
 2. `actions/npm` to publish
+    - **\*UPDATE**: `checkout` with ref arg, `head_ref` to ensure we get the latest commit of pull request.
 
 3. Generate comment on PR to expose package with Danger.
 
