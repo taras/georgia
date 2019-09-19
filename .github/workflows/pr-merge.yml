@@ -24,17 +24,22 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: list labels of last merged pr ###!
-      uses: minkimcello/js-action@master
-      id: pr-labels ###!
+    - uses: actions/bin/filter@master
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        args: "merged true"
+    - run: echo only when merged
 
-    - name: filter separately (beta) ###!
-      uses: minkimcello/label-sorter@master
-      id: filter-labels  ###!
-      with:
-        LABELS: ${{ steps.pr-labels.outputs.labels }}
+    # - name: list labels of last merged pr ###!
+    #   uses: minkimcello/js-action@master
+    #   id: pr-labels ###!
+    #   with:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # - name: filter separately (beta) ###!
+    #   uses: minkimcello/label-sorter@master
+    #   id: filter-labels  ###!
+    #   with:
+    #     LABELS: ${{ steps.pr-labels.outputs.labels }}
     
     # - name: npm version using label variable set from previous step ###!
     #   uses: actions/npm@master
