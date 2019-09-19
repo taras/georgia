@@ -48,4 +48,11 @@ jobs:
         add: package.json ###!
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: publish ###!
+      uses: actions/npm@master
+      with:
+        args: publish --access=public
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     
