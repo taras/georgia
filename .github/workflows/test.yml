@@ -1,0 +1,13 @@
+name: TNP Test This
+
+on:
+  push:
+    branches:
+      - release-*
+
+jobs:
+  echo:
+    name: echo it
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo yeah
