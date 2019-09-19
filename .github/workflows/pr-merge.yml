@@ -30,7 +30,7 @@ jobs:
     - uses: actions/bin/filter@master
       with:
         args: "merged true"
-    - uses: minkimcello/script-detector
+    - uses: minkimcello/script-detector@master
 
     # - name: list labels of last merged pr ###!
     #   uses: minkimcello/js-action@master
