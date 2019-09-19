@@ -7,7 +7,7 @@ on:
     types:
     - closed
 
-# multiple commits. second commit
+# second commit
 
 jobs:
   filter:
