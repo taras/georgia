@@ -5,7 +5,7 @@
 
 2. `actions/npm` to publish
 
-3. Generate comment on PR to expose package with `Danger/JS`.
+3. Generate comment on PR to expose package with `Danger/JS`. 
 
 ## Notes
 ### sha-version
