@@ -15,7 +15,7 @@ jobs:
   #     run: yarn
   #   - name: tests
   #     run: yarn test
-  
+   
   publish: 
     name: Publish Commit Package 
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       with:
-        ref: ${{ github.head_ref }}
+        ref: ${{ github.sha }}
     - name: Update Package Version with Commit SHA ###!
       uses: minkimcello/shamalamadingdong@master
   #   - name: Publish Commit ###!
