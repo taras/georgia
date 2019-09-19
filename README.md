@@ -20,7 +20,7 @@
 
 # When PR is Merged
 ## Actions
-~~1. **\*NEW*** `georgia/filter-by-commit` to prevent the workflow from running if commit message matches the argument of this action. We're passing in `skip-action` to accommodate the auto-commit's message.
+1. ~~**\*NEW*** `georgia/filter-by-commit` to prevent the workflow from running if commit message matches the argument of this action. We're passing in `skip-action` to accommodate the auto-commit's message.
     - Click [here](https://github.com/taras/georgia/tree/release-1.0.0/.github/actions/filter-by-commit) to see how the action works.~~
 
 1. `actions/bin/filter` to run workflow on PRs that are merged. 
