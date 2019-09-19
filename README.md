@@ -5,13 +5,19 @@
 
 2. `actions/npm` to publish
 
-3. Generate comment on PR to expose package with `Danger/JS`. 
+3. Generate comment on PR to expose package with `Danger/JS`.
 
 ## Notes
 ### sha-version
   - `checkout` with ref arg, `head_ref` to ensure we get the latest commit of pull request.
   - removed the `skip -1` tag to get the correct SHA.
   - `--no-git-tag-version` prevents it from auto-committing each time `npm version` is called.
+
+## Issues
+### sha-version
+  - If multiple commits are pushed too close to each other, the publishing/commenting is done on the latest commit which is okay except it causes an error for trying to publish the same thing multiple times.
+    - GITHUB_SHA is the commit that triggers the workflow but it doesn't correlate with any of the commits in the PR.
+      - `git log`ing will always return the latest.
 
 # When PR is Merged
 ## Actions
