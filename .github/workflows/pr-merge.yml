@@ -7,7 +7,7 @@ on:
     types:
     - closed
 
-# multiple commits.
+# multiple commits. second commit
 
 jobs:
   filter:
@@ -24,6 +24,8 @@ jobs:
     needs: filter
     steps:
     - uses: actions/checkout@v1
+      with:
+        ref: ${{ github.head_ref }}
 
     - name: list labels of last merged pr ###!
       uses: minkimcello/js-action@master
