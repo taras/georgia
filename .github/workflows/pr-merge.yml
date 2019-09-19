@@ -20,13 +20,13 @@ jobs:
   #     #   filter: /#(\d+)/ 
   #   - run: echo $GITHUB_EVENT_NAME
 
-  filter:
-    name: filter ###!
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/bin/filter@master
-      with:
-        args: "merged true"
+  # filter:
+  #   name: filter ###!
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/bin/filter@master
+  #     with:
+  #       args: "merged true"
 
   commit:
     name: commit ###!
@@ -36,6 +36,10 @@ jobs:
     # - uses: minkimcello/script-detector@master
     - name: REF
       run: echo $GITHUB_REF
+    - name: BASE_REF
+      run: echo $GITHUB_BASE_REF
+    - name: HEAD_REF
+      run: echo $GITHUB_HEAD_REF
     - name: WORKFLOW
       run: echo $GITHUB_WORKFLOW
     - name: ACTION
@@ -49,6 +53,8 @@ jobs:
     - name: SHA
       run: echo $GITHUB_SHA
     - uses: actions/checkout@v1
+      with:
+        args: $(echo $GITHUB_SHA)
 
     - name: list labels of last merged pr ###!
       uses: minkimcello/js-action@master
