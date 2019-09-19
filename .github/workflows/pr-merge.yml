@@ -2,7 +2,7 @@ name: TNP PR Merged
 
 on:
   # push:
-  pull-request:
+  pull_request:
     branches:
     - release-*
     types:
