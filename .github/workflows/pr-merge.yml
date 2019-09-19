@@ -35,7 +35,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       with:
-        ref: $GITHUB_SHA
+        ref: SHA
     # - uses: minkimcello/script-detector@master
     - name: REF
       run: echo $GITHUB_REF
