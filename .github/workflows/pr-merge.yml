@@ -1,33 +1,36 @@
-name: TNP Merge
+name: TNP PR Merged
 
 on:
-  push:
+  # push:
+  pull-request:
     branches:
     - release-*
+    types:
+    - closed
 
 jobs:
-  filter:
-    name: filter by commit ###!
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Filter by Commit Message ###! 
-      uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
-      # with:
-      #   filter: /#(\d+)/ 
-    - run: echo $GITHUB_EVENT_NAME
+  # filter:
+  #   name: filter by commit ###!
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v1
+  #   - name: Filter by Commit Message ###! 
+  #     uses: taras/georgia/.github/actions/filter-by-commit@release-1.0.0
+  #     # with:
+  #     #   filter: /#(\d+)/ 
+  #   - run: echo $GITHUB_EVENT_NAME
 
   commit:
     name: commit ###!
     runs-on: ubuntu-latest
-    needs: filter
+    # needs: filter
     steps:
     - uses: actions/checkout@v1
 
     - uses: actions/bin/filter@master
       with:
         args: "merged true"
-    - run: echo only when merged
+    - uses: minkimcello/script-detector
 
     # - name: list labels of last merged pr ###!
     #   uses: minkimcello/js-action@master

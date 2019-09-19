@@ -1,4 +1,4 @@
-name: TNP Pull Requests
+name: TNP PR Created
 
 on:
   pull_request:
