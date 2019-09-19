@@ -52,7 +52,7 @@ jobs:
     #   run: echo $GITHUB_WORKSPACE
     # - name: SHA
     #   run: echo $GITHUB_SHA
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
       with:
         ref: $(echo $GITHUB_SHA)
     - name: list labels of last merged pr ###!
