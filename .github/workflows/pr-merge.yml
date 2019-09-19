@@ -35,7 +35,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       with:
-        ref: refs/commit/$GITHUB_SHA
+        ref: $GITHUB_SHA
     # - uses: minkimcello/script-detector@master
     - name: REF
       run: echo $GITHUB_REF
@@ -52,11 +52,11 @@ jobs:
     - name: SHA
       run: echo $GITHUB_SHA
 
-    # - name: list labels of last merged pr ###!
-    #   uses: minkimcello/js-action@master
-    #   id: pr-labels ###!
-    #   with:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: list labels of last merged pr ###!
+      uses: minkimcello/js-action@master
+      id: pr-labels ###!
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # - name: filter separately (beta) ###!
     #   uses: minkimcello/label-sorter@master
