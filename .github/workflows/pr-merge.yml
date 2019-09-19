@@ -3,8 +3,7 @@ name: TNP PR Merged
 on:
   pull_request:
     branches:
-    - master
-#    - release-*
+    - release-*
     types:
     - closed
 
@@ -38,7 +37,7 @@ jobs:
       with:
         LABELS: ${{ steps.pr-labels.outputs.labels }}
     
-    - name: npm version using label variable set from previous step ###!
+    - name: npm version using label variable ###!
       uses: actions/npm@master
       with:
         args: version $NPM_VERSION --no-git-tag-version
