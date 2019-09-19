@@ -51,6 +51,7 @@
 
 ### publishing
   - had to be kept in this workflow because commits that are triggered from the workflow does not trigger another workflow. this used to happen before but does not happen anymore. might be a quiet update.
+  - the commit of the merge itself does trigger a workflow however if the workflow from the pull request after it is merged overlaps with the workflow of the merged commit, there'll be some ugly overlapping.
 
 ## Notes
 
