@@ -36,6 +36,7 @@ jobs:
     - uses: actions/checkout@v1
       with:
         ref: ${{ github.head_ref }}
+    - run: echo $(git rev-parse HEAD)
     - name: list labels of last merged pr ###!
       uses: minkimcello/js-action@master
       id: pr-labels ###!
