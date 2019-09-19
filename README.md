@@ -1,18 +1,18 @@
 # When PR is Created
 ## Actions
-1. **\*NEW*** `georgia/sha-version` generates new package version using SHA. 
+1. **\*NEW*** `georgia/sha-version` generates new package version using SHA. *(Updates below in Notes)*
     - Click [here](https://github.com/taras/georgia/tree/release-1.0.0/.github/actions/sha-version) to see how the action works.
-    - **\*UPDATE**: `checkout` with ref arg, `head_ref` to ensure we get the latest commit of pull request.
-    - **\*UPDATE**: removed the `skip -1` tag to get the correct SHA.
-    - **\*UPDATE**: `--no-git-tag-version` prevents it from auto-committing each time `npm version` is called.
 
 2. `actions/npm` to publish
-    - **\*UPDATE**: `checkout` with ref arg here too.
 
-3. Generate comment on PR to expose package with Danger.
+3. Generate comment on PR to expose package with `Danger/JS`.
 
 ## Notes
-I've been playing around with Github's Octokit. Octokit is capable of creating/editing comments but having to tell it *where* makes it a little more complicated. For now we've stayed with Danger-JS and to mitigate its current bugs we're running the installation and its command in-line in the workflow itself. It's a temporary solution and I can look into Danger-Danger next week.
+- When two commits happen too quickly one after the other, NPM will accidentally publish the latest commit twice and return an error. This is better than the alternative in case th
+### sha-version
+  - `checkout` with ref arg, `head_ref` to ensure we get the latest commit of pull request.
+  - removed the `skip -1` tag to get the correct SHA.
+  - `--no-git-tag-version` prevents it from auto-committing each time `npm version` is called.
 
 # When PR is Merged
 ## Actions

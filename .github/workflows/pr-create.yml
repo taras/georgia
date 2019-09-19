@@ -39,8 +39,6 @@ jobs:
     needs: publish
     steps:
     - uses: actions/checkout@v1
-      # with:
-      #   ref: ${{ github.head_ref }}
     - name: Danger ###!
       run: |
         # cd .github # optional
