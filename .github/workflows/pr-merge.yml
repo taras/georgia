@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: filter
     steps:
-    - uses: actions/checkout@v1
+    # - uses: actions/checkout@v1
     - uses: minkimcello/script-detector@master
 
     # - name: list labels of last merged pr ###!
