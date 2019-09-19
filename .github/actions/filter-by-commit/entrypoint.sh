@@ -7,11 +7,18 @@ IFS=$'\n\t'
 #     echo Error: Please include a filter.
 #     exit 1
 # else
-  if [[ $(echo "$(git log -1 --pretty=%B)" | grep -E "#(\d+)") ]] 
+  if [[ $(echo "$(git log -1 --pretty=%B)" | grep "${INPUT_FILTER})" ]] 
     then
       echo Resuming the rest of the workflow.
     else
       echo Halting the rest of the workflow.
       exit 1
   fi
+  # if [[ $(echo "$(git log -1 --pretty=%B)" | grep -E "#(\d+)") ]] 
+  #   then
+  #     echo Resuming the rest of the workflow.
+  #   else
+  #     echo Halting the rest of the workflow.
+  #     exit 1
+  # fi
 # fi
