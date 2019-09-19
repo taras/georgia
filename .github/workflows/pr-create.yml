@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
     - release-*
-    types:
-    - labeled
 
 jobs:
   # tests:
@@ -26,7 +24,7 @@ jobs:
     # - uses: actions/bin/filter@master
     #   with:
     #     args: "merged false"
-    - run: echo only when labeled
+    - run: echo on create
 
   #   - uses: actions/checkout@master
   #   - name: Update Package Version with Commit SHA ###!
