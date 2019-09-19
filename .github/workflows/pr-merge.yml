@@ -34,27 +34,20 @@ jobs:
     # needs: filter
     steps:
     # - uses: minkimcello/script-detector@master
-    - name: REF
-      run: echo $GITHUB_REF
-    - name: BASE_REF
-      run: echo $GITHUB_BASE_REF
-    - name: HEAD_REF
-      run: echo $GITHUB_HEAD_REF
-    - name: WORKFLOW
-      run: echo $GITHUB_WORKFLOW
-    - name: ACTION
-      run: echo $GITHUB_ACTION
-    - name: EVENT_NAME
-      run: echo $GITHUB_EVENT_NAME
-    - name: EVENT_PATH
-      run: echo $GITHUB_EVENT_PATH
-    - name: WORKSPACE
-      run: echo $GITHUB_WORKSPACE
-    - name: SHA
-      run: echo $GITHUB_SHA
+    - name: ECHO VAR
+      run: |
+        echo REF $GITHUB_REF
+        echo BASE_REF $GITHUB_BASE_REF
+        echo HEAD_REF $GITHUB_HEAD_REF
+        echo WORKFLOW $GITHUB_WORKFLOW 
+        echo ACTION $GITHUB_ACTION 
+        echo EVENT_NAME $GITHUB_EVENT_NAME 
+        echo EVENT_PATH $GITHUB_EVENT_PATH 
+        echo WORKSPACE $GITHUB_WORKSPACE 
+        echo SHA $GITHUB_SHA
     - uses: actions/checkout@v1
       with:
-        ref: ${{ GITHUB_REF }}/([merge]+)/gi/commit/${{ GITHUB_SHA }}
+        ref: $GITHUB_REF/([merge]+)/gi/commit/$GITHUB_SHA
     - name: list labels of last merged pr ###!
       uses: minkimcello/js-action@master
       id: pr-labels ###!
