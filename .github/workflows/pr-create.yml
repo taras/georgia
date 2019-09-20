@@ -24,6 +24,7 @@ jobs:
     - uses: actions/checkout@v1
       # with:
       #   ref: ${{ github.head_ref }}
+    - run: echo ${{ github.sha }}
     - name: Update Package Version with Commit SHA ###!
       uses: minkimcello/shamalamadingdong@master
     - name: Publish Commit ###!
