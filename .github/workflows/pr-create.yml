@@ -42,6 +42,7 @@ jobs:
     needs: publish
     steps:
     - uses: actions/checkout@v1
+    - run: echo ${{ github.sha }}
     - name: Danger ###!
       run: |
         # cd .github # optional
