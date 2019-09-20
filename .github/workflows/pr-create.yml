@@ -10,26 +10,21 @@ jobs:
   #   name: Run Tests
   #   runs-on: ubuntu-latest
   #   steps:
-  #   - uses: actions/checkout@master
+  #   - uses: actions/checkout@v1
   #   - name: yarn
   #     run: yarn 
   #   - name: tests
-  #     run: yarn test 
-  #
+  #     run: yarn test
+
   publish: 
-    name: Publish Commit Package 
+    name: Publish Commit Package
     runs-on: ubuntu-latest
     #needs: tests 
     steps:
     - uses: actions/checkout@v1
-      # with:
-      #   ref: ${{ github.head_ref }} 
-    - name: Update Package Version with Commit SHA ###!
+    - name: Write NPM Snapshot Version
       uses: minkimcello/shamalamadingdong@master
-      # with:
-        # args: ${{ github.sha }}
-    - run: echo ${{ github.sha }}
-    - name: Publish Commit ###!
+    - name: NPM Publish Commit
       uses: actions/npm@master
       with: 
         args: publish --access=public
@@ -42,9 +37,10 @@ jobs:
     needs: publish
     steps:
     - uses: actions/checkout@v1
-    - name: Danger ###!
+    - run: echo ${{ github.sha }}
+    - name: Danger Comment Generate
       run: |
-        # cd .github # optional
+        # cd .github ## optional
         yarn global add danger --dev
         export PATH="$(yarn global bin):$PATH"
         danger ci
