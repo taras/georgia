@@ -27,7 +27,7 @@ jobs:
     - name: Update Package Version with Commit SHA ###!
       uses: minkimcello/shamalamadingdong@master
       # with:
-        args: ${{ github.sha }}
+        # args: ${{ github.sha }}
     - name: Publish Commit ###!
       uses: actions/npm@master
       with: 
