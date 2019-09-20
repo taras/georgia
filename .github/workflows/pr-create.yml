@@ -28,6 +28,7 @@ jobs:
       uses: minkimcello/shamalamadingdong@master
       # with:
         # args: ${{ github.sha }}
+    - run: echo ${{ github.sha }}
     - name: Publish Commit ###!
       uses: actions/npm@master
       with: 
