@@ -43,6 +43,8 @@ jobs:
 
     - name: Commit Push and Tag Release
       uses: minkimcello/commit-and-push@master
+      with:
+        add: package.json
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

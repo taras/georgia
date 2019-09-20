@@ -24,7 +24,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Write NPM Snapshot Version
       uses: minkimcello/shamalamadingdong@master
-    - run: echo ${{ github.sha }}
     - name: NPM Publish Commit
       uses: actions/npm@master
       with: 
