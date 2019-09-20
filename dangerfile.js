@@ -4,6 +4,8 @@ const pjson = require('./package.json');
 const latest = danger.github.pr.commits - 1;
 const shorted = danger.github.commits[latest].sha.slice(0, 7);
 
+console.log("shasha", process.env.GITHUB_SHA)
+
 const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}-${shorted}`
 
 markdown(`This PR is available to use:`);
