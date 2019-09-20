@@ -27,22 +27,28 @@ jobs:
 
     - name: list labels of last merged pr ###!
       uses: minkimcello/js-action@master
+      ## fetch-pull-request-labels
       id: pr-labels ###!
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: filter separately (beta) ###!
       uses: minkimcello/label-sorter@master
+      ## compute-major-minor-or-patch
+      # output MAJOR_OR_MINOR_OR_PATCH
       with:
         LABELS: ${{ steps.pr-labels.outputs.labels }}
     
     - name: npm version using label variable ###!
       uses: actions/npm@master
       with:
-        args: version $NPM_VERSION --no-git-tag-version
+        args: version #$MAJOR_OR_MINOR_OR_PATCH ##from NPM_VERSION 
+        #--no-git-tag-version 
+        #major , minor , patch
 
     - name: commit and push to repo ###!
       uses: taras/georgia/.github/actions/git-push@release-1.0.0
+      ## commit-push-and-tag-release
       with:
         add: package.json ###!
       env:
@@ -54,4 +60,5 @@ jobs:
         args: publish --access=public
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      # Would like to put on a separate workflow but workflow can't be triggered from an auto-commit from another workflow.
     

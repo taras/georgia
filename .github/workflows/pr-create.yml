@@ -26,8 +26,11 @@ jobs:
       #   ref: ${{ github.head_ref }} 
     - name: Update Package Version with Commit SHA ###!
       uses: minkimcello/shamalamadingdong@master
+      ## write-npm-snapshot-version
+
       # with:
         # args: ${{ github.sha }}
+
     - run: echo ${{ github.sha }}
     - name: Publish Commit ###!
       uses: actions/npm@master
