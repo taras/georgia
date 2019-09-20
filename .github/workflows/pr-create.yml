@@ -22,15 +22,15 @@ jobs:
     #needs: tests 
     steps:
     - uses: actions/checkout@v1
-      with:
-        ref: ${{ github.head_ref }} 
-    - run: echo sha ${{ github.sha }}
-    - run: echo head ref ${{ github.head_ref }}
+      # with:
+      #   ref: ${{ github.head_ref }} 
     - name: Update Package Version with Commit SHA ###!
       uses: minkimcello/shamalamadingdong@master
+      # with:
+        args: ${{ github.sha }}
     - name: Publish Commit ###!
       uses: actions/npm@master
-      with:
+      with: 
         args: publish --access=public
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
