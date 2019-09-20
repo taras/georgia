@@ -22,9 +22,10 @@ jobs:
     #needs: tests 
     steps:
     - uses: actions/checkout@v1
-      # with:
-      #   ref: ${{ github.head_ref }} 
-    - run: echo ${{ github.sha }}
+      with:
+        ref: ${{ github.head_ref }} 
+    - run: echo sha ${{ github.sha }}
+    - run: echo head ref ${{ github.head_ref }}
     - name: Update Package Version with Commit SHA ###!
       uses: minkimcello/shamalamadingdong@master
     - name: Publish Commit ###!
