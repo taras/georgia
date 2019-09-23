@@ -15,10 +15,6 @@ jobs:
   #     run: yarn 
   #   - name: tests
   #     run: yarn test
-  fetch:
-    name: fetching labels test
-    runs-on: ubuntu-latest
-    steps:
 
   publish: 
     name: Publish Commit Package
