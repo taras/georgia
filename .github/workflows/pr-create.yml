@@ -24,6 +24,10 @@ jobs:
       id: pr-labels
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Compute Major Minor or Patch
+      uses: minkimcello/label-sorter/folder@master
+      with:
+        PR_LABELS: ${{ steps.pr-labels.outputs.PR_LABELS }}
 
   # publish: 
   #   name: Publish Commit Package
