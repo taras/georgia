@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Fetch Pull Request Labels
-      uses: minkimcello/js-action@master
+      uses: minkimcello/js-action/action-folder@master
       id: pr-labels
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
