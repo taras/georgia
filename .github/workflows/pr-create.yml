@@ -16,7 +16,7 @@ jobs:
   #   - name: tests
   #     run: yarn test
   fetch:
-    name: fetching labels test
+    name: fetching labels test 
     runs-on: ubuntu-latest
     steps:
     - name: Fetch Pull Request Labels
