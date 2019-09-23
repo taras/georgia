@@ -15,11 +15,12 @@ jobs:
   #     run: yarn 
   #   - name: tests
   #     run: yarn test
-  echo:
-    name: just echo
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo just echoing
+  fetch:
+  - name: Fetch Pull Request Labels
+    uses: minkimcello/js-action@master
+    id: pr-labels
+    with:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # publish: 
   #   name: Publish Commit Package
