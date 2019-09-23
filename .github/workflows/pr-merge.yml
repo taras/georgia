@@ -8,13 +8,13 @@ on:
       - closed
 
 jobs:
-  # filter:
-  #   name: Filter For Only Merged PRs
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/bin/filter@master
-  #     with:
-  #       args: "merged true"
+  filter:
+    name: Filter For Only Merged PRs
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/bin/filter@master
+      with:
+        args: "merged true"
 
   commit-publish:
     name: Commit and Publish
@@ -26,33 +26,33 @@ jobs:
         ref: ${{ github.base_ref }}
 
     - name: Fetch Pull Request Labels
-      uses: minkimcello/js-action@master
+      uses: minkimcello/actions/fetch-pull-request-labels@master
       id: pr-labels
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: Compute Major Minor or Patch
-    #   uses: minkimcello/label-sorter@master
-    #   with:
-    #     PR_LABELS: ${{ steps.pr-labels.outputs.PR_LABELS }}
+    - name: Compute Major Minor or Patch
+      uses: minkimcello/actions/compute-major-minor-or-patch@master
+      with:
+        PR_LABELS: ${{ steps.pr-labels.outputs.PR_LABELS }}
     
-    # - name: NPM Version
-    #   uses: actions/npm@master
-    #   with:
-    #     args: version $MAJOR_OR_MINOR_OR_PATCH --no-git-tag-version 
+    - name: NPM Version
+      uses: actions/npm@master
+      with:
+        args: version $MAJOR_OR_MINOR_OR_PATCH --no-git-tag-version 
 
-    # - name: Commit Push and Tag Release
-    #   uses: minkimcello/commit-and-push@master
-    #   with:
-    #     add: package.json
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit Push and Tag Release
+      uses: minkimcello/actions/commit-push-and-tag-release@master
+      with:
+        add: package.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: publish
-    #   uses: actions/npm@master
-    #   with:
-    #     args: publish --access=public
-    #   env:
-    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    #   # Would be nice to put this in a separate workflow but github actions seems to not trigger workflows from commits that are triggered within another workflow.
+    - name: publish
+      uses: actions/npm@master
+      with:
+        args: publish --access=public
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      # Would be nice to put this in a separate workflow but github actions seems to not trigger workflows from commits that are triggered within another workflow.
     
