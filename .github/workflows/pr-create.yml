@@ -16,11 +16,14 @@ jobs:
   #   - name: tests
   #     run: yarn test
   fetch:
-  - name: Fetch Pull Request Labels
-    uses: minkimcello/js-action@master
-    id: pr-labels
-    with:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    name: fetching labels test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Fetch Pull Request Labels
+      uses: minkimcello/js-action@master
+      id: pr-labels
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # publish: 
   #   name: Publish Commit Package
