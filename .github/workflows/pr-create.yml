@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Write NPM Snapshot Version
-      uses: minkimcello/actions/write-npm-snapshot-version@master
+      uses: thefrontside/actions/write-npm-snapshot-version@master
     - name: NPM Publish Commit
       uses: actions/npm@master
       with: 
