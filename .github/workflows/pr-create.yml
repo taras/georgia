@@ -38,6 +38,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Danger Action Test
-      uses: minkimcello/actions/tree/mk/post-instruction-comment/post-instruction-comment@mk/post-instruction-comment
+      uses: minkimcello/actions/post-instruction-comment@mk/post-instruction-comment
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
