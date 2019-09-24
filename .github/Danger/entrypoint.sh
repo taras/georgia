@@ -13,11 +13,9 @@ markdown(`This PR is available to use:`);
 markdown('```bash');
 markdown(`npm install ${pjson.name}@${pjson.version}-${shorted}`);
 markdown('```');
-markdown('in action');
 markdown(`You can view the NPM package [here](${currentNPM}).`);
 EOT
 
-# cd .github
 yarn global add danger --dev
 export PATH="$(yarn global bin):$PATH"
 danger ci

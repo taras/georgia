@@ -1,0 +1,6 @@
+name: 'Danger Testing'
+description: 'Danger x2'
+author: 'Frontside Inc.'
+runs:
+  using: 'node:10-slim'
+  main: 'entrypoint.sh'

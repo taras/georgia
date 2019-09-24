@@ -44,5 +44,7 @@ jobs:
       #   export PATH="$(yarn global bin):$PATH"
       #   danger ci
       uses: taras/georgia/.github/Danger@features
+      #danger-expose-SHA-publish
+      post-instruction-comment
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
