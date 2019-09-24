@@ -37,11 +37,12 @@ jobs:
     needs: publish
     steps:
     - uses: actions/checkout@v1
-    - name: Danger Comment Generate
-      run: |
-        # cd .github ## optional
-        yarn global add danger --dev
-        export PATH="$(yarn global bin):$PATH"
-        danger ci
+    - name: Danger Action Test
+      # run: |
+      #   # cd .github ## optional
+      #   yarn global add danger --dev
+      #   export PATH="$(yarn global bin):$PATH"
+      #   danger ci
+      uses: taras/georgia/.github/Danger@features
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
