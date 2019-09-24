@@ -43,7 +43,6 @@ jobs:
       #   yarn global add danger --dev
       #   export PATH="$(yarn global bin):$PATH"
       #   danger ci
-      # uses: taras/georgia/.github/Danger@features
-      uses: danger/danger-js@master
+      uses: taras/georgia/.github/Danger@features
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
