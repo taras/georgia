@@ -1,7 +1,9 @@
 #!/bin/sh
 set -e
 
+echo hello
 ls
+echo bye
 
 # cd .github
 # yarn global add danger --dev
