@@ -1,5 +1,7 @@
 FROM node:10-slim
 
+WORKDIR $HOME
+
 RUN mkdir -p /usr/src/danger
 COPY . /usr/src/danger
 RUN cd /usr/src/danger && \
