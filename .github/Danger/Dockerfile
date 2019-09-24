@@ -1,7 +1,5 @@
 FROM node:10-slim
 
-WORKDIR $GITHUB_WORKSPACE
-
 RUN mkdir -p /usr/src/danger
 COPY . /usr/src/danger
 RUN cd /usr/src/danger && \
