@@ -2,8 +2,7 @@ FROM node:10-slim
 
 #WORKDIR ${GITHUB_WORKSPACE}
 COPY dangerfile.js /
-VOLUME /
-RUN ls
+RUN sudo docker cp /dangerfile.js .
 
 # RUN mkdir -p /usr/src/danger
 # COPY . /usr/src/danger
