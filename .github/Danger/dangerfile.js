@@ -9,4 +9,5 @@ markdown(`This PR is available to use:`);
 markdown('```bash');
 markdown(`npm install ${pjson.name}@${pjson.version}-${shorted}`);
 markdown('```');
+markdown('in action');
 markdown(`You can view the NPM package [here](${currentNPM}).`);
