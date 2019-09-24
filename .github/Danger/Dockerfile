@@ -1,6 +1,6 @@
 FROM node:10-slim
 
-WORKDIR $GITHUB_WORKSPACE
+WORKDIR ${GITHUB_WORKSPACE}
 RUN ls
 
 # RUN mkdir -p /usr/src/danger
