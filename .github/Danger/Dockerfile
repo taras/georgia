@@ -2,7 +2,7 @@ FROM node:10-slim
 
 RUN mkdir -p /usr/src/danger
 COPY dangerfile.js /usr/src/danger
-COPY entrypoint.sh /usr/src/danger
+COPY entrypoint.sh /usr/src/danger/123
 RUN cd usr/src/danger && ls
 VOLUME usr/src/danger
 
@@ -14,7 +14,7 @@ VOLUME usr/src/danger
 #   chmod +x distribution/commands/danger.js && \
 #   ln -s $(pwd)/distribution/commands/danger.js /usr/bin/danger
 
-ENTRYPOINT ["sh", "/usr/src/danger"]
+ENTRYPOINT ["sh", "/usr/src/danger/123"]
 # ENTRYPOINT ["danger", "ci"]
 
 ## from source
