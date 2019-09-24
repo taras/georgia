@@ -1,6 +1,6 @@
-FROM node:12-alpine
+FROM node:10-slim
 
-# WORKDIR ${GITHUB_WORKSPACE}
+#WORKDIR ${GITHUB_WORKSPACE}
 RUN ls
 RUN echo ${GITHUB_ACTION}
 
