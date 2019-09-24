@@ -4,6 +4,7 @@ FROM ubuntu:latest
 #WORKDIR ${GITHUB_WORKSPACE}
 RUN mkdir -p /usr/src/danger
 COPY dangerfile.js /usr/src/danger
+COPY entrypoint.sh /usr/src/danger
 RUN cd usr/src/danger && ls
 
 # RUN mkdir -p /usr/src/danger
@@ -14,6 +15,5 @@ RUN cd usr/src/danger && ls
 #   chmod +x distribution/commands/danger.js && \
 #   ln -s $(pwd)/distribution/commands/danger.js /usr/bin/danger
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENTRYPOINT ["sh", "/usr/src/danger"]
 # ENTRYPOINT ["danger", "ci"]
