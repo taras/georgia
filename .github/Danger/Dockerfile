@@ -1,4 +1,4 @@
-FROM node:10-slim
+FROM node:12-alpine
 
 WORKDIR ${GITHUB_WORKSPACE}
 RUN ls
