@@ -36,9 +36,8 @@ jobs:
     runs-on: ubuntu-latest
     # needs: publish
     steps:
-    # - uses: actions/checkout@master
+    - uses: actions/checkout@master
     - name: Danger Action Test
-      uses: taras/georgia/.github/Danger@features
-      # post-instruction-comment
+      uses: minkimcello/actions/tree/mk/post-instruction-comment/post-instruction-comment@mk/post-instruction-comment
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
