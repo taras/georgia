@@ -6,6 +6,9 @@ RUN cd usr
 RUN ls
 RUN cd src
 RUN ls
+RUN cd ../..
+RUN cd home
+RUN ls
 
 # RUN mkdir -p /usr/src/danger
 # COPY . /usr/src/danger
