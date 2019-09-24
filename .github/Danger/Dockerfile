@@ -4,8 +4,6 @@ FROM node:10-slim
 RUN ls
 RUN cd usr
 RUN ls
-RUN cd src
-RUN ls
 RUN cd ../..
 RUN cd home
 RUN ls
