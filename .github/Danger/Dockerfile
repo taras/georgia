@@ -2,8 +2,9 @@
 FROM ubuntu:latest
 
 #WORKDIR ${GITHUB_WORKSPACE}
-COPY dangerfile.js /
-RUN sudo docker cp /dangerfile.js .
+COPY dangerfile.js /usr/src/danger
+RUN cd usr/src/danger
+RUN ls
 
 # RUN mkdir -p /usr/src/danger
 # COPY . /usr/src/danger
