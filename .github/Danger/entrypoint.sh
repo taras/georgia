@@ -1,3 +1,7 @@
+#!/bin/sh
+set -e
+
+cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 const pjson = require('./package.json');
 
@@ -10,3 +14,8 @@ markdown('```bash');
 markdown(`npm install ${pjson.name}@${pjson.version}-${shorted}`);
 markdown('```');
 markdown(`You can view the NPM package [here](${currentNPM}).`);
+EOT
+
+yarn global add danger --dev
+export PATH="$(yarn global bin):$PATH"
+danger ci
