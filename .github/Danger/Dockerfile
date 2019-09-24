@@ -2,8 +2,10 @@ FROM node:10-slim
 
 #WORKDIR ${GITHUB_WORKSPACE}
 RUN ls
-RUN echo $GITHUB_ACTION
-RUN cd /usr/src/ && ls
+RUN cd usr
+RUN ls
+RUN cd src
+RUN ls
 
 # RUN mkdir -p /usr/src/danger
 # COPY . /usr/src/danger
