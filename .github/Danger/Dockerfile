@@ -2,9 +2,9 @@
 FROM ubuntu:latest
 
 #WORKDIR ${GITHUB_WORKSPACE}
+RUN mkdir -p /usr/src/danger
 COPY dangerfile.js /usr/src/danger
-RUN cd usr/src/danger
-RUN ls
+RUN cd usr/src/danger && ls
 
 # RUN mkdir -p /usr/src/danger
 # COPY . /usr/src/danger
