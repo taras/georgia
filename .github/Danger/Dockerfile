@@ -12,6 +12,6 @@ RUN ls
 #   chmod +x distribution/commands/danger.js && \
 #   ln -s $(pwd)/distribution/commands/danger.js /usr/bin/danger
 
-# # COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 # ENTRYPOINT ["danger", "ci"]
