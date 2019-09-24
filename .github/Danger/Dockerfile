@@ -6,6 +6,7 @@ RUN mkdir -p /usr/src/danger
 COPY dangerfile.js /usr/src/danger
 COPY entrypoint.sh /usr/src/danger
 RUN cd usr/src/danger && ls
+VOLUME usr/src/danger
 
 # RUN mkdir -p /usr/src/danger
 # COPY . /usr/src/danger
