@@ -1,6 +1,6 @@
 FROM node:10-slim
 
-WORKDIR $HOME
+WORKDIR $GITHUB_WORKSPACE
 
 RUN mkdir -p /usr/src/danger
 COPY . /usr/src/danger
