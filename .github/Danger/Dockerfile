@@ -12,6 +12,8 @@ FROM node:10-slim
 
 # RUN ls
 
+RUN ls
+
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 # ENTRYPOINT ["danger", "ci"]
