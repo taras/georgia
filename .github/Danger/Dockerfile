@@ -3,6 +3,7 @@ FROM node:10-slim
 #WORKDIR ${GITHUB_WORKSPACE}
 COPY dangerfile.js /usr/src/danger
 VOLUME /usr/src/danger
+RUN cd /usr/src/danger
 RUN ls
 
 # RUN mkdir -p /usr/src/danger
