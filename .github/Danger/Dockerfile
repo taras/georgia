@@ -1,4 +1,5 @@
-FROM node:10-slim
+# FROM node:10-slim
+FROM ubuntu:latest
 
 #WORKDIR ${GITHUB_WORKSPACE}
 COPY dangerfile.js /
