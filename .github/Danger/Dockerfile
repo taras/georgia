@@ -1,7 +1,8 @@
 FROM node:10-slim
 
 #WORKDIR ${GITHUB_WORKSPACE}
-ADD dangerfile.js /
+COPY dangerfile.js /usr/src/danger
+VOLUME /usr/src/danger
 RUN ls
 
 # RUN mkdir -p /usr/src/danger
