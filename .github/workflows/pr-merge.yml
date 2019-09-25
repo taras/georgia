@@ -16,43 +16,17 @@ jobs:
       with:
         args: "merged true"
 
-  commit-publish:
-    name: Commit and Publish
+  publish: 
+    name: Publish Commit Package
     runs-on: ubuntu-latest
-    needs: filter
+    #needs: tests 
     steps:
     - uses: actions/checkout@v1
-      with:
-        ref: ${{ github.base_ref }}
-
-    - name: Fetch Pull Request Labels
-      uses: thefrontside/actions/fetch-pull-request-labels@master
-      id: pr-labels
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Compute Major Minor or Patch
-      uses: thefrontside/actions/compute-major-minor-or-patch@master
-      with:
-        PR_LABELS: ${{ steps.pr-labels.outputs.PR_LABELS }}
-    
-    - name: NPM Version
+    - name: Write NPM Snapshot Version
+      uses: thefrontside/actions/write-npm-snapshot-version@master
+    - name: NPM Publish Commit
       uses: actions/npm@master
-      with:
-        args: version $MAJOR_OR_MINOR_OR_PATCH --no-git-tag-version 
-
-    - name: Commit Push and Tag Release
-      uses: thefrontside/actions/commit-push-and-tag-release@master
-      with:
-        add: package.json
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: publish
-      uses: actions/npm@master
-      with:
+      with: 
         args: publish --access=public
       env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      # Would be nice to put this in a separate workflow but github actions seems to not trigger workflows from commits that are triggered within another workflow.
-    
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN2 }}
