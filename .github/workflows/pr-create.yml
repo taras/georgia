@@ -20,7 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo $GITHUB_ACTOR
-    - run: echo ${{ secrets.YEAH_TOKEN }}
 
   # publish: 
   #   name: Publish Commit Package
