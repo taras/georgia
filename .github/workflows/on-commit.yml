@@ -22,11 +22,18 @@ jobs:
     - run: echo $GITHUB_REF
     - run: echo $GITHUB_HEAD_REF
     - run: echo $GITHUB_BASE_REF
+
+  filter:
+    name: Fork Filter
+    runs-on: ubuntu-latest
+    steps:
+    - name: forking filter
+      uses: taras/georgia/.github/actions/filter-for-fork@release-x
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
   seepayload:
     name: github payload of merge from a fork
     runs-on: ubuntu-latest
     steps:
     - uses: actions/hello-world-javascript-action@master
-    - run: if [[ "${#NPM_AUTH_TOKEN}" -eq "0" ]]; then echo no token; else echo yes token; fi;
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
