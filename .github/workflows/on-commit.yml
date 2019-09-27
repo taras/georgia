@@ -27,3 +27,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/hello-world-javascript-action@master
+    - run: if [[ "${#NPM_AUTH_TOKEN}" -eq "0" ]]; then echo no token; else echo yes token; fi;
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
