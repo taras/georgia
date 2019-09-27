@@ -15,14 +15,21 @@ jobs:
   #     run: yarn 
   #   - name: tests
   #     run: yarn test
-  echo:
-    name: echoit
+  filter:
+    name: Fork Filter
     runs-on: ubuntu-latest
     steps:
-    - run: if [[ "${#NPM_AUTH_TOKEN}" -eq "0" ]]; then echo no token; else echo yes token; fi;
+    - name: forking filter
+      uses: taras/georgia/.github/actions/filter-for-fork@release-x
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
+  seepayload:
+    name: github payload of merge from a fork
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/hello-world-javascript-action@master
+    
   # publish: 
   #   name: Publish Commit Package
   #   runs-on: ubuntu-latest
