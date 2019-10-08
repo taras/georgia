@@ -19,18 +19,19 @@ if [ "${#NPM_AUTH_TOKEN}" -eq "0" ]
     echo -e "${GREEN}SUCCESS: Published preview to NPM.${NC}"
     echo -e "${YELLOW}Generating comment on pull request...${NC}"
 
-    cat << "EOT" > dangerfile.js
-    const { markdown } = require('danger');
-    const pjson = require('./package.json');
+cat << "EOT" > dangerfile.js
+const { markdown } = require('danger');
+const pjson = require('./package.json');
 
-    const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
+const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
 
-    markdown(`This PR is available to use:`);
-    markdown('```bash');
-    markdown(`npm install ${pjson.name}@${pjson.version}`);
-    markdown('```');
-    markdown(`You can view the NPM package [here](${currentNPM}).`);
+markdown(`This PR is available to use:`);
+markdown('```bash');
+markdown(`npm install ${pjson.name}@${pjson.version}`);
+markdown('```');
+markdown(`You can view the NPM package [here](${currentNPM}).`);
 EOT
+
     yarn global add danger --dev
     export PATH="$(yarn global bin):$PATH"
     danger ci
