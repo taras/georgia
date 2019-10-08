@@ -8,7 +8,7 @@ if [ "${#NPM_AUTH_TOKEN}" -eq "0" ]
   then
     echo -e "${RED}ERROR: NPM_AUTH_TOKEN not detected. Please add your NPM Token to your repository's secrets.${NC}"
   else
-    if [[ "$GITHUB_HEAD_REF" = "latest" ]]
+    if [[ "$GITHUB_HEAD_REF" = "features-2" ]]
       then
         echo -e "${RED}ERROR: Unable to publish preview because your branch conflicts with NPM's protected 'latest' tag. Please change the name of your branch and resubmit the pull request.${NC}"
         exit 1
