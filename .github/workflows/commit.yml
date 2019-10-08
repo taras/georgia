@@ -10,4 +10,4 @@ jobs:
     name: pojpojpoj
     runs-on: ubuntu-latest
     steps:
-    - uses: minkimcello/georgia/.github/synchronize-with-npm@release-1.0.0
+    - uses: minkimcello/georgia/.github/synchronize-npm-tags@release-1.0.0
