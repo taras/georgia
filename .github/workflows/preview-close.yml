@@ -3,8 +3,9 @@ name: TNP PR Merged
 on:
   pull_request:
     branches:
-      - features-*
-      - release-*
+      # - features-*
+      # - release-*
+      - placeholder
     types:
       - closed
 
@@ -29,9 +30,10 @@ jobs:
     name: untag tag
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
-    - name: NPM unttagging
-      run: npm dist-tag rm @minkimcello/georgia $GITHUB_HEAD_REF
+    - run: echo closed
+    # - uses: actions/setup-node@v1
+    #   with:
+    #     node-version: '10.x'
+    # - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
+    # - name: NPM unttagging
+    #   run: npm dist-tag rm @minkimcello/georgia $GITHUB_HEAD_REF
