@@ -34,4 +34,4 @@ jobs:
         node-version: '10.x'
     - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
     - name: NPM unttagging
-      run: npm dist-tag rm $GITHUB_REPOSITORY $GITHUB_HEAD_REF
+      run: npm dist-tag rm @minkimcello/georgia $GITHUB_HEAD_REF

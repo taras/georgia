@@ -23,19 +23,9 @@ jobs:
     - run: echo $GITHUB_HEAD_REF
     - run: echo $GITHUB_BASE_REF
 
-  filter:
-    name: Confirm NPM_AUTH_TOKEN Access
-    runs-on: ubuntu-latest
-    steps:
-    - name: Confirm NPM_AUTH_TOKEN Access
-      uses: thefrontside/actions/merge-and-fork-detector@master
-      with:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
   publish: 
     name: Publish Commit Package
     runs-on: ubuntu-latest
-    needs: filter
     steps:
     - uses: actions/checkout@v1
     - name: Write NPM Snapshot Version
