@@ -7,8 +7,9 @@ GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-git ls-remote
-
 for branch in $(git for-each-ref --format='%(refname)' refs/heads/); do
-    echo "${$branch#*refs\/heads\/}"
+    results+=("${$branch#*refs\/heads\/}")
 done
+echo before
+echo $results
+echo after
