@@ -10,4 +10,5 @@ jobs:
     name: pojpojpoj
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
     - uses: minkimcello/georgia/.github/synchronize-npm-tags@release-1.0.0
