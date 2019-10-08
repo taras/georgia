@@ -24,9 +24,11 @@ const { markdown } = require('danger');
 const pjson = require('./package.json');
 
 const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
+const message = "hello ya'll"
 
 markdown(`This PR is available to use:`);
-markdown(`'```bash'\n`npm install ${pjson.name}@${pjson.version}`\n'```'`);
+//markdown(``bash'\n`npm install ${pjson.name}@${pjson.version}`\n'```');
+markdown("```bash\n${message}\n```")
 markdown(`You can view the NPM package [here](${currentNPM}).`);
 EOT
 
