@@ -9,6 +9,6 @@ NC='\033[0m'
 
 git ls-remote
 
-for branch in $(git for-each-ref --format='%(refname)' refs/remotes/origin/); do
-    git log --oneline "$branch" ^origin/master
+for branch in $(git for-each-ref --format='%(refname)' refs/heads/); do
+    echo "${$branch#*refs\/heads\/}"
 done
