@@ -26,9 +26,10 @@ const pjson = require('./package.json');
 const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
 
 //markdown(`This PR is available to use:`);
-//markdown('```bash');
+markdown('```');
 //markdown(`npm install ${pjson.name}@${pjson.version}`);
-//markdown('```');
+markdown('hello');
+markdown('```');
 markdown(`You can view the NPM package [here](${currentNPM}).`);
 EOT
 
