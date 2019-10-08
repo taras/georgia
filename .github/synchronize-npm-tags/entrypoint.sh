@@ -8,6 +8,5 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 for branch in $(git for-each-ref --format='%(refname)' refs/heads/); do
-    #git log --oneline "$branch" ^origin/master
-    echo $branch
+    git log --oneline "$branch" ^origin/master
 done
