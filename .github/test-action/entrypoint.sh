@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 echo $GITHUB_HEAD_REF
 
-if [[ "$GITHUB_HEAD_REF" = "features-2" ]]
+if [[ "$GITHUB_HEAD_REF" = "featURes-2" ]]
   then
     echo matches
   else
