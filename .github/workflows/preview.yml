@@ -12,8 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: test action
-      uses: minkimcello/georgia/.github/publish-action@features-2
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: string compare
+      uses: minkimcello/georgia/.github/test-action@features-2
+    # - name: test action
+    #   uses: minkimcello/georgia/.github/publish-action@features-2
+    #   env:
+    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

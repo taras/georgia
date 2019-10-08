@@ -1,0 +1,14 @@
+name: on delete test
+
+on:
+  delete
+
+jobs:
+  echo:
+    name: echo if delete
+    runs-on: ubuntu-latest
+    steps:
+    - runs: echo deleted
+    - uses: actions/hello-world-javascript-action@master
+      with:
+        who-to-greet: 'Mona the Octocat'

@@ -14,7 +14,6 @@ if [ "${#NPM_AUTH_TOKEN}" -eq "0" ]
     npm version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1`" --no-git-tag-version
 
     echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-    npm publish --access=public --tag $GITHUB_HEAD_REF
 
     echo -e "${GREEN}SUCCESS: Published preview to NPM.${NC}"
     echo -e "${YELLOW}Generating comment on pull request...${NC}"
@@ -23,13 +22,14 @@ cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 const pjson = require('./package.json');
 
+const install = `npm install ${pjson.name}@${pjson.version}`
 const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
-const message = `npm install ${pjson.name}@${pjson.version}`
+const message = `You can view the NPM package [here](${currentNPM}).`
 
-markdown(`This PR is available to use:`);
+//markdown(`This PR is available to use:`);
 //markdown(``bash'\n`npm install ${pjson.name}@${pjson.version}`\n'```');
-markdown(`\`\`\`bash\n${message}\n\`\`\``)
-markdown(`You can view the NPM package [here](${currentNPM}).`);
+
+markdown(`This PR is available to use:\n\`\`\`bash\n${install}\n\`\`\`\n${message}`)
 EOT
 
     yarn global add danger --dev
