@@ -11,7 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/hello-world-javascript-action@master
-      with:
-        who-to-greet: 'Mona the Octocat'
     - uses: minkimcello/georgia/.github/synchronize-npm-tags@release-1.0.0
