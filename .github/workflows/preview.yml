@@ -3,8 +3,9 @@ name: Publish Preview
 on:
   pull_request:
     branches:
-      - features-*
-      - release-*
+      # - features-*
+      # - release-*
+      - placeholder
 
 jobs:
   publish: 
