@@ -28,7 +28,7 @@ const message = `hello ya'll ${pjson.name}`
 
 markdown(`This PR is available to use:`);
 //markdown(``bash'\n`npm install ${pjson.name}@${pjson.version}`\n'```');
-markdown("```bash\n`${message}`\n```")
+markdown(`"```bash"\n${message}\n"```"`)
 markdown(`You can view the NPM package [here](${currentNPM}).`);
 EOT
 
