@@ -33,7 +33,6 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+    - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
     - name: NPM unttagging
       run: npm dist-tag rm @minkimcello/npm-tagging features-2
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
