@@ -9,30 +9,33 @@ NC='\033[0m'
 
 if [ "${#NPM_AUTH_TOKEN}" -eq "0" ]
   then
-    echo -e "${RED}NPM_AUTH_TOKEN not detected. Please add your NPM Token to your repository's secrets.${NC}"
+    echo -e "${RED}ERROR: NPM_AUTH_TOKEN not detected. Please add your NPM Token to your repository's secrets.${NC}"
   else 
-    version="`node -e \"console.log(require('./package.json').version)\"`"
-    if [[ $(echo $(npm view microstates@$version)) ]] 
-      then
-        echo -e "${YELLOW}Version $version of this package already exists. To publish the changes of this commit, you must update package version in the JSON file of your project.${NC}"
-      else
-        git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git
-        git fetch origin +refs/heads/*:refs/heads/*
+    npm version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1`" --no-git-tag-version
 
-        branch="${GITHUB_REF#*refs\/heads\/}"
-        git checkout $branch
+    echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
+    npm publish --access=public --tag $GITHUB_HEAD_REF
 
-        git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        git config user.name "$GITHUB_ACTOR"
+    echo -e "${GREEN}SUCCESS: Published preview to NPM.${NC}"
+    echo -e "${YELLOW}Generating comment on pull request...${NC}"
+
+    cat << "EOT" > dangerfile.js
+    const { markdown } = require('danger');
+    const pjson = require('./package.json');
+
+    const shorted = process.env.GITHUB_SHA.slice(0, 7);
+
+    const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}-${shorted}`
+
+    markdown(`This PR is available to use:`);
+    markdown('```bash');
+    markdown(`npm install ${pjson.name}@${pjson.version}-${shorted}`);
+    markdown('```');
+    markdown(`You can view the NPM package [here](${currentNPM}).`);
+EOT
+    yarn global add danger --dev
+    export PATH="$(yarn global bin):$PATH"
+    danger ci
         
-        git tag -a -f "v$version"
-        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" $branch --tag
-
-        ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-        npm publish --access=public
-        
-        echo -e "${GREEN}Tagged and published version v${version} successfully!${NC}"
-    fi
+    echo -e "${GREEN}SUCCESS: Comment generated on pull request.${NC}"
 fi
