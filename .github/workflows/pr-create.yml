@@ -3,7 +3,8 @@ name: TNP PR Created
 on:
   pull_request:
     branches:
-      - release-*
+      # - release-*
+      - placeholder
 
 jobs:
   # tests:

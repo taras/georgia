@@ -3,8 +3,9 @@ name: on commit (for publishing fork pr merges)
 on:
   push:
     branches:
-      - release-*
-      - features-*
+      # - release-*
+      # - features-*
+      - placeholder
 
 jobs:
   echovars:

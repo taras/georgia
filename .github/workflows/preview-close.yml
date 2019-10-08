@@ -3,20 +3,12 @@ name: TNP PR Merged
 on:
   pull_request:
     branches:
-      # - release-*
-      - placeholder
+      - features-*
+      - release-*
     types:
       - closed
 
 jobs:
-  filter:
-    name: Filter For Only Merged PRs
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/bin/filter@master
-      with:
-        args: "merged true"
-
   echovars:
     name: echo GA variables
     runs-on: ubuntu-latest
