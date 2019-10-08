@@ -6,8 +6,8 @@ on:
     - release-1.0.0
 
 jobs:
-  name: hello
-  runs-on: ubuntu-latest
-  steps:
-  - uses: minkimcello/georgia/.github/synchronize-with-npm@release-1.0.0
-  
+  yeah:
+    name: pojpojpoj
+    runs-on: ubuntu-latest
+    steps:
+    - uses: minkimcello/georgia/.github/synchronize-with-npm@release-1.0.0
