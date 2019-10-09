@@ -3,7 +3,8 @@ name: on commit tester
 on:
   push:
     branches:
-    - release-1.0.0
+    #- release-1.0.0
+    - placeholder
 
 jobs:
   yeah:
