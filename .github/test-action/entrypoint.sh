@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-IFS=$'\n\t'
+
 RED='\033[1;31m'
 NC='\033[0m'
 

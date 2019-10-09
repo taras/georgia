@@ -1,1 +1,2 @@
-testing
+requires checkout
+requires npm token
