@@ -12,7 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Tag and Publish
-      uses: minkimcello/actions/synchronize-with-npm@mk/npm-publish
+      uses: minkimcello/actions/npm-publish@mk/npm-publish
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # - run: echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
+    # - run: npm publish --access=public --tag gonnst-delete
