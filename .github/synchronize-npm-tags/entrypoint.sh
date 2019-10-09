@@ -21,13 +21,21 @@ package="`node -e \"console.log(require('./package.json').name)\"`"
 # done
 
 
-if [[ $(echo "$INPUT_SAVE" | grep -e "dev") ]]
-  then echo dev exists on save
-  else echo dev does not exist on save
+if [[ $(echo "$INPUT_SAVE" | grep -e "beta") ]]
+  then echo dev exists on save ver1
+  else echo dev does not exist on save ver1
 fi
-if [[ $(echo "$INPUT_IGNORE" | grep -e "dev") ]]
-  then echo dev exists on ignore
-  else echo dev does not exist on ignore
+if [[ $(echo "$INPUT_IGNORE" | grep -e "beta") ]]
+  then echo dev exists on ignore ver1
+  else echo dev does not exist on ignore ver1
+fi
+if [[ $(echo "beta" | grep -e "$INPUT_SAVE") ]]
+  then echo dev exists on save ver2
+  else echo dev does not exist on save ver2
+fi
+if [[ $(echo "beta" | grep -e "$INPUT_IGNORE") ]]
+  then echo dev exists on ignore ver2
+  else echo dev does not exist on ignore ver2
 fi
 
 # npm tags
