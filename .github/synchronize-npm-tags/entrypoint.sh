@@ -22,7 +22,7 @@ package="`node -e \"console.log(require('./package.json').name)\"`"
 #   fi
 # done
 
-echo $(git ls-remote --heads origin  | sed 's?.*refs/heads/??')
+echo $(echo "features-2" | grep -e "$(git ls-remote --heads origin  | sed 's?.*refs/heads/??')")
 
 # npm tags
     # beta = delete
