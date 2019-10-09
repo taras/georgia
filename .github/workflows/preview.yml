@@ -17,6 +17,6 @@ jobs:
     #   env:
     #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - name: test action
-      uses: minkimcello/georgia/.github/future-preview-refactor@features-2
+      uses: minkimcello/georgia/.github/future-preview-refactor@release-1.0.0
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
