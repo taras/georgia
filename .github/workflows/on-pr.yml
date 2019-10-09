@@ -1,10 +1,11 @@
-name: Publish Preview
+name: on pr test
 
 on:
   pull_request:
     branches:
-      - features-*
-      - release-*
+      # - features-*
+      # - release-*
+      - placeholder
 
 jobs:
   publish: 
@@ -12,11 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    # - name: string compare
-    #   uses: minkimcello/georgia/.github/test-action@features-2
-    #   env:
-    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    - name: test action
+    - name: georgia/future-refactor test
       uses: minkimcello/georgia/.github/future-preview-refactor@release-1.0.0
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

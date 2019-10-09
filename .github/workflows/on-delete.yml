@@ -14,6 +14,3 @@ jobs:
         keep: dev
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    - uses: actions/hello-world-javascript-action@master
-      with:
-        who-to-greet: 'Mona the Octocat'

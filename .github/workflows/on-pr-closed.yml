@@ -1,4 +1,4 @@
-name: TNP PR Merged
+name: on pr closed test
 
 on:
   pull_request:
@@ -31,9 +31,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo closed
-    # - uses: actions/setup-node@v1
-    #   with:
-    #     node-version: '10.x'
-    # - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
-    # - name: NPM unttagging
-    #   run: npm dist-tag rm @minkimcello/georgia $GITHUB_HEAD_REF
