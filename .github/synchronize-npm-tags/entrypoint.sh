@@ -20,8 +20,15 @@ package="`node -e \"console.log(require('./package.json').name)\"`"
 #   fi
 # done
 
-echo ignore: $INPUT_IGNORE
-echo save: $INPUT_SAVE
+
+if [[ $(echo "$INPUT_SAVE" | grep -e "dev") ]]
+  then echo dev exists on save
+  else echo dev does not exist on save
+fi
+if [[ $(echo "$INPUT_IGNORE" | grep -e "dev") ]]
+  then echo dev exists on ignore
+  else echo dev does not exist on ignore
+fi
 
 # npm tags
 # beta
