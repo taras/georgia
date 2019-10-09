@@ -10,7 +10,7 @@ package="`node -e \"console.log(require('./package.json').name)\"`"
 
 # one time
 echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-npm dist-tag add @minkimcello/georgia@release-1.0.0 [features-2]
+npm publish --tag features-2
 
 # for tag in $(npm dist-tag ls | sed 's/\:.*//'); do
 #   if [[ "$tag" = "latest" ]] || [[ $(echo "$INPUT_KEEP" | grep -e "$tag") ]]
