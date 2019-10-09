@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Tag and Publish
-      uses: minkimcello/actions/npm-publish@mk/npm-publish
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # - name: Tag and Publish
+    #   uses: minkimcello/actions/npm-publish@mk/npm-publish
+    #   env:
+    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
+    - run: npm publish --access=public --tag whatever
     # - run: echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
     # - run: npm publish --access=public --tag gonnst-delete
