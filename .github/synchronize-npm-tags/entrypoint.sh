@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+IFS=$'\n\t'
 
 RED='\033[1;31m'
 GREEN='\033[1;32m'
@@ -22,20 +23,36 @@ package="`node -e \"console.log(require('./package.json').name)\"`"
 
 
 if [[ $(echo "$INPUT_SAVE" | grep -e "beta") ]]
-  then echo dev exists on save ver1
-  else echo dev does not exist on save ver1
+  then 
+  echo $(echo "$INPUT_SAVE" | grep -e "beta") ver1
+  echo beta exists on save ver1
+  else 
+  echo $(echo "$INPUT_SAVE" | grep -e "beta") ver2
+  echo beta does not exist on save ver2
 fi
 if [[ $(echo "$INPUT_IGNORE" | grep -e "beta") ]]
-  then echo dev exists on ignore ver1
-  else echo dev does not exist on ignore ver1
+  then 
+  echo $(echo "$INPUT_IGNORE" | grep -e "beta") ver3
+  echo beta exists on ignore ver3
+  else 
+  echo $(echo "$INPUT_IGNORE" | grep -e "beta") ver4
+  echo beta does not exist on ignore ver4
 fi
 if [[ $(echo "beta" | grep -e "$INPUT_SAVE") ]]
-  then echo dev exists on save ver2
-  else echo dev does not exist on save ver2
+  then 
+  echo $(echo "beta" | grep -e "$INPUT_SAVE") ver5
+  echo beta exists on save ver5
+  else 
+  echo $(echo "beta" | grep -e "$INPUT_SAVE") ver6
+  echo beta does not exist on save ver6
 fi
 if [[ $(echo "beta" | grep -e "$INPUT_IGNORE") ]]
-  then echo dev exists on ignore ver2
-  else echo dev does not exist on ignore ver2
+  then 
+  echo $(echo "beta" | grep -e "$INPUT_IGNORE") ver7
+  echo beta exists on ignore ver7
+  else 
+  echo $(echo "beta" | grep -e "$INPUT_IGNORE") ver8
+  echo beta does not exist on ignore ver8
 fi
 
 # npm tags
