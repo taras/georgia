@@ -16,4 +16,4 @@ jobs:
     #   env:
     #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
-    - run: npm publish --access=public --tag release-2.2.2
+    - run: npm publish --access=public --tag $GITHUB_REF
