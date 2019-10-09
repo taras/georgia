@@ -16,4 +16,4 @@ jobs:
     #   env:
     #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
-    - run: npm publish --access=public --tag 2.2.2-awefaw
+    - run: npm publish --access=public --tag awefaw-2.2.2
