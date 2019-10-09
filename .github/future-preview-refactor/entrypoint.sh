@@ -19,7 +19,7 @@ const { markdown } = require('danger');
 const pjson = require('./package.json');
 
 const install = `npm install ${pjson.name}@${pjson.version}`
-const install2 = `npm install ${pjson.name}@${GITHUB_HEAD_REF}`
+const install2 = `npm install ${pjson.name}@${$GITHUB_HEAD_REF}`
 const currentNPM = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
 const message = `You can view the NPM package [here](${currentNPM}).`
 
