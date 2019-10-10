@@ -3,8 +3,7 @@ name: on push test
 on:
   push:
     branches:
-    # - release-1.0.0
-    - placeholder
+    - release-1.0.0
 
 jobs:
   onpush:
@@ -12,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: minkimcello/actions/npm-publish tester
-      uses: minkimcello/actions/npm-publish@mk/npm-publish
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # - name: minkimcello/actions/npm-publish tester
+    #   uses: minkimcello/actions/npm-publish@mk/npm-publish
+    #   env:
+    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: echo ${{ secrets.GITHUB_POST_COMMENT_TOKEN }}
