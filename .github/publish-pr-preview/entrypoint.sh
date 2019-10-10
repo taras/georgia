@@ -24,7 +24,8 @@ elif [[ "$GITHUB_HEAD_REF" = "latest" ]]
 else
   npm version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1`" --no-git-tag-version
   echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-  npm publish --access=public --tag $GITHUB_HEAD_REF
+  tag="$(echo $GITHUB_HEAD_REF | sed 's/\//\_/g')"
+  npm publish --access=public --tag $tag
 cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 const pjson = require('./package.json');
