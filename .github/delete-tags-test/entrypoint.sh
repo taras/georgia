@@ -18,7 +18,7 @@ npmtags=$(npm dist-tag ls | sed 's/\:.*//')
 echo bra: $branches_masked
 echo inp: $input_keep_masked
 echo npm: $npmtags
-
+#
 # for tag in $npmtags; do
   
 #   if [[ "$tag" = "latest" ]] || [[ $(echo "$input_keep_masked" | grep -e "$tag") ]]
