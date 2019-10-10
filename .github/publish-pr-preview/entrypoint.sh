@@ -31,11 +31,12 @@ const { markdown } = require('danger');
 const pjson = require('./package.json');
 
 const current = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
-const maskedbranch = process.env.GITHUB_HEAD_REF.replace('/','_');
+const branch = process.env.GITHUB_HEAD_REF;
+const masked = branch.replace(/\//g, '_');
 
 const first_line = `This PR is available to use:`
 const install_version = `npm install ${pjson.name}@${pjson.version}`;
-const install_tag = `npm install ${pjson.name}@${maskedbranch}`;
+const install_tag = `npm install ${pjson.name}@${masked}`;
 const last_line = `You can view the NPM package [here](${current}).`
 
 markdown(`${first_line}\n\`\`\`bash\n${install_version}\n\`\`\`\nor\n\`\`\`bash\n${install_tag}\n\`\`\`\n${last_line}`)
