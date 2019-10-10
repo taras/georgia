@@ -11,8 +11,8 @@ NC='\033[0m'
 package="`node -e \"console.log(require('./package.json').name)\"`"
 
 branches="$(git ls-remote --heads origin  | sed 's?.*refs/heads/??')"
-branches_masked="$(echo $branches | sed 's/\_/\//g')"
-input_keep_masked="$(echo $INPUT_KEEP | sed 's/\_/\//g')"
+branches_masked="$(echo $branches | sed 's/\//\_/g')"
+input_keep_masked="$(echo $INPUT_KEEP | sed 's/\//\_/g')"
 npmtags=$(npm dist-tag ls | sed 's/\:.*//')
 
 echo $INPUT_KEEP
