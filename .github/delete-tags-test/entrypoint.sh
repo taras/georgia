@@ -15,8 +15,9 @@ branches_masked="$(echo $branches | sed 's/\//\_/g')"
 input_keep_masked="$(echo $INPUT_KEEP | sed 's/\//\_/g')"
 npmtags=$(npm dist-tag ls | sed 's/\:.*//')
 
-echo $INPUT_KEEP
-echo $input_keep_masked
+echo bra: $branches_masked
+echo inp: $input_keep_masked
+echo npm: $npmtags
 
 # for tag in $npmtags; do
   
