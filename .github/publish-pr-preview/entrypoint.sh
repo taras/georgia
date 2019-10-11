@@ -41,7 +41,7 @@ const masked = branch.replace(/\//g, '_');
 
 const install_version = `npm install ${pjson.name}@${pjson.version}`;
 
-const first_line = `A preview package of this pull request has been released to NPM with the tag ${masked}.`;
+const first_line = `A preview package of this pull request has been released to NPM with the tag \`${masked}\`.`;
 const second_line = `You can try it out by running the following command:`;
 const install_tag = `$ npm install ${pjson.name}@${masked}`;
 const fourth_line = `or by updating your package.json to:`
