@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: minkimcello/georgia/.github/delete-tags-test@release-1.0.0
+    - uses: minkimcello/georgia/.github/delete-tags-test@mk/one_two__yeah
       with:
-        keep: mk/ding/ding hello/what// dev alpha
+        keep: mk_test_yeah
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

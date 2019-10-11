@@ -1,9 +1,7 @@
 #!/bin/sh
 set -e
-IFS=$'\n\t'
 
 RED='\033[1;31m'
-GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
@@ -22,31 +20,9 @@ elif [[ "$GITHUB_HEAD_REF" = "latest" ]]
     echo -e "${YELLOW}Please change the name of your branch and resubmit the pull request.${NC}"
     exit 1
 else
-  npm version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1`" --no-git-tag-version
-
   echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
   npm config set unsafe-perm true
   npm install
   tag="$(echo $GITHUB_HEAD_REF | sed -E 's/\_+/&\_/g;s/\//\_/g')"
   npm publish --access=public --tag $tag
-
-
-cat << "EOT" > dangerfile.js
-const { markdown } = require('danger');
-const pjson = require('./package.json');
-
-const current = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
-const branch = process.env.GITHUB_HEAD_REF;
-const masked = branch.replace(/\//g, '_');
-
-const first_line = `This PR is available to use:`
-const install_version = `npm install ${pjson.name}@${pjson.version}`;
-const install_tag = `npm install ${pjson.name}@${masked}`;
-const last_line = `You can view the NPM package [here](${current}).`
-
-markdown(`${first_line}\n\`\`\`bash\n${install_version}\n\`\`\`\nor\n\`\`\`bash\n${install_tag}\n\`\`\`\n${last_line}`)
-EOT
-  yarn global add danger --dev
-  export PATH="$(yarn global bin):$PATH"
-  danger ci
 fi
