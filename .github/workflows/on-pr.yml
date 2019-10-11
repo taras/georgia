@@ -17,5 +17,5 @@ jobs:
       uses: minkimcello/georgia/.github/publish-pr-preview@mk/one_two__yeah
       env:
 #        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        NPM_AUTH_TOKEN: asdfasdfa
+        NPM_AUTH_TOKEN: ${{ secrets.TOKEN_TESTER_UMARU }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
