@@ -45,7 +45,7 @@ const first_line = `A preview package of this pull request has been released to 
 const second_line = `You can try it out by running the following command:`;
 const install_tag = `$ npm install ${pjson.name}@${masked}`;
 const fourth_line = `or by updating your package.json to:`
-const update_json = `\{\n'  '\"${pjson.name}\": \"${masked}\"\n\}`
+const update_json = `\{\n  \"${pjson.name}\": \"${masked}\"\n\}`
 const last_line = `Once the branch associated with this tag is deleted (usually once the PR is merged or closed), it will no longer be available. However, it currently references [${pjson.name}@${pjson.version}](${current}) which will be available to install forever.`;
 
 markdown(`${first_line}\n${second_line}\n\`\`\`bash\n${install_tag}\n\`\`\`\n${fourth_line}\n\`\`\`bash\n${update_json}\n\`\`\`\n${last_line}`)
