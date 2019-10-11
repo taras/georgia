@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: georgia/future-refactor test
-      uses: minkimcello/georgia/.github/publish-pr-preview@mk/test/yeah
+      uses: minkimcello/georgia/.github/publish-pr-preview@mk/one_two__yeah
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
