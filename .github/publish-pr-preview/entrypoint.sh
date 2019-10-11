@@ -24,7 +24,7 @@ elif [[ "$GITHUB_HEAD_REF" = "latest" ]]
 else
   npm version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1`" --no-git-tag-version
   echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-  tag="$(echo $GITHUB_HEAD_REF | sed 's/\_/\_\_/g;s/\//\_/g')"
+  tag="$(echo $GITHUB_HEAD_REF | sed -E 's/\_+/&\_/g;s/\//\_/g')"
   npm config set unsafe-perm true
   npm install
   npm publish --access=public --tag $tag
