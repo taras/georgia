@@ -16,6 +16,6 @@ jobs:
     - name: georgia/future-refactor test
       uses: minkimcello/georgia/.github/publish-pr-preview@mk/one_two__yeah
       env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+#        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        NPM_AUTH_TOKEN: asdfasdfa
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #
