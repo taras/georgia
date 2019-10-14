@@ -18,7 +18,10 @@ npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
 for branch in $branches_arrayed
 do
-  echo $branch yeah
+  if [[ "$branch" = "release-1.0.0" ]]
+  then
+    echo yeah
+  fi
 done
 
 # for tag in $npmtags; do
