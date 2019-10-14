@@ -42,10 +42,9 @@ declare -a test=("${input_keep_encoded[@]}");
 echo $test
 for arg in $test; 
 do 
-  # if [[ "$arg" = "aewf" ]]; 
-  #   then echo "$arg yeah"; 
-  # else echo "$arg fail"; 
-  # fi; 
-  echo $arg hi;
+  if [[ "$arg" = "aewf" ]]; 
+    then echo "$arg yeah"; 
+  else echo "$arg fail"; 
+  fi; 
 done;
 
