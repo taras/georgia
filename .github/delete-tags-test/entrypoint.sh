@@ -19,15 +19,15 @@ for tag in $npmtags; do
   if [[ "$tag" = "latest" ]]
     then
       echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because it is protected.${NC}"
-  # elif [[ $(echo $branches_encoded | grep -e "$tag") ]]
-  #   then
-  #     echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because we found a matching branch.${NC}"
+  elif [[ $(echo $branches_encoded | grep -e "$tag") ]]
+    then
+      echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because we found a matching branch.${NC}"
   elif [[ $(echo $(for arg in $input_arrayed; do if [[ "$arg" = "$tag" ]]; then echo "$tag"; fi; done;)) ]]
     then
       echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because it is protected.${NC}"
   else
-    # echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-    # npm dist-tag rm $package $tag
+    echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
+    npm dist-tag rm $package $tag
     echo -e "${RED}Removed tag, ${YELLOW}$tag${RED} from NPM because it did not match any existing branches.${NC}"
   fi
 done
