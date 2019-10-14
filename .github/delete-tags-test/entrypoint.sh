@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 IFS=$'\n\t' #required for checking tag against user argument
 
@@ -37,7 +37,7 @@ echo branches: $branches
 echo branches_encoded: $branches_encoded
 echo npmtags: $npmtags
 
-declare -a test=($INPUT_KEEP)
+test=($INPUT_KEEP)
 
 for arg in $test; 
 do 
