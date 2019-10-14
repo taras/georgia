@@ -25,7 +25,7 @@ IFS=$SAVEIFS   # Restore IFS
 # for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then echo yeah; fi; done;
 # for branch in $branches_arrayed; do echo "$branch a"; done;
 
-for branch in $array; do echo $branch; done;
+for branch in $array; do echo "$branch yeah"; done;
 
 # for tag in $npmtags; do
 #   if [[ "$tag" = "latest" ]]
