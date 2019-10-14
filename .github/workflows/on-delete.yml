@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: minkimcello/georgia/.github/delete-tags-test@mk/release-1.0.0
+    - uses: minkimcello/georgia/.github/delete-tags-test@release-1.0.0
       with:
         keep: mk_test_yeah
       env:
