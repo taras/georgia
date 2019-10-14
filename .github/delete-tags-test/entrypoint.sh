@@ -9,7 +9,7 @@ BLUE='\033[1;34m'
 NC='\033[0m'
 
 package="`node -e \"console.log(require('./package.json').name)\"`";
-input_keep_encoded="$(echo $INPUT_KEEP | sed -E 's/\_+/&\_/g;s/\//\_/g;s:\s:\n:g')"
+declare -a input_keep_encoded="${(echo $INPUT_KEEP | sed -E 's/\_+/&\_/g;s/\//\_/g;s:\s:\n:g')[@]}"
 branches="$(git ls-remote --heads origin  | sed 's?.*refs/heads/??')";
 branches_encoded="$(echo $branches | sed -E 's/\_+/&\_/g;s/\//\_/g')";
 npmtags=$(npm dist-tag ls | sed 's/:.*//');
@@ -31,16 +31,7 @@ npmtags=$(npm dist-tag ls | sed 's/:.*//');
 #   fi
 # done
 
-echo package: $package
-echo input_keep_encoded: $input_keep_encoded
-echo branches: $branches
-echo branches_encoded: $branches_encoded
-echo npmtags: $npmtags
-
-declare -a test=("${input_keep_encoded[@]}");
-#test=("${input_keep_encoded[@]}");
-echo $test
-for arg in $test; 
+for arg in $input_keep_encoded; 
 do 
   if [[ "$arg" = "aewf" ]]; 
     then echo "$arg yeah"; 
