@@ -53,7 +53,6 @@
   - the commit of the merge itself does trigger a workflow however if the workflow from the pull request after it is merged overlaps with the workflow of the merged commit, there'll be some ugly overlapping.
 
 ## Notes
-
 By creating our own actions, we've made this workflow much more modular and re-usable.
 
 We've gone from this:
