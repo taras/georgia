@@ -31,6 +31,12 @@ npmtags=$(npm dist-tag ls | sed 's/:.*//');
 #   fi
 # done
 
+echo package: $package
+echo input_keep_encoded: $input_keep_encoded
+echo branches: $branches
+echo branches_encoded: $branches_encoded
+echo npmtags: $npmtags
+
 declare -a test=$INPUT_KEEP;
 for arg in ($test); 
 do 
@@ -39,3 +45,4 @@ do
   else echo "$arg fail"; 
   fi; 
 done;
+
