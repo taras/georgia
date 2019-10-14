@@ -37,7 +37,7 @@ echo branches: $branches
 echo branches_encoded: $branches_encoded
 echo npmtags: $npmtags
 
-test=($INPUT_KEEP)
+declare -a test=($INPUT_KEEP)
 
 for arg in $test; 
 do 
