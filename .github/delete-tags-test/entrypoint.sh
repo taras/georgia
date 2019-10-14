@@ -9,10 +9,10 @@ BLUE='\033[1;34m'
 NC='\033[0m'
 
 package="`node -e \"console.log(require('./package.json').name)\"`";
-input_keep_encoded="$(echo $INPUT_KEEP | sed -E 's/\_+/&\_/g;s/\//\_/g;s:\s:\n:g')"
+input_keep_encoded="$(echo $INPUT_KEEP | sed -E 's:_:__:g;s:\/:_:g')"
 declare -a input_arrayed=("${input_keep_encoded[@]}");
 branches="$(git ls-remote --heads origin  | sed 's?.*refs/heads/??')";
-branches_encoded="$(echo $branches | sed -E 's/\_+/&\_/g;s/\//\_/g')";
+branches_encoded="$(echo $branches | sed -E 's:_:__:g;s:\/:_:g')";
 declare -a branches_arrayed=("${branches_encoded[@]}");
 npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
@@ -41,4 +41,4 @@ done
 #   fi; 
 # done;
 
-#
+##
