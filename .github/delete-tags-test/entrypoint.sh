@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 IFS=$'\n\t' #required for checking tag against user argument
 
@@ -38,6 +38,7 @@ echo branches_encoded: $branches_encoded
 echo npmtags: $npmtags
 
 declare -a test=("${input_keep_encoded[@]}");
+#test=("${input_keep_encoded[@]}");
 echo $test
 for arg in $test; 
 do 
