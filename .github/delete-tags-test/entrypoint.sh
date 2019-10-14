@@ -16,13 +16,7 @@ branches_encoded="$(echo $branches | sed -E 's:_:__:g;s:\/:_:g')";
 declare -a branches_arrayed=("${branches_encoded[@]}");
 npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
-for branch in $branches_arrayed
-do
-  if [[ "$branch" = "release-1.0.0" ]]
-  then
-    echo yeah
-  fi
-done
+for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then echo yeah; fi; done;
 
 # for tag in $npmtags; do
 #   if [[ "$tag" = "latest" ]]
