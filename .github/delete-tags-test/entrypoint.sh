@@ -20,7 +20,10 @@ for branch in $branches_arrayed
 do
   echo $branch yeah
 done
-echo encoded: $branches_encoded
+for input in $input_arrayed
+do
+  echo $input yeah
+done
 
 # for tag in $npmtags; do
 #   if [[ "$tag" = "latest" ]]
