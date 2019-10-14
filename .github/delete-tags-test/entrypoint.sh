@@ -31,11 +31,11 @@ npmtags=$(npm dist-tag ls | sed 's/:.*//');
 #   fi
 # done
 
-test=$INPUT_KEEP;
+declare -a test=$INPUT_KEEP;
 for arg in ($test); 
 do 
-  if [[ "$arg" = "hihi" ]]; 
-    then echo "$arg suck"; 
+  if [[ "$arg" = "aewf" ]]; 
+    then echo "$arg yeah"; 
   else echo "$arg fail"; 
   fi; 
 done;
