@@ -37,7 +37,8 @@ echo branches: $branches
 echo branches_encoded: $branches_encoded
 echo npmtags: $npmtags
 
-for arg in ($input_keep_encoded); 
+declare -a test=($input_keep_encoded);
+for arg in $test; 
 do 
   if [[ "$arg" = "aewf" ]]; 
     then echo "$arg yeah"; 
