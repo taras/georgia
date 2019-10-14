@@ -13,13 +13,14 @@ input_keep_encoded="$(echo $INPUT_KEEP | sed -E 's/\_+/&\_/g;s/\//\_/g;s:\s:\n:g
 declare -a input_arrayed=("${input_keep_encoded[@]}");
 branches="$(git ls-remote --heads origin  | sed 's?.*refs/heads/??')";
 branches_encoded="$(echo $branches | sed -E 's/\_+/&\_/g;s/\//\_/g')";
+declare -a branches_arrayed=("${branches_encoded[@]}");
 npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
 for tag in $npmtags; do
   if [[ "$tag" = "latest" ]]
     then
       echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because it is protected.${NC}"
-  elif [[ $(echo $branches_encoded | grep -e "$tag") ]]
+  elif $(echo $(for branch in $branches_arrayed; do if [[ "$branch" = "$tag" ]]; then echo "$tag"; fi; done;)) ]]
     then
       echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because we found a matching branch.${NC}"
   elif [[ $(echo $(for arg in $input_arrayed; do if [[ "$arg" = "$tag" ]]; then echo "$tag"; fi; done;)) ]]
