@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 IFS=$'\n\t' #required for checking tag against user argument
 
