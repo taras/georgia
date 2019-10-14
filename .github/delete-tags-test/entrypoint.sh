@@ -13,10 +13,10 @@ input_keep_encoded="$(echo $INPUT_KEEP | sed -E 's:_:__:g;s:\/:_:g')"
 # declare -a input_arrayed=("${$input_keep_encoded[@]}");
 branches="$(git ls-remote --heads origin  | sed 's?.*refs/heads/??')";
 branches_encoded="$(echo $branches | sed -E 's:_:__:g;s:\/:_:g')";
-declare -a branches_arrayed=("${branches_encoded[@]}");
+declare -a branches_arrayed=("$branches_encoded");
 npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
-for branch in $branches_arrayed
+for branch in "${branches_arrayed[@]}"
 do
   echo $branch yeah
 done
