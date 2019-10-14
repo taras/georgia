@@ -16,7 +16,16 @@ branches_encoded="$(echo $branches | sed -E 's:_:__:g;s:\/:_:g')";
 declare -a branches_arrayed=("${branches_encoded[@]}");
 npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
-for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then echo yeah; fi; done;
+
+SAVEIFS=$IFS   # Save current IFS
+IFS=$'\n'      # Change IFS to new line
+array=($branches_encoded) # split to array $names
+IFS=$SAVEIFS   # Restore IFS
+
+# for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then echo yeah; fi; done;
+# for branch in $branches_arrayed; do echo "$branch a"; done;
+
+for branch in $array; do echo $branch; done;
 
 # for tag in $npmtags; do
 #   if [[ "$tag" = "latest" ]]
@@ -34,13 +43,3 @@ for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then e
 #     echo -e "${RED}Removed tag, ${YELLOW}$tag${RED} from NPM because it did not match any existing branches.${NC}"
 #   fi
 # done
-
-# for arg in $input_arrayed; 
-# do 
-#   if [[ "$arg" = "aewf" ]]; 
-#     then echo "$arg yeah"; 
-#   else echo "$arg fail"; 
-#   fi; 
-# done;
-
-##
