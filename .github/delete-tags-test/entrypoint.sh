@@ -21,8 +21,6 @@ npmtags=$(npm dist-tag ls | sed 's/:.*//');
 # declare -a input_arrayed2=("${$input_keep_encoded[@]}");
 # declare -a branches_arrayed2=("${branches_encoded[@]}");
 # newarray=($(echo $branches_encoded | tr " " "\n"))
-
-
 # for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then echo yeah; fi; done;
 # for branch in $branches_arrayed; do echo "$branch a"; done;
 # for branch in ${newarray[@]}; do echo "$branch yeah"; done;
@@ -31,7 +29,7 @@ for tag in $npmtags; do
   if [[ "$tag" = "latest" ]]
     then
       echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because it is protected.${NC}"
-  elif [[ $(echo $(for branch in $branches_arrayed2; do if [[ "$branch" = "$tag" ]]; then echo "$tag"; fi; done;)) ]]
+  elif [[ $(echo $(for branch in $branches_arrayed; do if [[ "$branch" = "$tag" ]]; then echo "$tag"; fi; done;)) ]]
     then
       echo -e "${GREEN}Keeping tag, ${YELLOW}$tag${GREEN}, because we found a matching branch.${NC}"
   elif [[ $(echo $(for arg in $input_arrayed; do if [[ "$arg" = "$tag" ]]; then echo "$tag"; fi; done;)) ]]
