@@ -22,7 +22,7 @@ npmtags=$(npm dist-tag ls | sed 's/:.*//');
 # for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then echo yeah; fi; done;
 # for branch in ${newarray[@]}; do echo "$branch yeah"; done;
 
-for branch in $branches_arrayed; do echo "hi $branch"; done;
+for branch in ${branches_arrayed[@]}; do echo "hi $branch"; done;
 
 for tag in $npmtags; do
   if [[ "$tag" = "latest" ]]
