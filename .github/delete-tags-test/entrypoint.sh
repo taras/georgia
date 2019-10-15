@@ -16,8 +16,6 @@ branches_encoded="$(echo $branches | sed -E 's:_:__:g;s:\/:_:g')";
 declare -a branches_arrayed=($(echo $branches_encoded | tr " " "\n"));
 npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
-
-
 # declare -a input_arrayed2=("${$input_keep_encoded[@]}");
 # declare -a branches_arrayed2=("${branches_encoded[@]}");
 # newarray=($(echo $branches_encoded | tr " " "\n"))
