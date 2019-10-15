@@ -18,9 +18,9 @@ npmtags=$(npm dist-tag ls | sed 's/:.*//');
 
 
 
-declare -a input_arrayed2=("${$input_keep_encoded[@]}");
-declare -a branches_arrayed2=("${branches_encoded[@]}");
-newarray=($(echo $branches_encoded | tr " " "\n"))
+# declare -a input_arrayed2=("${$input_keep_encoded[@]}");
+# declare -a branches_arrayed2=("${branches_encoded[@]}");
+# newarray=($(echo $branches_encoded | tr " " "\n"))
 
 
 # for branch in $branches_arrayed; do if [[ "$branch" = "release-1.0.0" ]]; then echo yeah; fi; done;
