@@ -18,4 +18,4 @@ jobs:
     - name: test args
       uses: minkimcello/georgia/.github/testargs@release-1.0.0
       with:
-        npm_publish: hi
+        npm_publish: not
