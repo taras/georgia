@@ -1,14 +1,13 @@
 {
   "name": "@minkimcello/georgia",
-  "version": "1.10.12",
+  "version": "1.10.13",
   "author": {
     "name": "Min Kim",
     "email": "minkimcello@gmail.com"
   },
   "scripts": {
     "test": "mocha",
-    "yeah": "echo yeah $@",
-    "not": "echo no $@"
+    "bin/publish": "publish $*"
   },
   "devDependencies": {
     "mocha": "^6.2.0"
