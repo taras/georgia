@@ -7,8 +7,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "yeah": "echo yeah $*",
-    "not": "echo no $*"
+    "yeah": "echo yeah $@",
+    "not": "echo no $@"
   },
   "devDependencies": {
     "mocha": "^6.2.0"
