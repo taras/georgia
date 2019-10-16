@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-IFS=$'\n\t' #required for checking tag against user argument
+IFS=$'\n\t'
 
 RED='\033[1;31m'
 GREEN='\033[1;32m'
@@ -9,8 +9,8 @@ BLUE='\033[1;34m'
 NC='\033[0m'
 
 package="`node -e \"console.log(require('./package.json').name)\"`";
-input_keep_encoded="$(echo $INPUT_KEEP | sed -E 's:_:__:g;s:\/:_:g')"
-declare -a input_arrayed=($(echo $input_keep_encoded | tr " " "\n"))
+input_encoded="$(echo $INPUT_PRESERVE | sed -E 's:_:__:g;s:\/:_:g')"
+declare -a input_arrayed=($(echo $input_encoded | tr " " "\n"))
 branches="$(git ls-remote --heads origin  | sed 's?.*refs/heads/??')";
 branches_encoded="$(echo $branches | sed -E 's:_:__:g;s:\/:_:g')";
 declare -a branches_arrayed=($(echo $branches_encoded | tr " " "\n"));
