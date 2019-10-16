@@ -17,7 +17,7 @@ jobs:
     #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - name: test args
       uses: minkimcello/georgia/.github/testargs@release-1.0.0
-      # with:
-       # npm_publish: bin/publish
+      with:
+       npm_publish: bin/publish
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
