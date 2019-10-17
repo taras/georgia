@@ -11,6 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - uses: minkimcello/actions/synchronize-npm-tags@mk/bash-it-up
       with:
-        keep: 
+        preserve: mk/yeah_ ding_dong
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
