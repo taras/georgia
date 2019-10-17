@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: minkimcello/actions/synchronize-npm-tags@master
+    - uses: minkimcello/actions/synchronize-npm-tags@mk/fix-synch-npm-tags
       with:
         keep: 
       env:
