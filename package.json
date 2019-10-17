@@ -7,9 +7,14 @@
   },
   "scripts": {
     "test": "mocha",
-    "bin/publish": "npm publish $*"
+    "bin/publish": "npm publish $*",
+    "a:yeah": "echo hello",
+    "abc:ding": "echo ding"
   },
   "devDependencies": {
     "mocha": "^6.2.0"
+  },
+  "dependencies": {
+    "@minkimcello/effection": "^0.1.1-fa566ff"
   }
 }
