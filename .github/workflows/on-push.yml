@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: georgia/future-refactor test
-      uses: thefrontside/actions/synchronize-with-npm@mk/ifs
+      uses: minkimcello/actions/synchronize-with-npm@mk/ifs
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
