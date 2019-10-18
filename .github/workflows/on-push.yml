@@ -4,7 +4,7 @@ on:
   push:
     branches:
     #- release-1.0.0
-    - something
+    - release-x
 
 jobs:
   onpush:
@@ -12,13 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    # - name: minkimcello/actions/npm-publish tester
-    #   uses: minkimcello/actions/npm-publish@mk/npm-publish
-    #   env:
-    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    - name: test args
-      uses: minkimcello/georgia/.github/testargs@release-1.0.0
-      with:
-       npm_publish: bin/publish
+    - name: georgia/future-refactor test
+      uses: thefrontside/actions/synchronize-with-npm@master
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
