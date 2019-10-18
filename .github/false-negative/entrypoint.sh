@@ -12,6 +12,8 @@ if [ "${#NPM_AUTH_TOKEN}" -eq "0" ]
   else 
     version="`node -e \"console.log(require('./package.json').version)\"`"
     package="`node -e \"console.log(require('./package.json').name)\"`"
+    echo "version: $version"
+    echo "package: $package"
     if [[ $(echo $(npm view $package@$version)) ]] 
       then
         echo -e "${YELLOW}Version $version of this package already exists. To publish the changes of this commit, you must update package version in the JSON file of your project.${NC}"
