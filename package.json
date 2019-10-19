@@ -9,7 +9,7 @@
     "test": "mocha",
     "bin/publish": "npm publish $*",
     "a:yeah": "echo hello",
-    "abc:ding": "echo ding"
+    "abc:ding": "npm publish $*"
   },
   "devDependencies": {
     "mocha": "^6.2.0"

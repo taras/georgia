@@ -18,4 +18,4 @@ jobs:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        NPM_PUBLISH: abc:ding
+        NPM_PUBLISH: npm run abc:ding
