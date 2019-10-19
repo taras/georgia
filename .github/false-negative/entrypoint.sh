@@ -12,31 +12,34 @@ if [ "${#NPM_AUTH_TOKEN}" -eq "0" ]
   else 
     version="`node -e \"console.log(require('./package.json').version)\"`"
     package="`node -e \"console.log(require('./package.json').name)\"`"
-    if [ -z "$(npm view $package@$version))" ]
+    if [ -z "$(npm view $package@$version)" ]
       then
-        # git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git
-        # git fetch origin +refs/heads/*:refs/heads/*
+        git remote set-url origin https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git
+        git fetch origin +refs/heads/*:refs/heads/*
 
-        # branch="${GITHUB_REF#*refs\/heads\/}"
-        # git checkout $branch
+        branch="${GITHUB_REF#*refs\/heads\/}"
+        git checkout $branch
 
-        # git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        # git config user.name "$GITHUB_ACTOR"
+        git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+        git config user.name "$GITHUB_ACTOR"
         
-        # git tag --force "v$version"
-        # git push --force  --tags "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+        git tag --force "v$version"
+        git push --force  --tags "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 
-        # echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
-        # npm config set unsafe-perm true
-        # npm install
-        # if [ "${#INPUT_NPM_PUBLISH}" -eq "0" ]
-        #   then
-        #     npm publish --access=public
-        #   else
-        #     $INPUT_NPM_PUBLISH --access=public
-        # fi
+        echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
+        npm config set unsafe-perm true
+        npm install
+        if [ "${#INPUT_NPM_PUBLISH}" -eq "0" ]
+          then
+            npm publish --access=public
+          else
+            $INPUT_NPM_PUBLISH --access=public
+        fi
         echo -e "${GREEN}Tagged and published version v${version} successfully!${NC}"
       else
         echo -e "${YELLOW}Version $version of this package already exists. To publish the changes of this commit, you must update package version in the JSON file of your project.${NC}"
     fi
 fi
+
+
+# if [ -z "$(npm view @minkimcello/georgia@1.10.15-z)" ]; then echo
