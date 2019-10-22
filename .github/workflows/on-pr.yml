@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: refactored action tester
-      uses: minkimcello/actions/publish-pr-preview@mk/publish-preview-refactor
+      uses: minkimcello/actions/publish-pr-preview@mk/reorganize-pr-publish
       with:
         NPM_PUBLISH: npm run abc:ding
       env:
