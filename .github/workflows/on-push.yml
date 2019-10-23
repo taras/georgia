@@ -1,22 +1,19 @@
-name: broken window
+name: publish to registry
 
 on:
   push:
     branches:
     #- release-1.0.0
     #- release-x
-    - placeholder
+    - gitreg
 
 jobs:
   onpush:
-    name: broken window
+    name: publish
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: broken window
-      uses: minkimcello/georgia/.github/false-negative@release-x
+    - name: publish
+      uses: minkimcello/georgia/.github/publish@gitreg
       env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        NPM_PUBLISH: npm run abc:ding
