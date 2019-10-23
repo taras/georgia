@@ -10,7 +10,8 @@ set -e
 for animal in $INPUT_PACKAGES; do
 echo "hi $animal" >> yeah.txt
 done;
-cat yeah.txt
+for test in yeah.txt; do
+echo "bye $test"; done;
 
 # cat << "EOT" > dangerfile.js
 # const { markdown } = require('danger');
