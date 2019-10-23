@@ -17,3 +17,5 @@ jobs:
       uses: minkimcello/georgia/.github/publish@gitreg
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        packages: cat dog hamster
