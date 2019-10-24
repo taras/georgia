@@ -1,26 +1,31 @@
 #!/bin/sh
 set -e
 
+jq --version
 
 #npm version "`node -e \"console.log(require('./package.json').version)\"`-`git log --pretty=format:'%h' -n 1`" --no-git-tag-version
 # echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
 #npm publish
 # npm view @minkimcello/georgia@1.10.15-y-7761089
 
-for animal in $INPUT_PACKAGES; do
-echo "hi $animal" >> yeah.txt
-done;
-for test in yeah.txt; do
-echo "bye $test"; done;
+
+
+# for animal in $INPUT_PACKAGES; do
+# echo "hi $animal" >> yeah.txt
+# done;
+# for test in yeah.txt; do
+# echo "bye $test"; done;
+
+
+
 
 # cat << "EOT" > dangerfile.js
 # const { markdown } = require('danger');
 # const pjson = require('./package.json');
-# const { execSync } = require('child_process');
 
-# exec('find $directory -type d -maxdepth 0', (err, stdout, stderr) => {
-
-# });
+## const { execSync } = require('child_process');
+## exec('find $directory -type d -maxdepth 0', (err, stdout, stderr) => {
+## });
 
 # const current = `https://www.npmjs.com/package/${pjson.name}/v/${pjson.version}`
 # const branch = process.env.GITHUB_HEAD_REF;
