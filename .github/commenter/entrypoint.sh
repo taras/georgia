@@ -21,13 +21,12 @@ function maybe(){
   pjson.packages.map(x=>{
     array.push(markdown(`${x.name}`))
   })
+  array.unshift(markdown('hello'));
+  array.push(markdown('bye'));
   return array.toString();
 }
 
-markdown('hello')
 maybe();
-markdown('bye')
-
 EOT
 
 yarn global add danger --dev
