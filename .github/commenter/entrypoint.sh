@@ -17,7 +17,9 @@ function bye(){
 markdown(bye())
 
 function maybe(){
-  return markdown("maybe")
+  for (i=0; i < 3; i++){
+    return markdown(`${i}`)
+  }
 }
 
 maybe();
