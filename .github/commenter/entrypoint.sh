@@ -29,7 +29,7 @@ const pjson = require('./example.json');
 // let array = [markdown('first'), markdown('second'), markdown('third')]
 // return array.toString();
 markdown('first')
-markdown('2')
+markdown('2\n5')
 markdown(3)
 
 EOT
