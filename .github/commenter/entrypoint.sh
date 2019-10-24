@@ -26,7 +26,8 @@ function package(name, body){
   const first_line = `Install using the following command:`
   const install_tag = `$ npm install ${name}@${pjson.tag}`
   const or_line = `Or update your package.json file:`
-  const json_line = `\{\n\ \ \"${name}\": \"${pjson.tag}\"\n\}`
+  const tab = `  `
+  const json_line = `\{\n\${tab}"${name}\": \"${pjson.tag}\"\n\}`
 
   return `<details><summary>${name}</summary>
   
