@@ -34,7 +34,7 @@ const pjson = require('./example.json');
 
 function drop(name, body){
   let drop = `<details><summary>"${name}"</summary>"${body}"</details>`
-  return markdown(${drop})
+  return markdown(drop)
 }
 
 drop("package-name", "body content")
