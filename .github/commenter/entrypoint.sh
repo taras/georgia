@@ -22,16 +22,17 @@ const pjson = require('./published.json');
 function maybe(){
   let stringy = "";
   pjson.packages.map(x=>{
-    stringy.concat(drop(x.name, x.version))
+    stringy += drop(x.name, x.version)
   })
   return stringy;
 }
 
 function drop(name, body){
-  return "<details><summary>${name}</summary>${body}</details>"
+  return `<details><summary>${name}</summary>${body}</details>`
 }
 
-markdown(`hello\n${maybe()}\nbye`)
+let test = maybe();
+markdown(`hello2\n${test}\nbye2`)
 
 EOT
 
