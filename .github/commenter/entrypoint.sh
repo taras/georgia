@@ -18,11 +18,12 @@ markdown(bye())
 
 function maybe(){
   for (i=0; i < 3; i++){
-    return markdown(`${i}`)
+    markdown(`${i}`);
   }
+  return comment;
 }
 
-maybe();
+markdown('hi');markdown('yeah');
 
 EOT
   yarn global add danger --dev
