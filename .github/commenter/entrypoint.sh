@@ -31,7 +31,7 @@ function drop(name, body){
   return "<details><summary>${name}</summary>${body}</details>"
 }
 
-markdown(`hello\n$(maybe())\nbye`)
+markdown(`hello\n${maybe()}\nbye`)
 
 EOT
 
