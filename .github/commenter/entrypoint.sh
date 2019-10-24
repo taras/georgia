@@ -32,7 +32,7 @@ function drop(name, body){
   return markdown(drop)
 }
 
-markdown(`hello\n${maybe()}\nbye`)
+markdown(`hello\nmaybe()\nbye`)
 
 EOT
 
