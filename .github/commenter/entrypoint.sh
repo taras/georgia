@@ -10,15 +10,18 @@ NC='\033[0m'
 cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 
-function hello(){
-  return "hi"
-}
 function bye(){
   return "bye"
 }
 
-markdown(`${hello()}`)
 markdown(bye())
+
+function maybe(){
+  return markdown("maybe")
+}
+
+maybe();
+
 EOT
   yarn global add danger --dev
   export PATH="$(yarn global bin):$PATH"
