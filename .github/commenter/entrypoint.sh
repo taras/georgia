@@ -29,7 +29,7 @@ const pjson = require('./example.json');
 // let array = [markdown('first'), markdown('second'), markdown('third')]
 // return array.toString();
 
-let drop = '<details><summary>#title</summary>hellos</details>'
+let drop = '<details><summary># title</summary>hellos</details>'
 markdown(`${drop}`)
 
 EOT
