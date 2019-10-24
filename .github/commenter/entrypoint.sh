@@ -9,6 +9,7 @@ NC='\033[0m'
 
 cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
+const pjson = require('./example.json');
 
 //function bye(){
 //  return "bye"
@@ -24,6 +25,8 @@ function maybe(){
 }
 
 maybe();
+
+markdown(`${pjson.packages}`)
 
 EOT
 
