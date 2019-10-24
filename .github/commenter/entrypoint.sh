@@ -12,32 +12,27 @@ NC='\033[0m'
 
 cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
-const pjson = require('./example.json');
+const pjson = require('./published.json');
 
 //function bye(){
 //  return "bye"
 //}
 //markdown(bye())
 
-//function maybe(){
-//  let array = [markdown('hello')];
-//  pjson.packages.map(x=>{
-//    array.push(markdown(`${x.name}`))
-//  })
-//  array.push(markdown('bye'));
-//  return array.toString();
-//}
-
-//maybe();
-// let array = [markdown('first'), markdown('second'), markdown('third')]
-// return array.toString();
+function maybe(){
+  let array = [];
+  pjson.packages.map(x=>{
+    array.push(drop(x.name, x.version))
+  })
+  return array.toString();
+}
 
 function drop(name, body){
   let drop = `<details><summary>${name}</summary>${body}</details>`
   return markdown(drop)
 }
 
-drop("package-name", "body content")
+maybe()
 
 EOT
 

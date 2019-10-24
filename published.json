@@ -1,0 +1,29 @@
+{
+  "tag": "gitreg",
+  "packages": [
+    {
+      "name": "@minkimcello/zeus-service-consumer",
+      "version": "0.0.1-commit"
+    },
+    {
+      "name": "@minkimcello/zeus-gateway-pro-portal",
+      "version": "0.0.1-commit"
+    },
+    {
+      "name": "@minkimcello/zeus-service-device",
+      "version": "0.0.1-commit"
+    },
+    {
+      "name": "@minkimcello/zeus-service-location",
+      "version": "0.0.1-commit"
+    },
+    {
+      "name": "@minkimcello/zeus-service-pro-portal-demo",
+      "version": "0.0.1-commit"
+    },
+    {
+      "name": "@minkimcello/zeus-service-task",
+      "version": "0.0.1-commit"
+    }
+  ]
+}
