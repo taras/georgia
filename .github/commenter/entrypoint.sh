@@ -16,16 +16,19 @@ const pjson = require('./example.json');
 //}
 //markdown(bye())
 
-function maybe(){
-  let array = [markdown('hello')];
-  pjson.packages.map(x=>{
-    array.push(markdown(`${x.name}`))
-  })
-  array.push(markdown('bye'));
-  return array.toString();
-}
+//function maybe(){
+//  let array = [markdown('hello')];
+//  pjson.packages.map(x=>{
+//    array.push(markdown(`${x.name}`))
+//  })
+//  array.push(markdown('bye'));
+//  return array.toString();
+//}
 
-maybe();
+//maybe();
+let array = [markdown('first'), markdown('second'), markdown('third')]
+return array.toString();
+
 EOT
 
 yarn global add danger --dev
