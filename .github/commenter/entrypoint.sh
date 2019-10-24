@@ -41,6 +41,7 @@ function package(name, body){
   
   \`\`\`bash
   ${json_line}
+    hi
   \`\`\`
   
   ---
