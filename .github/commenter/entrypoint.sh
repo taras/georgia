@@ -17,11 +17,10 @@ const pjson = require('./example.json');
 //markdown(bye())
 
 function maybe(){
-  let array = [];
+  let array = [markdown('hello')];
   pjson.packages.map(x=>{
     array.push(markdown(`${x.name}`))
   })
-  array.unshift(markdown('hello'));
   array.push(markdown('bye'));
   return array.toString();
 }
