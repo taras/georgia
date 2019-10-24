@@ -9,7 +9,7 @@ NC='\033[0m'
 
 package="`node -e \"console.log(require('./package.json').name)\"`";
 echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
-npm dist-tag rm $package "gitreg"
+npm dist-tag rm $package@1.10.15-y-f49ca05 "gitreg"
 
 # cat << "EOT" > dangerfile.js
 # const { markdown } = require('danger');
