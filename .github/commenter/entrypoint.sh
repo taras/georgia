@@ -33,7 +33,7 @@ const pjson = require('./example.json');
 // return array.toString();
 
 function drop(name, body){
-  let drop = `<details><summary>"${name}"</summary>"${body}"</details>`
+  let drop = `<details><summary>${name}</summary>${body}</details>`
   return markdown(drop)
 }
 
