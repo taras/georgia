@@ -18,15 +18,13 @@ const pjson = require('./example.json');
 
 function maybe(){
   let array = [];
-  for (i=0; i < 3; i++){
-    array.push(markdown(`${i}`));
-  }
+  pjson.packages.map(x=>{
+    array.push(markdown(`${x.name}`))
+  })
   return array.toString();
 }
 
 maybe();
-
-markdown(`${pjson.packages}`)
 
 EOT
 
