@@ -23,12 +23,13 @@ function packages(){
 }
 
 function package(name, body){
-  const first_line = `Install \`${name}\` using the following command:`
+  const first_line = `Install using the following command:`
   const install_tag = `$ npm install ${name}@${pjson.tag}`
   const or_line = `Or update your package.json file:`
-  const json_line = `\{\n  \"${name}\": \"${pjson.tag}\"\n\}`
+  const json_line = `\{\n'  '\"${name}\": \"${pjson.tag}\"\n\}`
 
   return `<details><summary>${name}</summary>
+  ---
   ${first_line}
   
   \`\`\`bash
@@ -39,6 +40,7 @@ function package(name, body){
   \`\`\`bash
   ${json_line}
   \`\`\`
+  ---
   </details>`
 }
 
