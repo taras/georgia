@@ -10,24 +10,23 @@ NC='\033[0m'
 cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 
-function bye(){
-  return "bye"
-}
-
-markdown(bye())
+//function bye(){
+//  return "bye"
+//}
+//markdown(bye())
 
 function maybe(){
+  let array = [];
   for (i=0; i < 3; i++){
-    markdown(`${i}`);
+    array.push(markdown(`${i}`));
   }
-  return comment;
+  return array.toString();
 }
 
-let arrayz = [markdown('hi one'), markdown('yeah two')];
-let stringy = arrayz.toString();
-return stringy;
+maybe();
 
 EOT
-  yarn global add danger --dev
-  export PATH="$(yarn global bin):$PATH"
-  danger ci
+
+yarn global add danger --dev
+export PATH="$(yarn global bin):$PATH"
+danger ci
