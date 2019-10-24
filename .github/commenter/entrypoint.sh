@@ -28,7 +28,9 @@ const pjson = require('./example.json');
 //maybe();
 // let array = [markdown('first'), markdown('second'), markdown('third')]
 // return array.toString();
-markdown('first');markdown('2');markdown(3)
+markdown('first')
+markdown('2')
+markdown(3)
 
 EOT
 
