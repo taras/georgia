@@ -3,8 +3,6 @@ name: on pr closed test
 on:
   pull_request:
     branches:
-      # - features-*
-      # - release-*
       - placeholder
     types:
       - closed
@@ -25,9 +23,3 @@ jobs:
     - run: echo $GITHUB_REF
     - run: echo $GITHUB_HEAD_REF
     - run: echo $GITHUB_BASE_REF
-
-  untag:
-    name: untag tag
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo closed

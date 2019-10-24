@@ -9,8 +9,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: minkimcello/actions/synchronize-npm-tags@mk/bash-it-up
-      with:
-        preserve: mk/yeah_ ding_dong
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
