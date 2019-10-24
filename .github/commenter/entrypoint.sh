@@ -14,19 +14,19 @@ cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 const pjson = require('./published.json');
 
-function maybe(){
+function packages(){
   let stringy = "";
   pjson.packages.map(x=>{
-    stringy += drop(x.name, x.version)
+    stringy += package(x.name, x.version)
   })
   return stringy;
 }
 
-function drop(name, body){
+function package(name, body){
   const first_line = `Install \`${name}\` using the following command:`
   const install_tag = `$ npm install ${name}@${pjson.tag}`
   const or_line = `Or update your package.json file:`
-  const json_line = `\{\n  \"${pjson.name}\": \"${masked}\"\n\}`
+  const json_line = `\{\n  \"${name}\": \"${pjson.tag}\"\n\}`
 
   return `<details><summary>${name}</summary>
   ${first_line}
@@ -45,7 +45,7 @@ function drop(name, body){
 const first_line = `The packages of this pull request has been released to Github Package Registry.`;
 const second_line = `Click on the following packages for instructions on how to install them:`;
 
-markdown(`${first_line}\n${second_line}\n${maybe()}\nbyebye`)
+markdown(`${first_line}\n${second_line}\n${packages()}\nbyebye`)
 
 EOT
 
