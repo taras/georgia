@@ -28,10 +28,10 @@ function maybe(){
 }
 
 function drop(name, body){
-  return `<details><summary>${name}</summary>${body}</details>`
+  return "<details><summary>${name}</summary>${body}</details>"
 }
 
-markdown(maybe())
+markdown(`${maybe()}`)
 
 EOT
 
