@@ -30,7 +30,13 @@ function maybe(){
 function drop(name, body){
   const install_tag = `$ npm install ${name}@${pjson.tag}`
   const or_line = `or doo doo`
-  return `<details><summary>${name}</summary>Install using the following command:\n\`\`\`bash\n${install_tag}\n\`\`\`\n${or_line}</details>`
+  return `<details><summary>${name}</summary>Install using the following command:
+  
+  \`\`\`bash
+  ${install_tag}
+  \`\`\`
+  ${or_line}
+  </details>`
 }
 
 const first_line = `The packages of this pull request has been released to Github Package Registry.`;
