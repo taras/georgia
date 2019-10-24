@@ -13,8 +13,5 @@
   },
   "devDependencies": {
     "mocha": "^6.2.0"
-  },
-  "dependencies": {
-    "@minkimcello/effection": "^0.1.1-fa566ff"
   }
 }
