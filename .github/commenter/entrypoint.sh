@@ -31,8 +31,10 @@ function drop(name, body){
   return `<details><summary>${name}</summary>${body}</details>`
 }
 
-let test = maybe();
-markdown(`hello2\n${test}\nbye2`)
+const first_line = `The packages of this pull request has been released to Github Package Registry with the tag \`${pjson.tag}\`.`;
+const second_line = `Click on the following packages for instructions on how to install them:`;
+
+markdown(`${first_line}\n${second_line}\n${maybe()}\nbyebye`)
 
 EOT
 
@@ -53,6 +55,5 @@ danger ci
 
 # markdown(`${first_line}\n${second_line}\n\`\`\`bash\n${install_tag}\n\`\`\`\n${fourth_line}\n\`\`\`bash\n${update_json}\n\`\`\`\n${last_line}`)
 
-# const first_line = `The packages of this pull request has been released to Github Package Registry with the tag \`${pjson.tag}\`.`;
-# const second_line = `Click on the following packages for instructions on how to install them:`;
+
 
