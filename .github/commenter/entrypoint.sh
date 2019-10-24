@@ -14,11 +14,6 @@ cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 const pjson = require('./published.json');
 
-//function bye(){
-//  return "bye"
-//}
-//markdown(bye())
-
 function maybe(){
   let stringy = "";
   pjson.packages.map(x=>{
@@ -28,14 +23,22 @@ function maybe(){
 }
 
 function drop(name, body){
+  const first_line = `Install \`${name}\` using the following command:`
   const install_tag = `$ npm install ${name}@${pjson.tag}`
-  const or_line = `or doo doo`
-  return `<details><summary>${name}</summary>Install using the following command:
+  const or_line = `Or update your package.json file:`
+  const json_line = `\{\n  \"${pjson.name}\": \"${masked}\"\n\}`
+
+  return `<details><summary>${name}</summary>
+  ${first_line}
   
   \`\`\`bash
   ${install_tag}
   \`\`\`
   ${or_line}
+  
+  \`\`\`bash
+  ${json_line}
+  \`\`\`
   </details>`
 }
 
@@ -49,11 +52,3 @@ EOT
 yarn global add danger --dev
 export PATH="$(yarn global bin):$PATH"
 danger ci
-
-# const fourth_line = `or by updating your package.json to:`
-# const update_json = `\{\n  \"${pjson.name}\": \"${masked}\"\n\}`
-
-# markdown(`${fourth_line}\n\`\`\`bash\n${update_json}\n\`\`\`\n${last_line}`)
-
-
-
