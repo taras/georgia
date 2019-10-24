@@ -23,7 +23,9 @@ function maybe(){
   return comment;
 }
 
-markdown('hi');markdown('yeah');
+let arrayz = [markdown('hi one'), markdown('yeah two')];
+let stringy = arrayz.toString();
+return stringy;
 
 EOT
   yarn global add danger --dev
