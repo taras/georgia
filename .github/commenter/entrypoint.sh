@@ -7,7 +7,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
-npm dist-tag rm $package gitreg
+npm dist-tag rm @minkimcello/georgia gitreg
 
 # cat << "EOT" > dangerfile.js
 # const { markdown } = require('danger');
