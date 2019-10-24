@@ -10,8 +10,8 @@ NC='\033[0m'
 cat << "EOT" > dangerfile.js
 const { markdown } = require('danger');
 
-const first_line = `:warning: WARNING :warning:`;
-const second_line = `We didn't publish this tag to NPM because it would conflict with the reserved \`latest\` tag.`;
+const first_line = `:mega: Heads up!`;
+const second_line = `I didn't detect an NPM_AUTH_TOKEN which is necessary to publish a preview version of this package, and so I wasn't able to. However, this is perfectly normal for pull requests that are submitted from a forked repository.`;
 
 markdown(`${first_line}\n\n${second_line}`)
 EOT
