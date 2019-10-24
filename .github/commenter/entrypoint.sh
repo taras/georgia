@@ -7,8 +7,9 @@ GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
+package="`node -e \"console.log(require('./package.json').name)\"`";
 echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
-npm dist-tag rm @minkimcello/georgia gitreg
+npm dist-tag rm $package "gitreg"
 
 # cat << "EOT" > dangerfile.js
 # const { markdown } = require('danger');
