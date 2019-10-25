@@ -1,0 +1,21 @@
+name: publish to registry
+
+on:
+  push:
+    branches:
+    - release-1.0.0
+    #- release-x
+    #- gitreg
+
+jobs:
+  onpush:
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: publish
+      uses: minkimcello/georgia/.github/publish@gitreg
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        packages: cat dog hamster

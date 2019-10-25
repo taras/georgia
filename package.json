@@ -1,12 +1,15 @@
 {
   "name": "@minkimcello/georgia",
-  "version": "1.10.8",
+  "version": "1.10.15-y",
   "author": {
     "name": "Min Kim",
     "email": "minkimcello@gmail.com"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "bin/publish": "npm publish $*",
+    "a:yeah": "echo hello",
+    "abc:ding": "npm publish $*"
   },
   "devDependencies": {
     "mocha": "^6.2.0"
