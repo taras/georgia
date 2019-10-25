@@ -24,6 +24,33 @@
     {
       "name": "@minkimcello/zeus-service-task",
       "version": "0.0.1-commit"
+    },
+    {
+      "name": "$test",
+      "version": "9.9.9"
+    },
+    {
+      "name": "$($test)",
+      "version": "9.9.9"
+    },
+    {
+      "name": "`$test`",
+      "version": "9.9.9"
+    },
+    {
+      "name": "`$(echo $test)`",
+      "version": "9.9.9"
+    },
+    {
+      "a": "a"
+    },
+    {
+      "name": "hiya",
+      "version": "1.1.1"
+    },
+    {
+      "name": "hiya",
+      "version": "1.1.1"
     }
   ]
 }
